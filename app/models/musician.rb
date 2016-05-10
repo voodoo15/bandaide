@@ -4,9 +4,10 @@ class Musician < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  belongs_to :position
-  has_many :bands
+  has_many :skills
+  has_many :owned_bands, class_name: "Band"
   has_many :members
+  has_many :bands, through: :members
 
   validates :firstname, :lastname, :address, :city, :postalcode, presence:  true
   validates_inclusion_of :province, in: %w(AB BC SK MB ON QC NB NS PE NL NT YT NU)
