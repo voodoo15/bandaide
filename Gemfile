@@ -36,7 +36,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'geocoder'
 
 #bourbon and neat
-gem 'bourbon'
+gem 'bourbon', '5.0.0.beta.5'
 gem 'neat'
 
 #Using devise for user login/authentication
