@@ -1,4 +1,4 @@
 class Position < ActiveRecord::Base
-  has_many :members
-  has_many :musicians
+  has_one :member
+  has_many :musicians, through: :skills
 end
