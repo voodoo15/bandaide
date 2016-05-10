@@ -43,7 +43,7 @@ end
 Band.create!(
   name:  'Bless the Tyrant',
   description:  Faker::Lorem.sentence,
-  genre_id:  [*1..10].sample,
+  genre_id:  [*1..13].sample,
   musician_id: 1
 )
 

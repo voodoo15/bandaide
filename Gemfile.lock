@@ -45,6 +45,12 @@ GEM
       thor (~> 0.19)
     builder (3.2.2)
     byebug (8.2.5)
+    carrierwave (0.11.2)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
+      mimemagic (>= 0.3.0)
     coderay (1.1.1)
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
@@ -85,6 +91,7 @@ GEM
     mime-types (3.0)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0221)
+    mimemagic (0.3.1)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
     multi_json (1.12.0)
@@ -178,6 +185,7 @@ PLATFORMS
 DEPENDENCIES
   bourbon (= 5.0.0.beta.5)
   byebug
+  carrierwave (~> 0.11.2)
   coffee-rails (~> 4.1.0)
   devise (~> 4.1)
   faker (~> 1.6, >= 1.6.3)

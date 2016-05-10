@@ -44,14 +44,14 @@
   <div class="field">
     <%= f.label :province %><br />
     <%= f.select :province, options_for_select("British Columbia":"BC", "Alberta":"AB", "Saskatchewan":"SK",
-                                                   "Manitoba":"MB", "Ontario":"ON", "Quebec":"QC", "New Brunswick":"NB",
-                                                   "Newfoundland":"NL", "Nova Scotia":"NS", "Prince Edward Island":"PE",
-                                                   "Northwest Territories":"NT", "Yukon":"YT", "Nunavut":"NU") %>
+                                               "Manitoba":"MB", "Ontario":"ON", "Quebec":"QC", "New Brunswick":"NB",
+                                               "Newfoundland":"NL", "Nova Scotia":"NS", "Prince Edward Island":"PE",
+                                               "Northwest Territories":"NT", "Yukon":"YT", "Nunavut":"NU") %>
   </div>
 
   <div class="field">
     <%= f.label :postalcode %>
-    <em>(format:  'A1B2C3')</em><br />
+    <em>(format:  'A1B 2C3')</em><br />
     <%= f.text_field :postalcode %>
   </div>
 
