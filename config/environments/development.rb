@@ -42,7 +42,7 @@ Rails.application.configure do
   #Config settings for action mailer
 config.action_mailer.default_url_options = { :host => "localhost:3000" }
 config.action_mailer.delivery_method = :smtp
-config.action_mailer.perform_deliveries = true #Change this to send deliveries
+config.action_mailer.perform_deliveries = false #Change this to send deliveries
 config.action_mailer.default :charset => "utf-8"
 
 config.action_mailer.smtp_settings = {
