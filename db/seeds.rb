@@ -7,17 +7,19 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 genres = [
-  "Classic",
+  "Classical",
   "Heavy Metal",
   "Goth",
   "Alternative",
   "Pop",
   "Blues",
-  "Psychodelic",
+  "Psychadelic",
   "Punk",
   "Glam",
   "Britpop",
-  "Indie"
+  "Indie",
+  "Rock & Roll",
+  "Jazz"
 ]
 
 genres.each do |genre|

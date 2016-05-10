@@ -16,4 +16,11 @@ class Musician < ActiveRecord::Base
             format: {with: /[ABCEGHJKLMNPRSTVXY][0-9][ABCEGHJKLMNPRSTVWXYZ] ?[0-9][ABCEGHJKLMNPRSTVWXYZ][0-9]/,
             message: "Must be in standard format 'A1B 2C3'"}
 
+  geocoded_by :full_street_address
+  after_validation :geocode
+
+  def full_street_address
+    "#{address}, #{city}, #{province}, #{postalcode}, Canada"
+  end
+
 end
