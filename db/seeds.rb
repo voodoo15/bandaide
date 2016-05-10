@@ -42,6 +42,7 @@ Band.create!(
   name:  'Bless the Tyrant',
   description:  Faker::Lorem.sentence,
   genre_id:  [*1..10].sample
+  musician_id: 1
 )
 
 positions = [
@@ -56,6 +57,7 @@ positions.each do |position|
   Position.create!(description:  position)
 end
 
-@musician = Musician.first
-@musician.position_id = 1
-@musician.save
+Skill.create!(
+  musician_id:  1,
+  position_id:  1
+)
