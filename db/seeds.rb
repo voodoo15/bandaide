@@ -43,3 +43,20 @@ Band.create!(
   description:  Faker::Lorem.sentence,
   genre_id:  [*1..10].sample
 )
+
+positions = [
+  "singer",
+  "rhythm guitarist",
+  "drummer",
+  "lead guitarist",
+  "acoustic guitarist"
+]
+
+positions.each do |position|
+  Position.create!(description:  position)
+end
+
+Skill.create!(
+  musician_id:  [*1..5].sample,
+  position_id:  1
+)
