@@ -31,9 +31,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
 #bourbon and neat
 gem 'bourbon'
 gem 'neat'
+
 #Using devise for user login/authentication
 gem 'devise', '~> 4.1'
 

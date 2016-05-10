@@ -7,11 +7,17 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 genres = [
-  "Rock",
+  "Classic",
   "Heavy Metal",
-  "Goth Rock",
+  "Goth",
   "Alternative",
-  "Pop"
+  "Pop",
+  "Blues",
+  "Psychodelic",
+  "Punk",
+  "Glam",
+  "Britpop",
+  "Indie"
 ]
 
 genres.each do |genre|
@@ -28,12 +34,12 @@ end
     address:  Faker::Address.street_address,
     city:  Faker::Address.city,
     province:  'ON',
-    postalcode:  'A1B2C3'
+    postalcode:  'A1B 2C3'
   )
 end
 
 Band.create!(
   name:  'Bless the Tyrant',
   description:  Faker::Lorem.sentence,
-  genre_id:  [1, 2, 3, 4, 5].sample
+  genre_id:  [*1..10].sample
 )
