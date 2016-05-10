@@ -5,3 +5,41 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+genres = [
+  "Classic",
+  "Heavy Metal",
+  "Goth",
+  "Alternative",
+  "Pop",
+  "Blues",
+  "Psychodelic",
+  "Punk",
+  "Glam",
+  "Britpop",
+  "Indie"
+]
+
+genres.each do |genre|
+  Genre.create!(description:  genre)
+end
+
+5.times do
+  Musician.create!(
+    email:  Faker::Internet.email,
+    password:  '123456',
+    password_confirmation:  '123456',
+    firstname:  Faker::Name.first_name,
+    lastname:  Faker::Name.last_name,
+    address:  Faker::Address.street_address,
+    city:  Faker::Address.city,
+    province:  'ON',
+    postalcode:  'A1B 2C3'
+  )
+end
+
+Band.create!(
+  name:  'Bless the Tyrant',
+  description:  Faker::Lorem.sentence,
+  genre_id:  [*1..10].sample
+)

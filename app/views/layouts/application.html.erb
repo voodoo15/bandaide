@@ -1,14 +1,36 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Bandaide</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Band Aide</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
-<%= yield %>
+    <nav>
+      <% if musician_signed_in? %>
 
-</body>
+        <h3>you have succesfully signed in</h3>
+        <%= link_to "Sign Out", destroy_musician_session_path, :method => :delete %>
+
+      <% else %>
+
+        <h1> Welcome to Band Aide</h1>
+        <%= link_to "Sign In", new_musician_session_path, :method => :get %>
+        <%= link_to "Sign up", new_musician_registration_path, :method => :get %>
+
+<% end %>
+    </nav>
+
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+
+  <%= yield %>
+
+  </body>
 </html>
