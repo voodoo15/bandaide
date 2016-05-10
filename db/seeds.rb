@@ -15,5 +15,25 @@ genres = [
 ]
 
 genres.each do |genre|
-  Genre.create!( description:  genre )
+  Genre.create!(description:  genre)
 end
+
+5.times do
+  Musician.create!(
+    email:  Faker::Internet.email,
+    password:  '123456',
+    password_confirmation:  '123456',
+    firstname:  Faker::Name.first_name,
+    lastname:  Faker::Name.last_name,
+    address:  Faker::Address.street_address,
+    city:  Faker::Address.city,
+    province:  'ON',
+    postalcode:  'A1B2C3'
+  )
+end
+
+Band.create!(
+  name:  'Bless the Tyrant',
+  description:  Faker::Lorem.sentence,
+  genre_id:  [1, 2, 3, 4, 5].sample
+)
