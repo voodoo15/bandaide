@@ -1,0 +1,17 @@
+
+<h1>Bands#index</h1>
+
+
+<% @bands.each do |band| %>
+
+<p>
+  <a href="bands/<%=band.id%>">
+  <%=band.name %>, <%= band.genre.description %>``
+
+</p>
+
+<p>
+  <%= band.description %>
+</p>
+
+<% end %>
