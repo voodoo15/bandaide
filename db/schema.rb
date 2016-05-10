@@ -55,6 +55,8 @@ ActiveRecord::Schema.define(version: 20160510185417) do
     t.string   "postalcode"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   add_index "musicians", ["email"], name: "index_musicians_on_email", unique: true

@@ -1,5 +1,6 @@
 class BandController < ApplicationController
 
+<<<<<<< HEAD
   def show
     @band= Band.find(params[:id])
   end
