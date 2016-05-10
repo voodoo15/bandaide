@@ -9,8 +9,11 @@ class BandsController < ApplicationController
   end
 
   def create
-    if Band.save
-      redirect_to
+    @musician = Musician.find(current_musician.id)
+
+    @band = @musician.owned_bands.build(band_params)
+    if @band.save
+      redirect_to bands_url
     else
       render "new"
     end
