@@ -8,11 +8,15 @@
 
   <div class="field">
     <%= f.label :genre %><br />
-    <%= f.select :genre, options_for_select("Classical", "Heavy Metal", "Goth", "Alternative", "Pop", "Blues", "Psychadelic", "Punk", "Glam", "Britpop", "Indie", "Rock & Roll", "Jazz") %>
+    <%= f.select :genre, options_for_select("Classical":"Classical", "Heavy Metal":"Heavy Metal", "Goth":"Goth", "Alternative":"Alternative", "Pop":"Pop", "Blues":"Blues", "Psychadelic":"Psychadelic", "Punk":"Punk", "Glam":"Glam", "Britpop":"Britpop", "Indie":"Indie") %>
   </div>
 
   <div class="field">
     <%= f.label :description %><br />
     <%= f.text_field :description %>
+  </div>
+
+  <div>
+    <%= f.submit %>
   </div>
 <% end %>
