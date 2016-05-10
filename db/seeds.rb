@@ -56,7 +56,6 @@ positions.each do |position|
   Position.create!(description:  position)
 end
 
-Skill.create!(
-  musician_id:  [*1..5].sample,
-  position_id:  1
-)
+@musician = Musician.first
+@musician.position_id = 1
+@musician.save
