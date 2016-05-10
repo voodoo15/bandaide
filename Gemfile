@@ -35,6 +35,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 #Using devise for user login/authentication
 gem 'devise', '~> 4.1'
 
+#Using faker for mock data
+gem 'faker', '~> 1.6', '>= 1.6.3'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

@@ -5,3 +5,15 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+genres = [
+  "Rock",
+  "Heavy Metal",
+  "Goth Rock",
+  "Alternative",
+  "Pop"
+]
+
+genres.each do |genre|
+  Genre.create!( description:  genre )
+end
