@@ -19,6 +19,8 @@ class Musician < ActiveRecord::Base
   geocoded_by :full_street_address
   after_validation :geocode
 
+  mount_uploader :avatar, AvatarUploader
+
   def full_street_address
     "#{address}, #{city}, #{province}, #{postalcode}, Canada"
   end
