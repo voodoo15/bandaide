@@ -10,7 +10,7 @@
 
     <nav>
       <% if musician_signed_in? %>
-
+      <%= image_tag current_musician.avatar.thumb %>
         <h3>you have succesfully signed in</h3>
         <%= link_to "Sign Out", destroy_musician_session_path, :method => :delete %>
 
