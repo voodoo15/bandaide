@@ -1,22 +1,2 @@
 <h2>Add a new band</h2>
-
-<%= form_for @band do |f| %>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :genre %><br />
-    <%= f.select :genre, options_for_select("Classical":"Classical", "Heavy Metal":"Heavy Metal", "Goth":"Goth", "Alternative":"Alternative", "Pop":"Pop", "Blues":"Blues", "Psychadelic":"Psychadelic", "Punk":"Punk", "Glam":"Glam", "Britpop":"Britpop", "Indie":"Indie") %>
-  </div>
-
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
-  </div>
-
-  <div>
-    <%= f.submit %>
-  </div>
-<% end %>
+ <%= render 'band' %> 

@@ -2,6 +2,7 @@ class MembersController < ApplicationController
 
   def create
     @band = Band.find(params[:band_id])
+  
     @member_user= current_user
     @member = @band.members.build(member_params)
   end

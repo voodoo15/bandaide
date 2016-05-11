@@ -51,6 +51,7 @@ GEM
       json (>= 1.7)
       mime-types (>= 1.16)
       mimemagic (>= 0.3.0)
+    cocoon (1.2.9)
     coderay (1.1.1)
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
@@ -186,6 +187,7 @@ DEPENDENCIES
   bourbon (= 5.0.0.beta.5)
   byebug
   carrierwave (~> 0.11.2)
+  cocoon
   coffee-rails (~> 4.1.0)
   devise (~> 4.1)
   faker (~> 1.6, >= 1.6.3)
