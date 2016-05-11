@@ -1,3 +1,12 @@
+GIT
+  remote: git://github.com/carrierwaveuploader/carrierwave.git
+  revision: ef0d36a7c195621d8d7d4c769a47a9aee6f64d95
+  specs:
+    carrierwave (0.11.0)
+      activemodel (>= 4.0.0)
+      activesupport (>= 4.0.0)
+      mime-types (>= 1.16)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -45,6 +54,7 @@ GEM
       thor (~> 0.19)
     builder (3.2.2)
     byebug (8.2.5)
+<<<<<<< HEAD
     carrierwave (0.11.2)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -52,6 +62,8 @@ GEM
       mime-types (>= 1.16)
       mimemagic (>= 0.3.0)
     cocoon (1.2.9)
+=======
+>>>>>>> f242034ddd5be37a32067a99c9c81e4492d12d85
     coderay (1.1.1)
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
@@ -92,7 +104,7 @@ GEM
     mime-types (3.0)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0221)
-    mimemagic (0.3.1)
+    mini_magick (4.5.1)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
     multi_json (1.12.0)
@@ -186,14 +198,19 @@ PLATFORMS
 DEPENDENCIES
   bourbon (= 5.0.0.beta.5)
   byebug
+<<<<<<< HEAD
   carrierwave (~> 0.11.2)
   cocoon
+=======
+  carrierwave!
+>>>>>>> f242034ddd5be37a32067a99c9c81e4492d12d85
   coffee-rails (~> 4.1.0)
   devise (~> 4.1)
   faker (~> 1.6, >= 1.6.3)
   geocoder
   jbuilder (~> 2.0)
   jquery-rails
+  mini_magick
   neat
   pry-byebug
   pry-rails
