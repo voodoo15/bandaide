@@ -195,12 +195,8 @@ PLATFORMS
 DEPENDENCIES
   bourbon (= 5.0.0.beta.5)
   byebug
-<<<<<<< HEAD
   carrierwave (~> 0.11.2)
   cocoon
-=======
-  carrierwave!
->>>>>>> f242034ddd5be37a32067a99c9c81e4492d12d85
   coffee-rails (~> 4.1.0)
   devise (~> 4.1)
   faker (~> 1.6, >= 1.6.3)
