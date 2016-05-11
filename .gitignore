@@ -17,4 +17,4 @@
 /tmp
 .DS_Store
 /config/secrets.yml
-/uploads/*
+public/uploads/*
