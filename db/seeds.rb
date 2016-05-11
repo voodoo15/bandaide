@@ -52,7 +52,8 @@ positions = [
   "rhythm guitarist",
   "drummer",
   "lead guitarist",
-  "acoustic guitarist"
+  "acoustic guitarist",
+  "keyboardist"
 ]
 
 positions.each do |position|
