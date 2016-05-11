@@ -8,20 +8,22 @@
   </head>
   <body>
 
-    <nav>
-      <% if musician_signed_in? %>
+    <section class="header">
+      <aside class="navigation">
+        <span class="Title"> Welcome to Band Aide</span>
+          <span>Hello User!</span>
+            <span>Edit Profile</span>
+              <% if musician_signed_in? %>
+                <h3>you have succesfully signed in</h3>
+                  <%= link_to "Sign Out", destroy_musician_session_path, :method => :delete %>
+                    <% else %>
+                      <%= link_to "Sign In", new_musician_session_path, :method => :get %>
+                        <%= link_to "Sign up", new_musician_registration_path, :method => :get %>
 
-        <h3>you have succesfully signed in</h3>
-        <%= link_to "Sign Out", destroy_musician_session_path, :method => :delete %>
 
-      <% else %>
-
-        <h1> Welcome to Band Aide</h1>
-        <%= link_to "Sign In", new_musician_session_path, :method => :get %>
-        <%= link_to "Sign up", new_musician_registration_path, :method => :get %>
-
+      </aside>
 <% end %>
-    </nav>
+    </section>
 
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
