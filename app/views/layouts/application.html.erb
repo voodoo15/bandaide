@@ -8,23 +8,28 @@
   </head>
   <body>
 
-    <section class="header">
-      <aside class="navigation">
-        <span class="Title"> Welcome to Band Aide</span>
-          <span>Hello User!</span>
-            <span>Edit Profile</span>
-              <% if musician_signed_in? %>
-                <h3>you have succesfully signed in</h3>
-                  <%= link_to "Sign Out", destroy_musician_session_path, :method => :delete %>
-                    <% else %>
-                      <%= link_to "Sign In", new_musician_session_path, :method => :get %>
-                        <%= link_to "Sign up", new_musician_registration_path, :method => :get %>
+
+    <header>
+      <video src="http://ak8.picdn.net/shutterstock/videos/4496768/preview/stock-footage-concert-rock-band-performing-on-stage-with-singer-performer-guitar-drummer-music-video-punk-heav.mp4" autoplay="autoplay">
+
+      </video>
+        <main>
+          <section class="navigation"
+            <span class="Title"> Welcome to Band Aide</span>
+              <span>Hello User!</span>
+                <span>Edit Profile</span>
+                  <% if musician_signed_in? %>
+                    <h3>you have succesfully signed in</h3>
+                      <%= link_to "Sign Out", destroy_musician_session_path, :method => :delete %>
+                        <% else %>
+                          <%= link_to "Sign In", new_musician_session_path, :method => :get %>
+                            <%= link_to "Sign up", new_musician_registration_path, :method => :get %>
 
 
       </aside>
-<% end %>
-    </section>
-
+                <% end %>
+        </section>
+    </header>
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
     <% end %>
