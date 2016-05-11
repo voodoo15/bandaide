@@ -1,0 +1,32 @@
+<%= form_for @band do |f| %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :genre %><br />
+    <%= f.select :genre, options_for_select(@genre.collect {|g| [ g.description, g.id] }) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+
+  <div id= "members">
+    <%= f.fields_for :members do |member| %>
+      <%= render 'member_field', f: member  %>
+    <% end %>
+
+    <div class='links'>
+      <%= link_to_add_association 'add member', f,  :members %>
+    </div>
+
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+
+<% end %>

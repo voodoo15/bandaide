@@ -1,0 +1,7 @@
+<div class="nested-fields">
+  <div id="field">
+    <%= f.label :position %><br />
+    <%= f.select :position, options_for_select(@positions.collect  {|p| [ p.description, p.id] }) %>
+  </div>
+  <%= link_to_remove_association "remove task", f %>
+</div>

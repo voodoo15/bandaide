@@ -11,6 +11,8 @@ class BandsController < ApplicationController
 
   def new
     @band = Band.new
+    @genre = Genre.all
+    @positions= Position.all
   end
 
   def create
@@ -42,7 +44,7 @@ class BandsController < ApplicationController
   private
 
   def band_params
-    params.require(:band).permit(:name, :description, :genre_id, :musician_id)
+    params.require(:band).permit(:name, :description, :genre_id, :musician_id, :member_id, :position_id)
   end
 
 end
