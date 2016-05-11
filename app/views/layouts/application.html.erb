@@ -10,10 +10,10 @@
 
     <nav>
       <% if musician_signed_in? %>
-      <%= image_tag current_musician.avatar.thumb %>
-        <h3>you have succesfully signed in</h3>
+        <%= image_tag current_musician.avatar.thumb %>
+        Welcome <%= current_musician.firstname %>
+        <%= link_to "Create a band", new_band_path %>
         <%= link_to "Sign Out", destroy_musician_session_path, :method => :delete %>
-
       <% else %>
 
         <h1> Welcome to Band Aide</h1>

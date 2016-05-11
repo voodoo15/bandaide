@@ -1,4 +1,5 @@
 class BandsController < ApplicationController
+  before_action :authenticate_musician!, :except => [:show, :index]
 
   def index
     @bands = Band.all
@@ -13,14 +14,14 @@ class BandsController < ApplicationController
   end
 
   def create
-    @musician = Musician.find(current_musician.id)
+      @musician = Musician.find(current_musician.id)
 
-    @band = @musician.owned_bands.build(band_params)
-    if @band.save
-      redirect_to bands_url
-    else
-      render "new"
-    end
+      @band = @musician.owned_bands.build(band_params)
+      if @band.save
+        redirect_to bands_url
+      else
+        render "new"
+      end
   end
 
   def edit
