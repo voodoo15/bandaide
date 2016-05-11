@@ -6,13 +6,21 @@
 
   <div class="field">
     <%= f.label :genre %><br />
-    <%= f.select :genre, options_for_select(@genre.collect {|g| [ g.description, g.id] }) %>
+    <%= f.select :genre_id, options_for_select(@genre.collect {|g| [ g.description, g.id] }) %>
   </div>
 
   <div class="field">
     <%= f.label :description %><br />
     <%= f.text_field :description %>
   </div>
+
+  <%= f.fields_for :members,  [Member.new] do |member| %>
+    <div id="field">
+      <%= member.label :position %><br />
+      <%= member.select :position_id, options_for_select(@positions.collect  {|p| [ p.description, p.id] }) %>
+      <%= member.hidden_field :musician_id, :value => current_musician.id %>
+    </div>
+  <%end %>
 
   <div id= "members">
     <%= f.fields_for :members do |member| %>

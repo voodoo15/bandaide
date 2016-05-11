@@ -5,8 +5,8 @@
 <% @bands.each do |band| %>
 
 <p>
-  <a href="bands/<%=band.id%>">
-  <%=band.name %>, <%= band.genre.description %>
+  <%=link_to band.name , band_path(band.id)%>
+   <%= band.genre.description %>
 </p>
 
 <p>

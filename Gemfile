@@ -46,7 +46,7 @@ gem 'devise', '~> 4.1'
 gem 'faker', '~> 1.6', '>= 1.6.3'
 
 #Using carrierwave for uploads
-gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem 'carrierwave'
 gem 'mini_magick'
 
 gem 'cocoon'

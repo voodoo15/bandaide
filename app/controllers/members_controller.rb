@@ -2,9 +2,15 @@ class MembersController < ApplicationController
 
   def create
     @band = Band.find(params[:band_id])
-  
-    @member_user= current_user
+
+    @member_musician= Musician.find(current_musician.id)
     @member = @band.members.build(member_params)
+
+    if @member.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
 
