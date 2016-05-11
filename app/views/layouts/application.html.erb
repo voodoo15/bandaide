@@ -19,8 +19,6 @@
         <%= link_to "Create a band", new_band_path %>
         <%= link_to "Sign Out", destroy_musician_session_path, :method => :delete %>
       <% else %>
-
-        <h1> Welcome to Band Aide</h1>
         <%= link_to "Sign In", new_musician_session_path, :method => :get %>
         <%= link_to "Sign up", new_musician_registration_path, :method => :get %>
 
