@@ -7,8 +7,8 @@ GIT
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
 
-GEM
   remote: https://rubygems.org/
+  GEM
   specs:
     actionmailer (4.2.4)
       actionpack (= 4.2.4)
@@ -54,7 +54,6 @@ GEM
       thor (~> 0.19)
     builder (3.2.2)
     byebug (8.2.5)
-<<<<<<< HEAD
     carrierwave (0.11.2)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -62,8 +61,6 @@ GEM
       mime-types (>= 1.16)
       mimemagic (>= 0.3.0)
     cocoon (1.2.9)
-=======
->>>>>>> f242034ddd5be37a32067a99c9c81e4492d12d85
     coderay (1.1.1)
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
