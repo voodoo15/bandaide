@@ -1,5 +1,5 @@
 class MusiciansController < ApplicationController
   def show
-    @musician = Musician.find(current_musician)
+    @musician = Musician.find(params[:id])
   end
 end
