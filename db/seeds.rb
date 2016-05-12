@@ -47,6 +47,7 @@ Band.create!(
   name:  'Bless the Tyrant',
   description:  Faker::ChuckNorris.fact,
   genre_id:  [*1..13].sample,
+  poster: Faker::Avatar.image,
   musician_id: 1
 )
 
