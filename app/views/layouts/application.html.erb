@@ -7,16 +7,20 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+    <style>
+      #map {
+      height: 100%;
+      }
+    </style>
   </head>
+
   <body>
-
-
-    <header class="navigation">
-  <div class="navigation-wrapper">
-    <a href="javascript:void(0)" class="logo">
-      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="">
-    </a>
-    <a href="" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
+  <header class="navigation">
+    <div class="navigation-wrapper">
+      <a href="javascript:void(0)" class="logo">
+        <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="">
+      </a>
+      <a href="" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
     <div class="nav">
       <ul id="navigation-menu">
         <li class="nav-link"><a><%= link_to "Home", root_path %></a></li>
@@ -29,7 +33,6 @@
             <li class="nav-link"><a><%= link_to "Sign In", new_musician_session_path, :method => :get %> </a></li>
             <li class="nav-link"><a><%= link_to "Sign up", new_musician_registration_path, :method => :get %> </a></li>
         <% end %>
-
     </div>
 
     <div class="navigation-tools">
@@ -39,17 +42,11 @@
           <button type="submit">
             <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png" alt="">
           </button>
-
         </div>
       </div>
-
-
     </div>
   </div>
-
 </header>
-
-
 
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
