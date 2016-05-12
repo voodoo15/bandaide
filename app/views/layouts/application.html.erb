@@ -19,7 +19,7 @@
     <a href="" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
     <div class="nav">
       <ul id="navigation-menu">
-        <li class="nav-link"><a href="javascript:void(0)">Products</a></li>
+        <li class="nav-link"><a><%= button_to "Sign up", new_musician_registration_path, :method => :get %> </a></li>
         <li class="nav-link"><a href="javascript:void(0)">About Us</a></li>
         <li class="nav-link"><a href="javascript:void(0)">Contact</a></li>
         <li class="nav-link more"><a href="javascript:void(0)">More</a>
@@ -42,6 +42,7 @@
         </li>
       </ul>
     </div>
+
     <div class="navigation-tools">
       <div class="search-bar">
         <div class="search-and-submit">
@@ -52,7 +53,7 @@
         </div>
       </div>
 
-      <%= button_to "Sign In", new_musician_session_path, :method => :get %>
+
     </div>
   </div>
 </header>
