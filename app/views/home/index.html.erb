@@ -6,6 +6,7 @@
 
     <% @bands.each do |band| %>
       <%= band.name %><br />
+      <%= image_tag band.avatar.thumb %><br />
     <% end %>
   </section>
 
