@@ -26,20 +26,48 @@ genres.each do |genre|
   Genre.create!(description:  genre)
 end
 
-20.times do
+5.times do
   Musician.create!(
     email:  Faker::Internet.email,
     password:  '123456',
     password_confirmation:  '123456',
     firstname:  Faker::Name.first_name,
     lastname:  Faker::Name.last_name,
-    address:  Faker::Address.street_address,
-    city:  Faker::Address.city,
+    address:  '2210 Markham Rd',
+    city:  'Scarborough',
     province:  'ON',
-    postalcode:  'A1B 2C3',
-    avatar: Faker::Avatar.image,
-    latitude: rand(43.8828...43.6426),
-    longitude:rand(77.0...77.3199)
+    postalcode:  'M1B 5V6',
+    avatar: Faker::Avatar.image
+  )
+end
+
+5.times do
+  Musician.create!(
+    email:  Faker::Internet.email,
+    password:  '123456',
+    password_confirmation:  '123456',
+    firstname:  Faker::Name.first_name,
+    lastname:  Faker::Name.last_name,
+    address:  '220 King St W, Suite 200',
+    city:  'Toronto',
+    province:  'ON',
+    postalcode:  'M5H 1K4',
+    avatar: Faker::Avatar.image
+  )
+end
+
+5.times do
+  Musician.create!(
+    email:  Faker::Internet.email,
+    password:  '123456',
+    password_confirmation:  '123456',
+    firstname:  Faker::Name.first_name,
+    lastname:  Faker::Name.last_name,
+    address:  '220 Yonge St',
+    city:  'Toronto',
+    province:  'ON',
+    postalcode:  'M5B 2H1',
+    avatar: Faker::Avatar.image
   )
 end
 
