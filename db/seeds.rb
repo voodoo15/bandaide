@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 genres = [
-  "Classical",
+  "Classic",
   "Heavy Metal",
   "Goth",
   "Alternative",
