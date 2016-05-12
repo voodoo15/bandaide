@@ -8,3 +8,5 @@
 
 Name:
 <%= @musician.firstname %> <%= @musician.lastname %>
+
+<br /><%= link_to "Back", request.referer.present? ? request.referer : root_path %>

@@ -10,6 +10,7 @@
   </head>
   <body>
 
+
     <header class="navigation">
   <div class="navigation-wrapper">
     <a href="javascript:void(0)" class="logo">
@@ -55,6 +56,22 @@
     </div>
   </div>
 </header>
+
+
+    <nav>
+      <%= link_to "Band Aide", root_path %>
+      <% if musician_signed_in? %>
+        <%= image_tag current_musician.avatar.thumb %>
+        <%= link_to "Show Profile", musician_path(current_musician) %>
+        Welcome <%= current_musician.firstname %>
+        <%= link_to "Create a band", new_band_path %>
+        <%= link_to "Sign Out", destroy_musician_session_path, :method => :delete %>
+      <% else %>
+        <%= link_to "Sign In", new_musician_session_path, :method => :get %>
+        <%= link_to "Sign up", new_musician_registration_path, :method => :get %>
+
+<% end %>
+    </nav>
 
 
     <% if notice %>
