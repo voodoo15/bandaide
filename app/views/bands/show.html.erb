@@ -1,8 +1,10 @@
 <h1> Band page <h1>
-  
+
 
 <h1><%= @band.name %></h1>
 
 <%= @band.description %>
+
+
 
 <br /><%= link_to "Back", request.referer.present? ? request.referer : root_path %>

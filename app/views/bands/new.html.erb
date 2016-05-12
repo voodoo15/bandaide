@@ -1,2 +1,25 @@
 <h2>Add a new band</h2>
- <%= render 'band' %> 
+
+<%= form_for @band do |f| %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :genre %><br/>
+    <%= f.select :genre_id, options_for_select(@genres.collect {|g| [ g.description, g.id] }) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+
+
+  <div>
+    <%= f.submit %>
+  </div>
+
+
+<% end %>

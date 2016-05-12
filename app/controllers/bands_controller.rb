@@ -7,22 +7,25 @@ class BandsController < ApplicationController
 
   def show
     @band= Band.find(params[:id])
+      @member = Member.new
+      @positions = Position.all  
   end
 
   def new
     @band = Band.new
-    @genre = Genre.all
-    @positions= Position.all
+    @genres = Genre.all
+    @positions = Position.all
   end
 
   def create
       @musician = Musician.find(current_musician.id)
-
+      @genres = Genre.all
+      @positions= Position.all
       @band = @musician.owned_bands.build(band_params)
       if @band.save
-        redirect_to bands_url
+        redirect_to new_band_member_path(@band)
       else
-        render "new"
+        render :new
       end
   end
 
@@ -45,7 +48,8 @@ class BandsController < ApplicationController
 
   def band_params
     params.require(:band).permit(:name, :description, :genre_id, :musician_id,
-                                  members_attributes: [:member_id, :position_id, :musician_id])
+                            members_attributes: [:band_id, :position_id, :musician_id ]   )
+
   end
 
 end
