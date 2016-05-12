@@ -6,4 +6,6 @@ class Band < ActiveRecord::Base
 
   accepts_nested_attributes_for :members, reject_if: :all_blank, allow_destroy: true
   validates_associated :genre, :leader
+
+  mount_uploader :poster, PosterUploader
 end

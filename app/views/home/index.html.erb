@@ -5,8 +5,9 @@
     <h3>Bands</h3>
 
     <% @bands.each do |band| %>
-      <%= band.name %><br />
-    <% end %>
+      <%= link_to band.name, band_path(band.id) %><br />
+        <%= image_tag band.poster.thumb %><br />
+      <% end %>
   </section>
 
   <aside id="search-category-list">
@@ -22,7 +23,7 @@
     <h3>Musicians</h3>
 
     <% @musicians.each do |musician| %>
-      <%= musician.firstname %><br />
+      <%= link_to musician.firstname, musician_path(musician.id) %><br />
       <%= image_tag musician.avatar.thumb %><br />
     <% end %>
   </section>

@@ -26,7 +26,7 @@ genres.each do |genre|
   Genre.create!(description:  genre)
 end
 
-5.times do
+20.times do
   Musician.create!(
     email:  Faker::Internet.email,
     password:  '123456',
@@ -36,7 +36,10 @@ end
     address:  Faker::Address.street_address,
     city:  Faker::Address.city,
     province:  'ON',
-    postalcode:  'A1B 2C3'
+    postalcode:  'A1B 2C3',
+    avatar: Faker::Avatar.image,
+    latitude: rand(43.8828...43.6426),
+    longitude:rand(77.0...77.3199)
   )
 end
 
@@ -44,6 +47,7 @@ Band.create!(
   name:  'Bless the Tyrant',
   description:  Faker::Lorem.sentence,
   genre_id:  [*1..13].sample,
+  poster: Faker::Avatar.image,
   musician_id: 1
 )
 
