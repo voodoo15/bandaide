@@ -1,0 +1,17 @@
+<h1> Create your band members <h1>
+
+
+    <%= form_for [@band , @member] do |f| %>
+
+    <div id="field">
+      <%= f.label :position %><br />
+      <%= f.select :position_id , options_for_select(@positions.collect  {|p| [ p.description, p.id] }) %>
+      <%= f.hidden_field :musician_id, :value => current_musician.id %>
+      <%= f.hidden_field :band_id, :value => @band.id %>
+    </div>
+
+
+     <div class="field">
+      <%= f.submit %>
+    </div>
+  <% end %>
