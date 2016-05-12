@@ -25,4 +25,8 @@ class Musician < ActiveRecord::Base
     "#{address}, #{city}, #{province}, #{postalcode}, Canada"
   end
 
+  def display_distance_to(other_musician)
+    self.distance_to(other_musician, :km).round(2)
+  end
+
 end
