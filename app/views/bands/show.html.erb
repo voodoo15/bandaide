@@ -3,6 +3,8 @@
 
 <h1><%= @band.name %></h1>
 
+<%= image_tag @band.poster.profile %>
+
 <%= @band.description %>
 
 <br /><%= link_to "Back", request.referer.present? ? request.referer : root_path %>

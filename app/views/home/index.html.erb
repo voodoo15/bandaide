@@ -1,0 +1,30 @@
+<h1>Welcome to Band Aide</h1>
+<main>
+  <section id="bands-list">
+
+    <h3>Bands</h3>
+
+    <% @bands.each do |band| %>
+      <%= link_to band.name, band_path(band.id) %><br />
+        <%= image_tag band.poster.thumb %><br />
+      <% end %>
+  </section>
+
+  <aside id="search-category-list">
+    <p>
+      Search by Genre:
+    </p>
+    <% @genres.each do |genre| %>
+      <%= genre.description %>
+    <% end %>
+  </aside>
+
+  <section id="musicians-list">
+    <h3>Musicians</h3>
+
+    <% @musicians.each do |musician| %>
+      <%= link_to musician.firstname, musician_path(musician.id) %><br />
+      <%= image_tag musician.avatar.thumb %><br />
+    <% end %>
+  </section>
+</main>

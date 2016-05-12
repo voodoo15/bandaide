@@ -7,23 +7,46 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+    <style>
+      #map {
+      height: 100%;
+      }
+    </style>
   </head>
+
   <body>
+  <header class="navigation">
+    <div class="navigation-wrapper">
+      <a href="javascript:void(0)" class="logo">
+        <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="">
+      </a>
+      <a href="" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
+    <div class="nav">
+      <ul id="navigation-menu">
+        <li class="nav-link"><a><%= link_to "Home", root_path %></a></li>
+        <% if musician_signed_in? %>
+          <li class="nav-link"><a><%= link_to "Create a band", new_band_path %> </a></li>
+          <li class="nav-link"><a><%= image_tag current_musician.avatar.thumb %> </a></li>
+          <li class="nav-link"><a><%= link_to "Show Profile", musician_path(current_musician) %> </a></li>
+          <li class="nav-link"><a><%= link_to "Sign Out", destroy_musician_session_path, :method => :delete %> </a></li>
+        <% else %>
+            <li class="nav-link"><a><%= link_to "Sign In", new_musician_session_path, :method => :get %> </a></li>
+            <li class="nav-link"><a><%= link_to "Sign up", new_musician_registration_path, :method => :get %> </a></li>
+        <% end %>
+    </div>
 
-    <nav>
-      <% if musician_signed_in? %>
-        <%= image_tag current_musician.avatar.thumb %>
-        Welcome <%= current_musician.firstname %>
-        <%= link_to "Create a band", new_band_path %>
-        <%= link_to "Sign Out", destroy_musician_session_path, :method => :delete %>
-      <% else %>
-
-        <h1> Welcome to Band Aide</h1>
-        <%= link_to "Sign In", new_musician_session_path, :method => :get %>
-        <%= link_to "Sign up", new_musician_registration_path, :method => :get %>
-
-<% end %>
-    </nav>
+    <div class="navigation-tools">
+      <div class="search-bar">
+        <div class="search-and-submit">
+          <input type="search" placeholder="Enter Search" />
+          <button type="submit">
+            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png" alt="">
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
 
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>

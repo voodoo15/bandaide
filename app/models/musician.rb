@@ -17,12 +17,16 @@ class Musician < ActiveRecord::Base
             message: "Must be in standard format 'A1B 2C3'"}
 
   geocoded_by :full_street_address
-  after_validation :geocode
+  after_validation :geocode, :reverse_geocode
 
   mount_uploader :avatar, AvatarUploader
 
   def full_street_address
     "#{address}, #{city}, #{province}, #{postalcode}, Canada"
+  end
+
+  def display_distance_to(other_musician)
+    self.distance_to(other_musician, :km).round(2)
   end
 
 end
