@@ -10,11 +10,6 @@
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ Figaro.env.google_maps_api_key }&callback=initMap", async: true, defer: true %>
 
 
-    <style>
-      #map {
-      height: 100%;
-      }
-    </style>
   </head>
 
   <body>
@@ -50,11 +45,6 @@
     </div>
   </div>
 </header>
-<section>
-  <div id="map">
-
-  </div>
-</section>
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
     <% end %>
@@ -63,6 +53,11 @@
     <% end %>
 
   <%= yield %>
+  <section>
+    <div id="map">
+
+    </div>
+  </section>
 
   </body>
 </html>
