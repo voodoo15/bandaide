@@ -7,11 +7,9 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
-    <style>
-      #map {
-      height: 100%;
-      }
-    </style>
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ Figaro.env.google_maps_api_key }&callback=initMap", async: true, defer: true %>
+
+
   </head>
 
   <body>
@@ -47,7 +45,6 @@
     </div>
   </div>
 </header>
-
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
     <% end %>
@@ -56,6 +53,7 @@
     <% end %>
 
   <%= yield %>
+  
 
   </body>
 </html>
