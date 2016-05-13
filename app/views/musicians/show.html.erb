@@ -7,6 +7,10 @@
 Name:
 <%= @musician.firstname %> <%= @musician.lastname %>
 
+<% if  musician_signed_in? && current_musician.id = @musician.id %>
+  <br /><%= link_to "Edit Profile", edit_musician_registration_path %>
+<% end %>
+
 <br /><%= link_to "Back", request.referer.present? ? request.referer : root_path %>
 
 <h3>Musicians near you</h3>

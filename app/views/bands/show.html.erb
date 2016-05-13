@@ -7,4 +7,7 @@
 
 <%= @band.description %>
 
+<% %>
+<br /><%= link_to "Edit Profile", edit_musician_registration(current_musician)%>
+
 <br /><%= link_to "Back", request.referer.present? ? request.referer : root_path %>
