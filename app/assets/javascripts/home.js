@@ -11,7 +11,8 @@ $(document).on('ready', function() {
       data: searchValue,
       success:  function(data) {
         console.log(data);
-        $('.bands').html(data);
+        $('body').html(data);
       }});
+    // $.getScript('/?search=' + searchValue);
   });
 });
