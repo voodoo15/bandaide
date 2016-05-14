@@ -14,8 +14,11 @@ $(document).on('ready', function() {
       dataType: 'html',
       data: searchValue,
       success:  function(data) {
-        console.log(data);
-        $('body').html(data);
-      }});
+        if (data) {
+          console.log(data);
+          $('body').html(data);
+        }
+      }
+    });
   });
 });
