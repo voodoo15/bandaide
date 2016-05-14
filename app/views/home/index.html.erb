@@ -15,7 +15,7 @@
       Search by Genre:
     </p>
     <% @genres.each do |genre| %>
-      <%= link_to genre.description, remote: true %>
+      <%= link_to genre.description, remote: true, class: "#{genre.description}" %>
     <% end %>
   </aside>
 
