@@ -4,10 +4,9 @@
 
     <h3>Bands</h3>
 
-    <% @bands.each do |band| %>
-      <%= link_to band.name, band_path(band.id) %><br />
-        <%= image_tag band.poster.thumb %><br />
-      <% end %>
+  <div class="bands">
+    <%= render "home/bands" %>
+  </div>
   </section>
 
   <aside id="search-category-list">

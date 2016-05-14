@@ -8,4 +8,8 @@ class Band < ActiveRecord::Base
   validates_associated :genre, :leader
 
   mount_uploader :poster, PosterUploader
+
+  def genre_desc
+    return self.genre.description
+  end
 end

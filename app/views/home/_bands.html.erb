@@ -1,0 +1,4 @@
+<% @bands.each do |band| %>
+  <%= link_to band.name, band_path(band.id) %><br />
+  <%= image_tag band.poster.thumb %><br />
+<% end %>
