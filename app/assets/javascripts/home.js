@@ -1,8 +1,12 @@
 $(document).on('ready', function() {
   $('#search-category-list a').on('click', function(event) {
     event.preventDefault();
-    alert($(this).html());
+
+
     var searchValue = $(this).html();
+    if ($(this).html() === "All") {
+      searchValue = "";
+    }
 
     $.ajax({
       url: '/?search=' + searchValue,
@@ -13,6 +17,5 @@ $(document).on('ready', function() {
         console.log(data);
         $('body').html(data);
       }});
-    // $.getScript('/?search=' + searchValue);
   });
 });

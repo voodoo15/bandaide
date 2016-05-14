@@ -11,8 +11,9 @@
 
   <aside id="search-category-list">
     <p>
-      Search by Genre:
+      Search Bands by Genre:
     </p>
+    <%= link_to "All", remote: true, class: "All" %>
     <% @genres.each do |genre| %>
       <%= link_to genre.description, remote: true, class: "#{genre.description}" %>
     <% end %>
