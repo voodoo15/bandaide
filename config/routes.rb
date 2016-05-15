@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       resources :skills, only: [:create]
   end
   resources :home, only: [:index]
+  resources :search, only:  [:index]
 
   # Example resource route with options:
   #   resources :products do
