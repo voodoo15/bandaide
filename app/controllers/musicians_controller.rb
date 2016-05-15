@@ -21,12 +21,9 @@ class MusiciansController < ApplicationController
     end
   end
 
-
-private
-
+  private
   def musician_params
     params.require(:musician).permit(:address, :city, :address, :postalcode, :position_ids => [])
   end
-
 
 end
