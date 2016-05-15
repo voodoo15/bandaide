@@ -8,13 +8,3 @@ Name:
 <%= @musician.firstname %> <%= @musician.lastname %>
 
 <br /><%= link_to "Back", request.referer.present? ? request.referer : root_path %>
-
-<h3>Musicians near you</h3>
-<ol>
-  <% @nearby_musicians.each do |m| %>
-    <li>
-      <p><%= m.email %></p>
-      <p><%= m.display_distance_to(@musician) %> km away</p>
-    </li>
-  <% end %>
-</ol>
