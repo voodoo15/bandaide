@@ -13,6 +13,7 @@ class HomeController < ApplicationController
 
     if request.xhr?
       render @monsters
+    end
 
     @musician = current_musician
     if current_musician.present?
