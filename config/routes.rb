@@ -6,8 +6,12 @@ Rails.application.routes.draw do
       resources :members, only: [:create, :destory, :new ]
   end
 
-  resources :musicians, only: [:show]
+  resources :musicians, only: [:show,:edit,:update] do
+      resources :skills, only: [:create]
+  end
+  
   resources :home, only: [:index]
+  resources :search, only:  [:index]
 
   # Example resource route with options:
   #   resources :products do

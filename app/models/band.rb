@@ -4,7 +4,6 @@ class Band < ActiveRecord::Base
   has_many :members
   has_many :musicians, through: :members
 
-  accepts_nested_attributes_for :members, reject_if: :all_blank, allow_destroy: true
   validates_associated :genre, :leader
 
   mount_uploader :poster, PosterUploader

@@ -19,4 +19,6 @@ class HomeController < ApplicationController
       @nearby_musicians = @musician.nearbys(2, unit: :km)
     end
   end
+
+
 end

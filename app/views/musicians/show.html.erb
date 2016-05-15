@@ -10,6 +10,21 @@ Name:
 <% if musician_signed_in? %>
   <% if current_musician.id == @musician.id %>
     <br /><%= link_to "Edit Profile", edit_musician_registration_path %>
+
+
+    <%= form_for  [@musician, @skill] do |f| %>
+
+      <div id="field">
+        <%= f.label :position %><br />
+        <%= f.select :position_id , options_for_select(@positions.collect  {|p| [ p.description, p.id] }) %>
+         <%= f.hidden_field :musician_id, :value => current_musician.id %>
+      </div>
+
+      <div>
+        <%= f.submit %>
+      </div>
+
+    <% end %>
   <% end %>
 <% end %>
 

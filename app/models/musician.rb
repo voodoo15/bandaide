@@ -10,6 +10,8 @@ class Musician < ActiveRecord::Base
   has_many :bands, through: :members
   has_many :positions, through: :skills
 
+
+
   validates :firstname, :lastname, :address, :city, :postalcode, presence:  true
   validates_inclusion_of :province, in: %w(AB BC SK MB ON QC NB NS PE NL NT YT NU)
   validates :postalcode, length: { is: 7 },

@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require jquery.slick
 
 $(document).ready(function() {
   var menu = $('#navigation-menu');

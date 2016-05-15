@@ -3,8 +3,42 @@
 
 <h1><%= @band.name %></h1>
 
-<%= image_tag @band.poster.profile %>
+<%= image_tag @band.poster.profile %><br />
 
-<%= @band.description %>
+<h3>Description</h3>
+<p>
+  <%= @band.description %>
+</p>
+
+
+<h3>Current Positions in Band</h3><br />
+
+<% @band.members.each do |member| %>
+
+  <p>
+    <%= member.position.description %>
+  </p>
+<% end %>
+
+
+
+      <%= form_for [@band , @member] do |f| %>
+
+      <div id="field">
+        <%= f.label :position %><br />
+        <%= f.select :position_id , options_for_select(@positions.collect {|p| [ p.description, p.id] }) %>
+        <%= f.hidden_field :musician_id, :value => nil %>
+        <%= f.hidden_field :band_id, :value => @band.id %>
+      </div>
+
+       <div class="field">
+        <%= f.submit %>
+      </div>
+    <% end %>
+
+  <% end %>
+
+<% end %>
+
 
 <br /><%= link_to "Back", request.referer.present? ? request.referer : root_path %>
