@@ -12,10 +12,10 @@ Name:
     <br /><%= link_to "Edit Profile", edit_musician_registration_path %>
   <% end %>
 
-    
+
 
   <%= form_for  [@musician, @skill] do |f| %>
-
+s
   <div id="field">
     <%= f.label :position %><br />
     <%= f.select :position_id , options_for_select(@positions.collect  {|p| [ p.description, p.id] }) %>
