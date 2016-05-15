@@ -52,6 +52,7 @@ gem 'faker', '~> 1.6', '>= 1.6.3'
 #Using carrierwave for uploads
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'carrierwave-imageoptimizer'
 
 gem 'cocoon'
 
