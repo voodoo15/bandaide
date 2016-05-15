@@ -13,6 +13,10 @@ class HomeController < ApplicationController
 
     if request.xhr?
       render @monsters
+
+    @musician = current_musician
+    if current_musician.present?
+      @nearby_musicians = @musician.nearbys(2, unit: :km)
     end
   end
 

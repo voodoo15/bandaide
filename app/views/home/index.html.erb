@@ -25,11 +25,16 @@
   </aside>
 
   <section id="musicians-list">
-    <h3>Musicians</h3>
+    <h3>Musicians near you</h3>
 
     <% @musicians.each do |musician| %>
       <%= link_to musician.firstname, musician_path(musician.id) %><br />
       <%= image_tag musician.avatar.thumb %><br />
+      <% if current_musician.present? %>
+        <%= musician.display_distance_to(@musician) %> km away<br />
+      <% else %>
+        Based in <%= musician.city %>
+      <% end %>
     <% end %>
   </section>
   <!-- <section>
