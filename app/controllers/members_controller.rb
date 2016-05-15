@@ -20,17 +20,21 @@ class MembersController < ApplicationController
   end
 
 
-  def destory
-
+  def destroy
+    @band= Band.find(params[:band_id])
+    @member = Member.find(params[:id])
+    @member.destroy
+    redirect_to band_path(@band)
   end
 
-end
+
 
 
 private
 
-def member_params
+  def member_params
 
-params.require(:member).permit(:musician_id, :band_id, :position_id)
+    params.require(:member).permit(:musician_id, :band_id, :position_id)
 
+  end
 end

@@ -15,10 +15,9 @@ class HomeController < ApplicationController
       render @monsters
 
     @musician = current_musician
-    if current_musician.present?
-      @nearby_musicians = @musician.nearbys(2, unit: :km)
+      if current_musician.present?
+        @nearby_musicians = @musician.nearbys(2, unit: :km)
+      end
     end
   end
-
-
-end
+end 
