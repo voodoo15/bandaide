@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :musicians, only: [:show,:edit,:update] do
       resources :skills, only: [:create]
   end
-  resources :home, only: [:index]
+  resources :home, only: [:index, :search]
 
   # Example resource route with options:
   #   resources :products do
