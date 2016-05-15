@@ -17,7 +17,10 @@ Name:
       <div id="field">
         <%= f.label :position %><br />
         <%= f.select :position_id , options_for_select(@positions.collect  {|p| [ p.description, p.id] }) %>
-         <%= f.hidden_field :musician_id, :value => current_musician.id %>
+        <%=f.label :categories %>
+        <%=f.select :level, [['Beginner' ,1], ['intermediate',2  ], ['Professional',3]]  %>
+        <%= f.hidden_field :musician_id, :value => current_musician.id %>
+
       </div>
 
       <div>

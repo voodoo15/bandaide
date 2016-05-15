@@ -1,4 +1,5 @@
 class SkillsController < ApplicationController
+before_action :authenticate_musician!, except: [:show, :index]
 
   def new
     @skill =Skill.new
@@ -21,7 +22,7 @@ class SkillsController < ApplicationController
   private
 
     def skill_params
-      params.require(:skill).permit(:musician_id, :position_id)
+      params.require(:skill).permit(:musician_id, :position_id, :level )
     end
 
 end
