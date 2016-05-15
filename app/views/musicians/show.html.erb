@@ -11,6 +11,17 @@ Name:
   <% if current_musician.id == @musician.id %>
     <br /><%= link_to "Edit Profile", edit_musician_registration_path %>
   <% end %>
+
+<%= form_for @musician do |f| %>
+    <div id="field"><
+    <%= f.label :position %><br />
+    <%= f.select :position_ids, options_for_select(@positions.collect  {|p| [ p.description, p.id] }) %>
+  </div>
+
+<div>
+    <%= f.submit %>
+</div>
+
 <% end %>
 
 <br /><%= link_to "Back", request.referer.present? ? request.referer : root_path %>
