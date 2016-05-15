@@ -12,13 +12,23 @@ class MembersController < ApplicationController
     @positions = Position.all
     @member =@band.members.build(member_params)
 
-      if @member.save
-        redirect_to band_path(@band)
-      else
-        render :new
-      end
+    if @member.save
+      redirect_to band_path(@band)
+    else
+      render :new
+    end
   end
 
+  def update
+    @band = Band.find(params[:band_id])
+    @member = Member.find(params[:id])
+
+    if @member.update_attributes(member_params)
+      redirect_to band_url(@band)
+    else
+      redirect_to band_url(@band)
+    end
+  end
 
   def destroy
     @band= Band.find(params[:band_id])

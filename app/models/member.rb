@@ -7,8 +7,6 @@ class Member < ActiveRecord::Base
 
   validates_associated :position, :band
 
-  protected
-
   def vacant?
     return self.musician_id == nil
   end
