@@ -54,6 +54,8 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'carrierwave-imageoptimizer'
 
+gem "jquery-slick-rails"
+
 gem 'cocoon'
 
 group :development, :test do
