@@ -17,6 +17,8 @@
 
   <p>
     <%= member.position.description %>
+    <%= link_to 'Remove', band_member_path(@band, member.id),
+            data: {:confirm => 'Are you sure?'}, :method => :delete %>
   </p>
 <% end %>
 
