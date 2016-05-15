@@ -11,6 +11,7 @@ Name:
   <% if current_musician.id == @musician.id %>
     <br /><%= link_to "Edit Profile", edit_musician_registration_path %>
 
+
     <%= form_for  [@musician, @skill] do |f| %>
 
       <div id="field">

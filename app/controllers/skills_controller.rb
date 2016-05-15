@@ -6,15 +6,16 @@ class SkillsController < ApplicationController
   end
 
   def create
-    @musician = current_musician 
+    @musician = current_musician
     @positions = Position.all
     @skill =@musician.skills.build(skill_params)
 
       if @skill.save
         redirect_to musician_path(@musician)
       else
-        render :new
+        redirect_to musician_path(@musician)
       end
+
   end
 
   private
