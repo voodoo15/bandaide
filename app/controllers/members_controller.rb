@@ -13,7 +13,7 @@ class MembersController < ApplicationController
     @member =@band.members.build(member_params)
 
       if @member.save
-        redirect_to bands_path
+        redirect_to band_path(@band)
       else
         render :new
       end
