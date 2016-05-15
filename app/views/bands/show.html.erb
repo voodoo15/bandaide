@@ -7,4 +7,12 @@
 
 <%= @band.description %>
 
+<% if musician_signed_in? %>
+  <% if @band.leader.id == current_musician.id %>
+  <p>
+    "Hi"
+  </p>
+  <% end %>
+<% end %>
+
 <br /><%= link_to "Back", request.referer.present? ? request.referer : root_path %>
