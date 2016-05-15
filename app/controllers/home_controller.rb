@@ -15,4 +15,7 @@ class HomeController < ApplicationController
       render @monsters
     end
   end
+
+  def search
+  end
 end
