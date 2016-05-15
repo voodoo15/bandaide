@@ -1,4 +1,5 @@
 class MembersController < ApplicationController
+before_action :authenticate_musician! 
 
   def new
     @member = Member.new

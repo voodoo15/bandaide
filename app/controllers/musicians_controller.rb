@@ -1,4 +1,6 @@
 class MusiciansController < ApplicationController
+  before_action :authenticate_musician!, except: [:show]
+
   def show
     @musician = Musician.find(params[:id])
     @nearby_musicians = @musician.nearbys(5, unit: :km)
