@@ -16,8 +16,7 @@ class HomeController < ApplicationController
     end
 
     @musician = current_musician
-      if current_musician.present?
-        @nearby_musicians = @musician.nearbys(2, unit: :km)
-      end
+    if current_musician.present?
+      @nearby_musicians = @musician.nearbys(2, unit: :km)
     end
   end

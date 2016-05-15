@@ -17,15 +17,28 @@
 
   <p>
     <%= member.position.description %>
-    <%= link_to 'Remove', band_member_path(@band, member.id),
-            data: {:confirm => 'Are you sure?'}, :method => :delete %>
+
+    <% if musician_signed_in? %>
+
+      <% if @band.leader.id == current_musician.id %>
+        <%= link_to 'Remove', band_member_path(@band, member.id),
+                data: {:confirm => 'Are you sure?'}, :method => :delete %>
+      <% end %>
+
+    <%else %>
+
+      <p>
+        Please register to apply
+      </p>
+    <% end %>
+
   </p>
 <% end %>
 
 <% if musician_signed_in? %>
   <% if @band.leader.id == current_musician.id %>
 
-      <%= form_for [@band , @member] do |f| %>
+    <%= form_for [@band , @member] do |f| %>
 
       <div id="field">
         <%= f.label :position %><br />
@@ -34,7 +47,7 @@
         <%= f.hidden_field :band_id, :value => @band.id %>
       </div>
 
-       <div class="field">
+      <div class="field">
         <%= f.submit %>
       </div>
     <% end %>
