@@ -4,9 +4,8 @@ $(document).on('ready', function() {
       infinite: true,
       speed: 300,
       slidesToShow: 1,
-      adaptiveHeight: true,
-      arrows: true
-  });
+      adaptiveHeight: true
+    });
 
   $('#search-category-list a').on('click', function(event) {
     event.preventDefault();
