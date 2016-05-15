@@ -3,9 +3,18 @@
 
 <h1><%= @band.name %></h1>
 
-<%= image_tag @band.poster.profile %>
+<%= image_tag @band.poster.profile %><br />
 
-<%= @band.description %>
+<h3>Description</h3>
+<%= @band.description %><br />
+
+<% @band.members.each do |member| %>
+
+<h3>Current Positions in Band</h3>
+  <p>
+    <%= member.position.description %> 
+  </p>
+<% end %>
 
 <% if musician_signed_in? %>
   <% if @band.leader.id == current_musician.id %>
@@ -14,7 +23,7 @@
 
       <div id="field">
         <%= f.label :position %><br />
-        <%= f.select :position_id , options_for_select(@positions.collect  {|p| [ p.description, p.id] }) %>
+        <%= f.select :position_id , options_for_select(@positions.collect {|p| [ p.description, p.id] }) %>
         <%= f.hidden_field :musician_id, :value => nil %>
         <%= f.hidden_field :band_id, :value => @band.id %>
       </div>
