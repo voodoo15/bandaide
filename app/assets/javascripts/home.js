@@ -5,8 +5,7 @@ $(document).on('ready', function() {
       speed: 300,
       slidesToShow: 1,
       adaptiveHeight: true,
-      arrows: true,
-      dots: true,
+      arrows: true
   });
 
   $('#search-category-list a').on('click', function(event) {
