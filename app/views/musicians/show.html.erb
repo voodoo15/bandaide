@@ -7,6 +7,19 @@
 Name:
 <%= @musician.firstname %> <%= @musician.lastname %>
 
+
+<%= form_for @musician do |f| %>
+    <div id="field"><
+    <%= f.label :position %><br />
+    <%= f.select :position_ids, options_for_select(@positions.collect  {|p| [ p.description, p.id] }) %>
+  </div>
+
+<div>
+    <%= f.submit %>
+</div>
+
+<% end %>
+
 <br /><%= link_to "Back", request.referer.present? ? request.referer : root_path %>
 
 <h3>Musicians near you</h3>
