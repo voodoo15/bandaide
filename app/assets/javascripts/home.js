@@ -23,9 +23,11 @@ $(document).on('ready', function() {
       success:  function(data) {
         if (data) {
           console.log(data);
-          $('body').html(data);
+          $('#bands-list').html(data);
         }
       }
     });
+
+    // $.getScript('/?search=' + searchValue, function(data){$('#bands-list').html(data)});
   });
 });
