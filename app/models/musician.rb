@@ -28,4 +28,9 @@ class Musician < ActiveRecord::Base
   def display_distance_to(other_musician)
     self.distance_to(other_musician, :km).round(2)
   end
+
+  def skilled_enough?(position)
+    return self.skills.where(position_id: position) > 0 ? true : false
+  end
+
 end
