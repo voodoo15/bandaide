@@ -15,8 +15,10 @@
 
     <% if musician_signed_in? %>
 
-      <% if member.vacant? %>
+      <% if member.vacant? && current_musician.skilled_enough?(member.position.id) %>
         <%= link_to 'Apply', band_member_path(@band, member, member: {musician_id: current_musician.id}), :method => :put %>
+      <% elsif member.vacant? && current_musician.skilled_enough?(member.position.id) == false %>
+          <p>Cannot apply: this position requires a higher skill level than you currently possess.</p>
       <% else %>
         <%= member.musician.firstname %>
       <% end %>
