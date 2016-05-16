@@ -1,6 +1,12 @@
-// function initMap() {
-//   map = new google.maps.Map(document.getElementById('map'), {
-//     center: {lat: -34.397, lng: 150.644},
-//     zoom: 8
-// });
-// }
+function initMap() {
+
+  map_placeholder = $('#map')
+  lat = map_placeholder.data('latitude')
+  lng = map_placeholder.data('longitude')
+
+  map = new google.maps.Map(map_placeholder[0],{
+    center: {lat: lat, lng: lng},
+    zoom: 15
+  });
+
+}
