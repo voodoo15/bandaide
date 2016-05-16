@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :bands, except: [:destory] do
-      resources :members, only: [:create, :destroy, :new ]
+      resources :members, only: [:create, :destroy, :new, :update ]
   end
 
   resources :musicians, only: [:show,:edit,:update] do

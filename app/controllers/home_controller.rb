@@ -1,5 +1,4 @@
 class HomeController < ApplicationController
-  respond_to :html
 
   def index
     @musicians = Musician.all
@@ -11,8 +10,12 @@ class HomeController < ApplicationController
       @bands = Band.all
     end
 
-    if request.xhr?
-      render @monsters
+    respond_to do |format|
+      format.html do
+        if request.xhr?
+          render partial: 'home/bands', object: @bands
+        end
+      end
     end
 
     @musician = current_musician
@@ -20,4 +23,5 @@ class HomeController < ApplicationController
       @nearby_musicians = @musician.nearbys(2, unit: :km)
     end
   end
-end 
+  
+end
