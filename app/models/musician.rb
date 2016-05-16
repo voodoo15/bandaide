@@ -30,7 +30,7 @@ class Musician < ActiveRecord::Base
   end
 
   def skilled_enough?(position)
-    return self.skills.where(position_id: position) > 0 ? true : false
+    self.skills.where(position_id: position).count() > 0 ? true : false
   end
 
 end
