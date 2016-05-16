@@ -22,15 +22,15 @@
     <div class="nav">
       <ul id="navigation-menu">
         <li class="nav-link"><a><%= link_to "Home", root_path %></a></li>
-        <% if musician_signed_in? %>
-          <li class="nav-link"><a><%= link_to "Create a band", new_band_path %> </a></li>
-          <li class="nav-link"><a><%= image_tag current_musician.avatar.thumb %> </a></li>
-          <li class="nav-link"><a><%= link_to "Show Profile", musician_path(current_musician) %> </a></li>
-          <li class="nav-link"><a><%= link_to "Sign Out", destroy_musician_session_path, :method => :delete %> </a></li>
-        <% else %>
+          <% if musician_signed_in? %>
+            <li class="nav-link"><a><%= link_to "Create a band", new_band_path %> </a></li>
+            <li class="nav-link"><a><%= image_tag current_musician.avatar.thumb %> </a></li>
+            <li class="nav-link"><a><%= link_to "Show Profile", musician_path(current_musician) %> </a></li>
+            <li class="nav-link"><a><%= link_to "Sign Out", destroy_musician_session_path, :method => :delete %> </a></li>
+          <% else %>
             <li class="nav-link"><a><%= link_to "Sign In", new_musician_session_path, :method => :get %> </a></li>
             <li class="nav-link"><a><%= link_to "Sign up", new_musician_registration_path, :method => :get %> </a></li>
-        <% end %>
+          <% end %>
     </div>
 
     <div class="navigation-tools">
@@ -53,7 +53,6 @@
     <% end %>
 
   <%= yield %>
-
 
   </body>
 </html>

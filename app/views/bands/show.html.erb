@@ -1,4 +1,3 @@
-
 <h1> Band page <h1>
 
 <h1><%= @band.name %></h1>
@@ -6,15 +5,11 @@
 <%= image_tag @band.poster.profile %><br />
 
 <h3>Description</h3>
-<p>
-  <%= @band.description %>
-</p>
-
+<p><%= @band.description %></p>
 
 <h3>Current Positions in Band</h3><br />
 
 <% @band.members.each do |member| %>
-
   <p>
     <%= member.position.description %>
 
@@ -23,7 +18,7 @@
       <% if member.vacant? %>
         <%= link_to 'Apply', band_member_path(@band, member, member: {musician_id: current_musician.id}), :method => :put %>
       <% else %>
-        <%= member.musician.firstname%>
+        <%= member.musician.firstname %>
       <% end %>
 
       <% if @band.leader.id == current_musician.id %>
@@ -31,13 +26,9 @@
                 data: {:confirm => 'Are you sure?'}, :method => :delete %>
       <% end %>
 
-    <%else %>
-
-      <p>
-        Please register to apply
-      </p>
+    <% else %>
+      <p>Please register to apply</p>
     <% end %>
-
   </p>
 <% end %>
 

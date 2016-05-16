@@ -4,42 +4,40 @@
 </div>
 
 <h1>Welcome to Band Aide</h1>
-<main>
-  <section id="bands-list">
+  <main>
+    <section id="bands-list">
 
-    <h3>Bands</h3>
+      <h3>Bands</h3>
 
-  <div class="bands">
-    <%= render "home/bands" %>
-  </div>
-  </section>
-
-  <aside id="search-category-list">
-    <p>
-      Search Bands by Genre:
-    </p>
-    <%= link_to "All", remote: true, class: "All" %>
-    <% @genres.each do |genre| %>
-      <%= link_to genre.description, remote: true, class: "#{genre.description}" %>
-    <% end %>
-  </aside>
-
-  <section id="musicians-list">
-    <h3>Musicians near you</h3>
-
-    <% @musicians.each do |musician| %>
-      <%= link_to musician.firstname, musician_path(musician.id) %><br />
-      <%= image_tag musician.avatar.thumb %><br />
-      <% if current_musician.present? %>
-        <%= musician.display_distance_to(@musician) %> km away<br />
-      <% else %>
-        Based in <%= musician.city %>
-      <% end %>
-    <% end %>
-  </section>
-  <!-- <section>
-    <div id="map">
-
+    <div class="bands">
+      <%= render "home/bands" %>
     </div>
-  </section> -->
-</main>
+    </section>
+
+    <aside id="search-category-list">
+      <p>Search Bands by Genre:</p>
+      <%= link_to "All", remote: true, class: "All" %>
+      <% @genres.each do |genre| %>
+        <%= link_to genre.description, remote: true, class: "#{genre.description}" %>
+      <% end %>
+    </aside>
+
+    <section id="musicians-list">
+      <h3>Musicians near you</h3>
+
+      <% @musicians.each do |musician| %>
+        <%= link_to musician.firstname, musician_path(musician.id) %><br />
+        <%= image_tag musician.avatar.thumb %><br />
+        <% if current_musician.present? %>
+          <%= musician.display_distance_to(@musician) %> km away<br />
+        <% else %>
+          Based in <%= musician.city %>
+        <% end %>
+      <% end %>
+    </section>
+    <!-- <section>
+      <div id="map">
+
+      </div>
+    </section> -->
+  </main>

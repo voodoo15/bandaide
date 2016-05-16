@@ -14,8 +14,7 @@
     <%= f.text_field :description %>
   </div>
 
-
-  <%= f.fields_for :members,  [Member.new] do |member| %>
+  <%= f.fields_for :members, [Member.new] do |member| %>
     <div id="field">
       <%= member.label :position %><br />
       <%= member.select :position_id, options_for_select(@positions.collect  {|p| [ p.description, p.id] }) %>

@@ -1,5 +1,5 @@
 class MembersController < ApplicationController
-before_action :authenticate_musician! 
+before_action :authenticate_musician!
 
   def new
     @member = Member.new
@@ -38,14 +38,9 @@ before_action :authenticate_musician!
     redirect_to band_path(@band)
   end
 
-
-
-
 private
 
   def member_params
-
     params.require(:member).permit(:musician_id, :band_id, :position_id)
-
   end
 end
