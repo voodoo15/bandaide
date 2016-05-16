@@ -10,8 +10,6 @@ class Musician < ActiveRecord::Base
   has_many :bands, through: :members
   has_many :positions, through: :skills
 
-
-
   validates :firstname, :lastname, :address, :city, :postalcode, presence:  true
   validates_inclusion_of :province, in: %w(AB BC SK MB ON QC NB NS PE NL NT YT NU)
   validates :postalcode, length: { is: 7 },
@@ -30,5 +28,4 @@ class Musician < ActiveRecord::Base
   def display_distance_to(other_musician)
     self.distance_to(other_musician, :km).round(2)
   end
-
 end

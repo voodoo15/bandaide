@@ -10,5 +10,4 @@ class Member < ActiveRecord::Base
   def vacant?
     return self.musician_id == nil
   end
-
 end
