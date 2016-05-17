@@ -11,4 +11,12 @@ class Band < ActiveRecord::Base
   def genre_desc
     return self.genre.description
   end
+
+  def longitude
+    return self.leader.longitude
+  end
+
+  def latitude
+    return self.leader.latitude
+  end
 end
