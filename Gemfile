@@ -45,6 +45,7 @@ gem 'devise', '~> 4.1'
 #Figaro
 gem 'figaro'
 
+gem 'gon'
 
 #Using faker for mock data
 gem 'faker', '~> 1.6', '>= 1.6.3'

@@ -6,6 +6,7 @@ class MusiciansController < ApplicationController
     @nearby_musicians = @musician.nearbys(5, unit: :km)
     @positions = Position.all
     @skill = Skill.new
+    gon.nearby_musicians = @nearby_musicians
   end
 
   def edit
