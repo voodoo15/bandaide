@@ -1,0 +1,13 @@
+<ul class="musicians-list">
+  <% @musicians.each do |musician| %>
+    <li>
+    <%= link_to musician.firstname, musician_path(musician.id) %><br />
+    <%= image_tag musician.avatar.thumb %><br />
+    <% if current_musician.present? %>
+      <%= musician.display_distance_to(@musician) %> km away<br />
+    <% else %>
+      Based in <%= musician.city %>
+    <% end %>
+  </li>
+  <% end %>
+</ul>
