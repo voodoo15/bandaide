@@ -41,13 +41,4 @@ class Musician < ActiveRecord::Base
     # coordinates.delete_if{ |array| array.include?(nil)}
     return coordinates
   end
-
-  def coordinates
-    latitude = Musician.pluck(:latitude)
-    longitude = Musician.pluck(:longitude)
-    coordinates = latitude.zip(longitude)
-    # coordinates.delete_if{ |array| array.include?("0.0")}
-    # coordinates.delete_if{ |array| array.include?(nil)}
-    return coordinates
-  end
 end
