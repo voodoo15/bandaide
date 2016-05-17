@@ -22,7 +22,11 @@ main {
     @include outer-container;
 
     h1 {
-      color: #white;
+      color: white;
+    }
+
+    h3 {
+      color: white;
     }
 
     li {
@@ -49,7 +53,7 @@ main {
       margin-bottom: 20px;
       background-color: black;
       color: red;
-      font-family: Comic sans-serif;
+
       p {
         font-size: 0.77em;
       }
