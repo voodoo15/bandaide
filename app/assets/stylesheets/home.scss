@@ -11,8 +11,34 @@
 }
 
 main {
-  width: 100%;
-  float: left;
-  height: 100%;
-  padding: 30px;
+  @include span-columns(9);
+
+  h1 {
+    text-align: center;
+  }
+
+  ul.band-list {
+    @include outer-container;
+
+    li {
+      @include span-columns(3 of 12);
+      @include omega(4n);
+      text-align: center;
+
+      a {
+        display: block;
+      }
+    }
+  }
+}
+
+aside {
+  @include span-columns(3);
+}
+
+.hero {
+  background-image: url("banner1");
+  background-size: cover;
+  margin-bottom: 30px;
+  height: 500px;
 }

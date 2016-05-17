@@ -1,26 +1,20 @@
-<div class="carousel">
-    <div><%= image_tag("home/index/banner1.png") %></div>
-    <div><%= image_tag("home/index/banner2.png") %></div>
-</div>
+<div class="container">
 
-<h1>Welcome to Band Aide</h1>
+  <div class="hero">
+
+  </div>
+
   <main>
+    <h1>Welcome to Band Aide</h1>
+
     <section id="bands-list">
 
       <h3>Bands</h3>
 
-    <div class="bands">
-      <%= render "home/bands" %>
-    </div>
+      <div class="bands">
+        <%= render "home/bands" %>
+      </div>
     </section>
-
-    <aside id="search-category-list">
-      <p>Search Bands by Genre:</p>
-      <%= link_to "All", remote: true, class: "All" %>
-      <% @genres.each do |genre| %>
-        <%= link_to genre.description, remote: true, class: "#{genre.description}" %>
-      <% end %>
-    </aside>
 
     <section id="musicians-list">
       <h3>Musicians near you</h3>
@@ -41,3 +35,12 @@
       </div>
     </section> -->
   </main>
+
+  <aside id="search-category-list">
+    <p>Search Bands by Genre:</p>
+    <%= link_to "All", remote: true, class: "All" %>
+    <% @genres.each do |genre| %>
+      <%= link_to genre.description, remote: true, class: "#{genre.description}" %>
+    <% end %>
+  </aside>
+</div>
