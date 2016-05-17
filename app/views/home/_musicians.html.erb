@@ -6,7 +6,7 @@
     <% if current_musician.present? %>
       <%= musician.display_distance_to(@musician) %> km away<br />
     <% else %>
-      Based in <%= musician.city %>
+      <p>Based in <%= musician.city %> </p>
     <% end %>
   </li>
   <% end %>

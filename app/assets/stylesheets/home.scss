@@ -15,19 +15,27 @@ main {
 
   h1 {
     text-align: center;
+    color: #bebebe;
   }
 
   ul.band-list {
     @include outer-container;
 
+    h1 {
+      color: #white;
+    }
+
     li {
       @include span-columns(3 of 12);
       @include omega(4n);
       text-align: center;
-
+      background-color: black;
       a {
         display: block;
+        color: white;
       }
+
+
     }
   }
 
@@ -38,9 +46,17 @@ main {
       @include span-columns(3 of 12);
       @include omega(4n);
       text-align: center;
+      margin-bottom: 20px;
+      background-color: black;
+      color: red;
+      font-family: Comic sans-serif;
+      p {
+        font-size: 0.77em;
+      }
 
       a {
       display: block;
+      color: white;
     }
 
 
@@ -51,7 +67,16 @@ main {
 
 aside {
   @include span-columns(3);
+  color: white;
+
+  a {
+    color: white;
+  }
+
 }
+
+
+
 
 .hero {
   background-image: url("banner1");
