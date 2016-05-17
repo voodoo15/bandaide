@@ -27,3 +27,8 @@ Name:
 <% end %>
 
 <br /><%= link_to "Back", request.referer.present? ? request.referer : root_path %>
+
+<div id="map" data-latitude=<%= @musician.latitude %> data-longitude=<%= @musician.longitude%>  >
+</div>
+
+</div>

@@ -32,6 +32,7 @@ $(document).on('ready', function() {
       }
     });
 
+  
     // $.getScript('/?search=' + searchValue, function(data){$('#bands-list').html(data)});
   });
 });
