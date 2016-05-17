@@ -33,4 +33,21 @@ class Musician < ActiveRecord::Base
     self.skills.where(position_id: position).count() > 0 ? true : false
   end
 
+  def self.coordinates
+    latitude = Musician.pluck(:latitude)
+    longitude = Musician.pluck(:longitude)
+    coordinates = latitude.zip(longitude)
+    # coordinates.delete_if{ |array| array.include?("0.0")}
+    # coordinates.delete_if{ |array| array.include?(nil)}
+    return coordinates
+  end
+
+  def coordinates
+    latitude = Musician.pluck(:latitude)
+    longitude = Musician.pluck(:longitude)
+    coordinates = latitude.zip(longitude)
+    # coordinates.delete_if{ |array| array.include?("0.0")}
+    # coordinates.delete_if{ |array| array.include?(nil)}
+    return coordinates
+  end
 end

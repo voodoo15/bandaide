@@ -3,7 +3,8 @@ class MusiciansController < ApplicationController
 
   def show
     @musician = Musician.find(params[:id])
-    @nearby_musicians = @musician.nearbys(5, unit: :km)
+    # @nearby_musicians = @musician.nearbys(5, unit: :km)
+    @nearby_musicians = Musician.coordinates
     @positions = Position.all
     @skill = Skill.new
     gon.nearby_musicians = @nearby_musicians
