@@ -14,12 +14,11 @@ function initMap() {
 
 
     for (i = 0; i < locations.length; i++) {
+      var location= new google.maps.LatLng(locations[i][0], locations[i][1]);
       var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-        map: map,
-        title: "title"
+        position: location,
       });
-      console.log(locations[i][1])
+      marker.setMap(map);
     };
 };
   //
