@@ -63,7 +63,13 @@ Name:<br />
   <% end %>
 <% end %>
 
-<br /><%= link_to "Back", request.referer.present? ? request.referer : root_path %>
+<br />
+  Musicians near
+  <% if @musician == current_musician %>
+    you:
+  <% else %>
+    <%= @musician.firstname %>:<br />
+  <% end %>
 
 <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Figaro.env.google_maps_api_key }&callback=initMap", async: true, defer: true %>
 
@@ -71,3 +77,5 @@ Name:<br />
 </div>
 
 </div>
+
+<%= link_to "Back", request.referer.present? ? request.referer : root_path %>
