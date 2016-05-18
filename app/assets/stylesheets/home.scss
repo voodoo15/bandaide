@@ -18,15 +18,17 @@ main {
     color: white;
   }
 
+  h3 {
+    color: white;
+    margin-top: 25px;
+  }
+
   ul.band-list {
     @include outer-container;
 
     h1 {
       color: white;
-    }
-
-    h3 {
-      color: white;
+      margin-bottom: 25px;
     }
 
     li {
@@ -68,6 +70,11 @@ main {
 aside {
   @include span-columns(3);
   color: white;
+
+  div.genres-scroll {
+    height: 500px;
+    overflow: auto;
+  }
 
   a {
     color: white;
