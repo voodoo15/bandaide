@@ -1,7 +1,7 @@
 function initMap() {
 
   var map_placeholder = $('#map');
-   var myLatLng = {lat : map_placeholder.data('latitude'), lng : map_placeholder.data('longitude')};
+  var myLatLng = {lat : map_placeholder.data('latitude'), lng : map_placeholder.data('longitude')};
 
 
 
@@ -13,13 +13,13 @@ function initMap() {
   });
 
 
-    for (i = 0; i < locations.length; i++) {
-      var location= new google.maps.LatLng(locations[i][0], locations[i][1]);
-      var marker = new google.maps.Marker({
-        position: location,
-      });
-      marker.setMap(map);
-    };
+  for (i = 0; i < locations.length; i++) {
+    var location= new google.maps.LatLng(locations[i][0], locations[i][1]);
+    var marker = new google.maps.Marker({
+      position: location,
+    });
+    marker.setMap(map);
+  };
 };
   //
   // = new google.maps.Marker({

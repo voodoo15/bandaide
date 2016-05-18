@@ -6,7 +6,7 @@ class MusiciansController < ApplicationController
     @nearby_musicians = @musician.nearbys(5, unit: :km)
     @positions = Position.all
     @skill = Skill.new
-    gon.nearby_musicians = @nearby_musicians.collect{ |r| [r.latitude, r.longitude] }
+    gon.nearby_musicians = @nearby_musicians.collect{ |r| [r.id, r.firstname, r.lastname, r.latitude, r.longitude] }
   end
 
   def edit
