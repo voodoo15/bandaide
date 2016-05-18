@@ -18,15 +18,17 @@ main {
     color: white;
   }
 
+  h3 {
+    color: white;
+    margin-top: 25px;
+  }
+
   ul.band-list {
     @include outer-container;
 
     h1 {
       color: white;
-    }
-
-    h3 {
-      color: white;
+      margin-bottom: 25px;
     }
 
     li {
