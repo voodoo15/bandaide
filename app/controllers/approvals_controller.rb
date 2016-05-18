@@ -2,7 +2,6 @@ class ApprovalsController < ApplicationController
   before_action :authenticate_musician!
 
   def create
-    binding.pry
     @musician = current_musician
     @member = Member.find(params[:member_id])
     @approval = Approval.new(approval_params)

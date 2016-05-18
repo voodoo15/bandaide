@@ -32,6 +32,20 @@ Name:<br />
 
     <% end %>
 
+    <% if current_musician.approvals.count > 0 %>
+
+      <h1>Membership Pending Approval</h1><br />
+
+      <% current_musician.approvals.each do |approval|%>
+        Band:  <%= approval.band.name %><br />
+        Position:  <%= approval.member.position.description %><br />
+        Approved:  <%= approval.approved %>
+        <%= button_to 'View Band', band_path(approval.band.id), :method => :get %><br />
+
+      <% end %>
+
+    <% end %>
+
     <br /><%= link_to "Edit Profile", edit_musician_registration_path %>
 
     <%= form_for [@musician, @skill] do |f| %>
