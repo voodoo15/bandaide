@@ -1,4 +1,4 @@
 class Approval < ActiveRecord::Base
-  belongs_to :musicians
-  belongs_to :members
+  belongs_to :musician
+  belongs_to :member
 end

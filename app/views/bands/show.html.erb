@@ -17,10 +17,11 @@
 
       <!-- Owners -->
       <% if @band.leader.id == current_musician.id %>
-        <h1>Approvals</h1>
-        <%= member.approvals.each do |approval| %>
+        <% member.approvals.each do |approval| %>
           <%= approval.musician.firstname %>
-          <%= link_to 'Accept', band_member_path(@band, member, member: {musician_id: current_musician.id}), :method => :put %>
+          <% if approval.approved == false %>
+            <%= link_to 'Accept', band_member_approval_path(@band, member, approval, approval: {approved: true}, member: {musician_id: approval.musician_id}), :method => :put %>
+          <% end %>
         <% end %>
 
         <%= link_to 'Remove', band_member_path(@band, member.id), data: {:confirm => 'Are you sure?'}, :method => :delete %>
