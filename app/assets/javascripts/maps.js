@@ -19,12 +19,13 @@ function initMap() {
       var location= new google.maps.LatLng(locations[i][3], locations[i][4]);
       var marker = new google.maps.Marker({
         position: location,
-        clickable:true,
+        clickable: true,
         url: '/musicians/'+locations[i][0] ,
-        title: locations[i][1] + locations[i][2]
+        label: locations[i][1] + locations[i][2]
       });
       marker.addListener('click', function() {window.location.href = marker.url;});
         marker.setMap(map);
+
   };
 
 
