@@ -16,12 +16,12 @@ function initMap() {
   });
 
     for (i = 0; i < locations.length; i++) {
-      var location= new google.maps.LatLng(locations[i][0], locations[i][1]);
+      var location= new google.maps.LatLng(locations[i][3], locations[i][4]);
       var marker = new google.maps.Marker({
         position: location,
         clickable:true,
-        url: '/',
-        title:"Hello World!"
+        url: '/musicians/'+locations[i][0] ,
+        title: locations[i][1] + locations[i][2]
       });
       marker.addListener('click', function() {window.location.href = marker.url;});
         marker.setMap(map);
