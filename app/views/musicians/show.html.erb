@@ -10,7 +10,7 @@ Name:<br />
 <% if musician_signed_in? %>
   <% if current_musician.id == @musician.id %><br />
 
-    <% if current_musician.bands.count > 0 %>
+    <% if current_musician.owned_bands.count > 0 %>
 
       <h1>Bands owned</h1><br />
 
