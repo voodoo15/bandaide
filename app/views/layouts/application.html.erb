@@ -50,7 +50,5 @@
 
   <%= yield %>
 
-  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Figaro.env.google_maps_api_key }&callback=initMap", async: true, defer: true %>
-
   </body>
 </html>
