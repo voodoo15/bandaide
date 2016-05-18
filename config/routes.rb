@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+
   devise_for :musicians
   root 'home#index'
 
   resources :bands, except: [:destory] do
-      resources :members, only: [:create, :destroy, :new, :update ]
+      resources :members, only: [:create, :destroy, :new, :update] do
+        resources :approvals, only: [:create, :update]
+      end
   end
 
   resources :musicians, only: [:show,:edit,:update] do
