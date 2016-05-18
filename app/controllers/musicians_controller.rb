@@ -3,11 +3,10 @@ class MusiciansController < ApplicationController
 
   def show
     @musician = Musician.find(params[:id])
-    # @nearby_musicians = @musician.nearbys(5, unit: :km)
-    @nearby_musicians = Musician.coordinates
+    @nearby_musicians = @musician.nearbys(5, unit: :km)
     @positions = Position.all
     @skill = Skill.new
-    gon.nearby_musicians = @nearby_musicians
+    gon.nearby_musicians = @nearby_musicians.collect{ |r| [r.id, r.firstname, r.lastname, r.latitude, r.longitude] }
   end
 
   def edit

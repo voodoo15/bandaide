@@ -1,7 +1,7 @@
 function initMap() {
 
   var map_placeholder = $('#map');
-   var myLatLng = {lat : map_placeholder.data('latitude'), lng : map_placeholder.data('longitude')};
+  var myLatLng = {lat : map_placeholder.data('latitude'), lng : map_placeholder.data('longitude')};
 
 
   var locations = gon.nearby_musicians;
@@ -26,5 +26,6 @@ function initMap() {
       marker.addListener('click', function() {window.location.href = marker.url;});
         marker.setMap(map);
   };
+
 
 };
