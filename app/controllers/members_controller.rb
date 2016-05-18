@@ -11,7 +11,7 @@ before_action :authenticate_musician!
     @band = Band.find(params[:band_id])
     @musician=current_musician
     @positions = Position.all
-    @member =@band.members.build(member_params)
+    @member = @band.members.build(member_params)
 
     if @member.save
       redirect_to band_path(@band)
