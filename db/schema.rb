@@ -11,9 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160518183933) do
+ActiveRecord::Schema.define(version: 20160518184140) do
 
-  create_table "approval_tables", force: :cascade do |t|
+  create_table "approvals", force: :cascade do |t|
     t.integer "member_id"
     t.integer "musician_id"
     t.boolean "approved"
