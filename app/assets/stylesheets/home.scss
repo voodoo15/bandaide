@@ -34,12 +34,11 @@ main {
       @include omega(4n);
       text-align: center;
       background-color: black;
+
       a {
         display: block;
         color: white;
       }
-
-
     }
   }
 
@@ -61,11 +60,8 @@ main {
       a {
       display: block;
       color: white;
+      }
     }
-
-
-    }
-
   }
 }
 
@@ -76,11 +72,7 @@ aside {
   a {
     color: white;
   }
-
 }
-
-
-
 
 .hero {
   background-image: url("banner1");
