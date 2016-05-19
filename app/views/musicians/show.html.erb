@@ -1,14 +1,21 @@
 <h1><%= @musician.firstname %> <%= @musician.lastname %></h1>
 
-<h3>Bio</h3><br />
+<h3>Bio:</h3><br />
 
 <%= image_tag @musician.avatar.profile %><br />
 
 Name:<br />
 <%= @musician.firstname %> <%= @musician.lastname %><br /><br />
 
-Description:<br />
-<%= @musician.description %>
+<h1>Description:</h1><br />
+<%= @musician.description %><br />
+
+<% if @musician.positions.count() > 0 %>
+  <h1>Skills:</h1><br />
+  <% @musician.positions.each do |position| %>
+    <%= position.description %><br />
+  <% end %>
+<% end %>
 
 <% if @musician.youtube_url %>
 
