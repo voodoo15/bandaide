@@ -1,5 +1,20 @@
+
+@import 'http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css';
+@import 'http://fonts.googleapis.com/css?family=Roboto:700,400';
+
+
+
+body{
+  background-image: url(background/564960.jpg);
+  background-size: cover;
+
+
+
+}
+
 main {
-  @include span-columns(9);
+  @include span-columns(10);
+
 
   h1 {
     text-align: center;
@@ -27,7 +42,11 @@ main {
       @include span-columns(3 of 12);
       @include omega(4n);
       text-align: center;
-      background-color: black;
+      -webkit-box-shadow:
+        0 2px 8px rgba(0,0,0,0.5),
+        inset 0 1px rgba(255,255,255,0.3),
+        inset 0 10px 20px rgba(255,255,255,0.25),
+        inset 0 -15px 30px rgba(0,0,0,0.3);
 
       a {
         display: block;
@@ -40,12 +59,36 @@ main {
     @include outer-container;
 
     li {
-      @include span-columns(3 of 12);
-      @include omega(4n);
+      @include span-columns(4 of 12);
+      @include omega(3n);
       text-align: center;
       margin-bottom: 20px;
-      background-color: black;
-      color: red;
+      -webkit-box-shadow:
+        0 2px 8px rgba(0,0,0,0.5),
+        inset 0 1px rgba(255,255,255,0.3),
+        inset 0 10px 20px rgba(255,255,255,0.25),
+        inset 0 -15px 30px rgba(0,0,0,0.3);
+      border: blurred;
+
+
+      .social_icons {
+        display: inline-block;
+        width: 48px;
+        height: 48px;
+        line-height: 48px;
+        text-align: center;
+        border-radius: 50%;
+        background-color: #3b5998;
+        transition: all 0.3s ease;
+        outline: 0;
+
+        box-shadow:
+        0 2px 4px rgba(0,0,0, 0.12),
+        0 2px 4px rgba(0,0,0, 0.24);
+
+
+
+        }
 
       p {
         font-size: 0.77em;
@@ -60,7 +103,7 @@ main {
 }
 
 aside {
-  @include span-columns(3);
+  @include span-columns(2);
   color: white;
 
   div.genres-scroll {
@@ -74,8 +117,11 @@ aside {
 }
 
 .hero {
-  background-image: url("banner1");
+  background-image: url("home/index/Band_Aide_Logo");
   background-size: cover;
   margin-bottom: 30px;
-  height: 500px;
+  height: 700px;
+  position: relative;
+  bottom: 210px;
+
 }

@@ -2,8 +2,8 @@
 <html>
   <head>
     <title>Band Aide</title>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
     <%= Gon::Base.render_data %>
     <link href='https://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>
@@ -13,7 +13,7 @@
   <header class="navigation">
     <div class="navigation-wrapper">
       <a href="javascript:void(0)" class="logo">
-        <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="">
+        <%=image_tag("background/Band Aide Logo.png")%>
       </a>
       <a href="" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
     <div class="nav">

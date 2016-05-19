@@ -19,6 +19,6 @@ before_action :authenticate_musician!, except: [:show, :index]
 
   private
     def skill_params
-      params.require(:skill).permit(:musician_id, :position_id, :level )
+      params.require(:skill).permit(:musician_id, :position_id, :level, :mainskill )
     end
 end

@@ -4,11 +4,25 @@
   <aside id="profile-side">
     <h1><%= @musician.firstname %> <%= @musician.lastname %></h1>
 
+<h3>Bio:</h3><br />
+
     <%= link_to "Back", request.referer.present? ? request.referer : root_path %><br />
 
     <h3>Bio</h3><br />
 
+
     <%= image_tag @musician.avatar.profile %><br />
+
+<h1>Description:</h1><br />
+<%= @musician.description %><br />
+
+<% if @musician.positions.count() > 0 %>
+  <h1>Skills:</h1><br />
+  <% @musician.positions.each do |position| %>
+    <%= position.description %><br />
+  <% end %>
+<% end %>
+
 
     Name:<br />
     <%= @musician.firstname %> <%= @musician.lastname %><br /><br />
@@ -70,6 +84,7 @@
 
           <h1>Membership Pending Approval</h1><br />
 
+
           <% current_musician.approvals.each do |approval|%>
 
             <% if approval.approved == false %>
@@ -80,6 +95,20 @@
             <% end %>
           <% end %>
         <% end %>
+
+    <%= form_for [@musician, @skill] do |f| %>
+      <div id="field">
+        <%= f.label :position %><br />
+        <%= f.select :position_id, options_for_select(@positions.collect  { |p| [ p.description, p.id] }) %>
+        <%= f.label :categories %>
+        <%= f.select :level, [['Beginner', 1], ['Intermediate', 2], ['Advanced', 3]]  %>
+        <%= f.hidden_field :musician_id, :value => current_musician.id %>
+        <%= f.label :mainskill %>
+        <%= f.check_box (:mainskill) %>
+      </div>
+      <div>
+        <%= f.submit %>
+
       </div>
 
       <% end %>

@@ -1,13 +1,47 @@
 <ul class="musicians-list">
   <% @musicians.each do |musician| %>
     <li>
+    <div class="card_content">
     <%= link_to musician.firstname, musician_path(musician.id) %><br />
     <%= image_tag musician.avatar.thumb %><br />
-    <% if current_musician.present? %>
-      <%= musician.display_distance_to(@musician) %> km away<br />
-    <% else %>
-      <p>Based in <%= musician.city %> </p>
-    <% end %>
+      <div class="card_content_padding">
+
+
+
+
+
+        <div class="social_icons">
+          <a class="facebook" href=""> </a>
+          <a class="instagram" href=""> </a>
+          <a class="twitter" href=""> </a>
+
+            <div class="musician_position">
+              <% if musician.positions.count() > 0 %>
+                <h1>Skills:</h1><br />
+                <% musician.positions.each do |position| %>
+                  <%= position.description %><br />
+                <% end %>
+              <% end %>
+
+                <div class="card_article">
+
+
+
+
+
+                </div>
+              </div>
+           </div>
+      </div>
+    </div>
+
+            <% if current_musician.present? %>
+              <%= musician.display_distance_to(@musician) %> km away<br />
+            <% else %>
+              <p>Based in <%= musician.city %> </p>
+            <% end %>
   </li>
+
   <% end %>
+
 </ul>
