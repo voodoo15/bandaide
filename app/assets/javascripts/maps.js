@@ -28,7 +28,7 @@
         position: location,
         clickable: true,
         url: '/musicians/'+locations[i][0] ,
-        title: locations[i][1]
+        title: locations[i][1]+" "+locations[i][5]
       });
       marker.addListener('click', function() {window.location.href = marker.url;});
         marker.setMap(map);
