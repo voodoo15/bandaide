@@ -16,7 +16,13 @@
           <a class="twitter" href=""> </a>
 
             <div class="musician_position">
-              <%= Musician.positions.first %>
+              <% if musician.positions.count() > 0 %>
+                <h1>Skills:</h1><br />
+                <% musician.positions.each do |position| %>
+                  <%= position.description %><br />
+                <% end %>
+              <% end %>
+
                 <div class="card_article">
 
 
