@@ -7,8 +7,11 @@ class BandsController < ApplicationController
 
   def show
     @band= Band.find(params[:id])
+    @musician = Musician.find(@band.leader.id)
     @member = Member.new
     @positions = Position.all
+    @nearby_musicians = @musician.nearbys(5, unit: :km)
+    gon.nearby_musicians = @nearby_musicians.collect{ |r| [r.id, r.firstname, r.lastname, r.latitude, r.longitude] }
   end
 
   def new

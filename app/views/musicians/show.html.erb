@@ -1,14 +1,72 @@
 <h1><%= @musician.firstname %> <%= @musician.lastname %></h1>
 
-<h3>Bio</h3>
+<h3>Bio:</h3><br />
 
-<%= image_tag @musician.avatar.profile %>
+<%= image_tag @musician.avatar.profile %><br />
 
-Name:
-<%= @musician.firstname %> <%= @musician.lastname %>
+Name:<br />
+<%= @musician.firstname %> <%= @musician.lastname %><br /><br />
+
+<h1>Description:</h1><br />
+<%= @musician.description %><br />
+
+<% if @musician.positions.count() > 0 %>
+  <h1>Skills:</h1><br />
+  <% @musician.positions.each do |position| %>
+    <%= position.description %><br />
+  <% end %>
+<% end %>
+
+<% if @musician.youtube_url %>
+
+  <h1>Demo Reel</h1>
+
+  <div class="embed-container">
+    <%= embed(@musician.youtube_url) %>
+  </div>
+<% end %>
 
 <% if musician_signed_in? %>
-  <% if current_musician.id == @musician.id %>
+  <% if current_musician.id == @musician.id %><br />
+
+    <% if current_musician.owned_bands.count > 0 %>
+
+      <h1>Bands owned</h1><br />
+
+      <% current_musician.owned_bands.each do |band|%>
+        Band:  <%= band.name %><br />
+        <%= button_to 'View Band', band_path(band), :method => :get %><br />
+      <% end %>
+
+    <% end %>
+
+    <% if current_musician.members.count > 0 %>
+
+      <h1>Member of Bands</h1><br />
+
+      <% current_musician.members.each do |member|%>
+        Band:  <%= member.band.name %><br />
+        Position:  <%= member.position.description %><br />  <%= button_to 'View Band', band_path(member.band.id), :method => :get %><br />
+      <% end %>
+
+    <% end %>
+
+    <% if current_musician.approvals.where(approved: false).count > 0 %>
+
+      <h1>Membership Pending Approval</h1><br />
+
+      <% current_musician.approvals.each do |approval|%>
+
+        <% if approval.approved == false %>
+          Band:  <%= approval.band.name %><br />
+          Position:  <%= approval.member.position.description %><br />
+          Approved:  <%= approval.approved %>
+          <%= button_to 'View Band', band_path(approval.band.id), :method => :get %><br />
+        <% end %>
+      <% end %>
+
+    <% end %>
+
     <br /><%= link_to "Edit Profile", edit_musician_registration_path %>
 
     <%= form_for [@musician, @skill] do |f| %>
@@ -16,7 +74,7 @@ Name:
         <%= f.label :position %><br />
         <%= f.select :position_id, options_for_select(@positions.collect  { |p| [ p.description, p.id] }) %>
         <%= f.label :categories %>
-        <%= f.select :level, [['Beginner', 1], ['intermediate', 2], ['Professional', 3]]  %>
+        <%= f.select :level, [['Beginner', 1], ['Intermediate', 2], ['Advanced', 3]]  %>
         <%= f.hidden_field :musician_id, :value => current_musician.id %>
       </div>
       <div>
@@ -25,10 +83,18 @@ Name:
     <% end %>
   <% end %>
 <% end %>
+<%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Figaro.env.google_maps_api_key }&callback=initMap", async: true, defer: true %>
+
+
+<br />
+  Musicians near
+  <% if @musician == current_musician %>
+    you:
+  <% else %>
+    <%= @musician.firstname %>:<br />
+  <% end %>
 
 <br /><%= link_to "Back", request.referer.present? ? request.referer : root_path %>
-
-<%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Figaro.env.google_maps_api_key }&callback=initMap", async: true, defer: true %>
 
 <div id="map" data-latitude=<%= @musician.latitude %> data-longitude=<%= @musician.longitude%>  >
 </div>

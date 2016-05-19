@@ -1,13 +1,13 @@
 class HomeController < ApplicationController
 
   def index
-    @musicians = Musician.all.limit(8)
+    @musicians = Musician.order("RANDOM()").limit(8)
     @genres = Genre.all
 
     @bands = if params[:search]
       Band.joins(:genre).where("LOWER(genres.description) LIKE LOWER (?)", "%#{params[:search]}%")
     else
-      @bands = Band.all.limit(4)
+      @bands = Band.order("RANDOM()").limit(4)
     end
 
     respond_to do |format|

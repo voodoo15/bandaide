@@ -15,22 +15,34 @@
 
     <% if musician_signed_in? %>
 
-      <% if member.vacant? && current_musician.skilled_enough?(member.position.id) %>
-        <%= link_to 'Apply', band_member_path(@band, member, member: {musician_id: current_musician.id}), :method => :put %>
-      <% elsif member.vacant? && current_musician.skilled_enough?(member.position.id) == false %>
-          <p>Cannot apply: this position requires a higher skill level than you currently possess.</p>
-      <% else %>
-        <%= member.musician.firstname %>
-      <% end %>
-
+      <!-- Owners -->
       <% if @band.leader.id == current_musician.id %>
-        <%= link_to 'Remove', band_member_path(@band, member.id),
-                data: {:confirm => 'Are you sure?'}, :method => :delete %>
-      <% end %>
+        <% member.approvals.each do |approval| %>
+          <%= approval.musician.firstname %>
+          <% if approval.approved == false %>
+            <%= link_to 'Accept', band_member_approval_path(@band, member, approval, approval: {approved: true}, member: {musician_id: approval.musician_id}), :method => :put %>
+          <% end %>
+        <% end %>
 
-    <% else %>
-      <p>Please register to apply</p>
+        <%= link_to 'Remove', band_member_path(@band, member.id), data: {:confirm => 'Are you sure?'}, :method => :delete %>
+
+
+      <!-- Non Owner -->
+      <% elsif @band.leader.id != current_musician.id %>
+
+          <% if member.vacant? && current_musician.skilled_enough?(member.position.id) %>
+            <%= link_to 'Apply', band_member_approvals_path(@band, member, approval: {musician_id: current_musician.id, approval: false, member_id: member.id}), :method => :post %>
+          <% elsif member.vacant? && current_musician.skilled_enough?(member.position.id) == false %>
+              <p>Cannot apply: this position requires a higher skill level than you currently possess.</p>
+          <% else %>
+            <%= member.musician.firstname %>
+          <% end %>
+      <% else %>
+          <p>Please register to apply</p>
+      <% end %>
     <% end %>
+
+
   </p>
 <% end %>
 
@@ -53,6 +65,12 @@
 
   <% end %>
 
+
 <% end %>
 
 <br /><%= link_to "Back", request.referer.present? ? request.referer : root_path %>
+
+<%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Figaro.env.google_maps_api_key }&callback=initMap", async: true, defer: true %>
+
+<div id="map" data-latitude=<%= @musician.latitude %> data-longitude=<%= @musician.longitude%>  >
+</div>

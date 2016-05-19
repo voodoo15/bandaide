@@ -3,6 +3,7 @@ class Band < ActiveRecord::Base
   belongs_to :genre
   has_many :members
   has_many :musicians, through: :members
+  has_many :approvals, through: :members
 
   validates_associated :genre, :leader
 
