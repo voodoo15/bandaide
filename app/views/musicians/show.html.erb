@@ -61,6 +61,8 @@ Description:<br />
         <%= f.label :categories %>
         <%= f.select :level, [['Beginner', 1], ['Intermediate', 2], ['Advanced', 3]]  %>
         <%= f.hidden_field :musician_id, :value => current_musician.id %>
+        <%= f.label :mainskill %>
+        <%= f.check_box (:mainskill) %>
       </div>
       <div>
         <%= f.submit %>

@@ -1,4 +1,5 @@
-function initMap() {
+
+  function initMap() {
 
   var map_placeholder = $('#map');
   var myLatLng = {lat : map_placeholder.data('latitude'), lng : map_placeholder.data('longitude')};
@@ -17,7 +18,7 @@ function initMap() {
 
   var markero = new google.maps.Marker({
     position: myLatLng,
-    strokeColor: "green",
+    // strokeColor: "green",
   })
     markero.setMap(map);
 
@@ -27,13 +28,11 @@ function initMap() {
         position: location,
         clickable: true,
         url: '/musicians/'+locations[i][0] ,
-        label: i,
         title: locations[i][1]
       });
       marker.addListener('click', function() {window.location.href = marker.url;});
         marker.setMap(map);
 
   };
-
 
 };
