@@ -25,10 +25,10 @@ Name:
     <% end %>
   <% end %>
 <% end %>
+<%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Figaro.env.google_maps_api_key }&callback=initMap", async: true, defer: true %>
+
 
 <br /><%= link_to "Back", request.referer.present? ? request.referer : root_path %>
-
-<%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Figaro.env.google_maps_api_key }&callback=initMap", async: true, defer: true %>
 
 <div id="map" data-latitude=<%= @musician.latitude %> data-longitude=<%= @musician.longitude%>  >
 </div>
