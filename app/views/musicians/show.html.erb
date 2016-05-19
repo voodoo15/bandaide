@@ -5,7 +5,11 @@
 <%= image_tag @musician.avatar.profile %><br />
 
 Name:<br />
-<%= @musician.firstname %> <%= @musician.lastname %><br />
+<%= @musician.firstname %> <%= @musician.lastname %><br /><br />
+
+Description:<br />
+<%= @musician.description %>
+
 
 <% if musician_signed_in? %>
   <% if current_musician.id == @musician.id %><br />
@@ -32,16 +36,18 @@ Name:<br />
 
     <% end %>
 
-    <% if current_musician.approvals.count > 0 %>
+    <% if current_musician.approvals.where(approved: false).count > 0 %>
 
       <h1>Membership Pending Approval</h1><br />
 
       <% current_musician.approvals.each do |approval|%>
-        Band:  <%= approval.band.name %><br />
-        Position:  <%= approval.member.position.description %><br />
-        Approved:  <%= approval.approved %>
-        <%= button_to 'View Band', band_path(approval.band.id), :method => :get %><br />
 
+        <% if approval.approved == false %>
+          Band:  <%= approval.band.name %><br />
+          Position:  <%= approval.member.position.description %><br />
+          Approved:  <%= approval.approved %>
+          <%= button_to 'View Band', band_path(approval.band.id), :method => :get %><br />
+        <% end %>
       <% end %>
 
     <% end %>
