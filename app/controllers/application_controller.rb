@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up) do |musician_params|
-      musician_params.permit(:email, :password, :firstname, :lastname, :address, :city, :province, :postalcode, :avatar)
+      musician_params.permit(:email, :password, :firstname, :lastname, :address, :city, :province, :postalcode, :avatar, :description)
     end
   end
 end
