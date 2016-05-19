@@ -10,6 +10,14 @@ Name:<br />
 Description:<br />
 <%= @musician.description %>
 
+<% if @musician.youtube_url %>
+
+  <h1>Demo Reel</h1>
+
+  <div class="embed-container">
+    <%= embed(@musician.youtube_url) %>
+  </div>
+<% end %>
 
 <% if musician_signed_in? %>
   <% if current_musician.id == @musician.id %><br />
