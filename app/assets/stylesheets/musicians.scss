@@ -2,22 +2,67 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.embed-container {
-  position: relative;
-  padding-bottom: 56.25%;
-  padding-top: 30px;
-  height: 0;
-  overflow: hidden;
-  width: 100%;
-  height: auto;
-  margin-bottom: 12px;
-}
+aside {
+  @include span-columns(4);
+  padding: 20px;
+  }
 
-.embed-container iframe,
-.embed-container object,
-.embed-container embed {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
+main {
+  @include span-columns(8);
+  @include omega(8n);
+
+  h1 {
+    text-align: left;
+    color: white;
+  }
+
+  h2 {
+
+  }
+
+  h3 {
+    color: white;
+    font-size: 0.8em;
+    margin-top: 25px;
+  }
+
+  #bands-owned {
+    @include span-columns(4);
+    // @include omega(4n)
+  }
+
+  #member-of-bands {
+    @include span-columns(4);
+    @include omega(4n);
+  }
+
+  #youtube-window {
+    @include span-columns(8);
+    @include omega(8n);
+  }
+
+  #nearby-musicians {
+    @include span-columns(8);
+    @include omega(8n);
+  }
+
+  .embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    margin-bottom: 12px;
+  }
+
+  .embed-container iframe,
+  .embed-container object,
+  .embed-container embed {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+  }
 }
