@@ -5,7 +5,11 @@
 <%= image_tag @musician.avatar.profile %><br />
 
 Name:<br />
-<%= @musician.firstname %> <%= @musician.lastname %><br />
+<%= @musician.firstname %> <%= @musician.lastname %><br /><br />
+
+Description:<br />
+<%= @musician.description %>
+
 
 <% if musician_signed_in? %>
   <% if current_musician.id == @musician.id %><br />
