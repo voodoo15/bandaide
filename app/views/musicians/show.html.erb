@@ -56,27 +56,27 @@
       <div id="bands-owned">
         <% if current_musician.id == @musician.id %>
 
-        <% if current_musician.owned_bands.count > 0 %>
+          <% if current_musician.owned_bands.count > 0 %>
 
-          <h1>Bands owned:</h1><br />
+            <h1>Bands owned:</h1><br />
 
-          <% current_musician.owned_bands.each do |band|%>
-            Band:  <%= band.name %><br />
-            <%= button_to 'View Band', band_path(band), :method => :get %><br />
+            <% current_musician.owned_bands.each do |band|%>
+              Band:  <%= band.name %><br />
+              <%= button_to 'View Band', band_path(band), :method => :get %><br />
+            <% end %>
           <% end %>
-        <% end %>
       </div>
 
       <div id="member-of-bands">
-        <% if current_musician.members.count > 0 %>
+          <% if current_musician.members.count > 0 %>
 
-          <h1>Member of:</h1><br />
+            <h1>Member of:</h1><br />
 
-          <% current_musician.members.each do |member|%>
-            Band:  <%= member.band.name %><br />
-            Position:  <%= member.position.description %><br />  <%= button_to 'View Band', band_path(member.band.id), :method => :get %><br />
+            <% current_musician.members.each do |member|%>
+              Band:  <%= member.band.name %><br />
+              Position:  <%= member.position.description %><br />  <%= button_to 'View Band', band_path(member.band.id), :method => :get %><br />
+            <% end %>
           <% end %>
-        <% end %>
       </div>
 
       <div id="pending-approvals">
@@ -113,6 +113,7 @@
 
       <% end %>
     <% end %>
+  <% end %>  
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Figaro.env.google_maps_api_key }&callback=initMap", async: true, defer: true %>
 
     <div id="youtube-window">
