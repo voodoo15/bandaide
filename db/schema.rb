@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 20160519210803) do
     t.integer "musician_id"
     t.integer "position_id"
     t.integer "level"
+    t.boolean "mainskill",   default: false
   end
 
 end

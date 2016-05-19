@@ -25,6 +25,7 @@ class BandsController < ApplicationController
     @genres = Genre.all
     @positions= Position.all
     @band = @musician.owned_bands.build(band_params)
+    binding.pry 
     if @band.save
       redirect_to new_band_member_path(@band)
     else
