@@ -72,6 +72,20 @@ end
     description: Faker::Lorem.sentence,
     avatar: Faker::Avatar.image
   )
+  Musician.create!(
+  email: 'vinnebago@vinnebago.com',
+  password:'123456',
+  password_confirmation:'123456',
+  firstname:'Corkcicle',
+  lastname:'Corkcicle',
+  address: '500 yonge street',
+  city: 'Toronto',
+  province: 'ON',
+  postalcode: 'M4K 2E5',
+  description: 'Test',
+  avatar: Faker::Avatar.image
+
+  )
 end
 
 Band.create!(

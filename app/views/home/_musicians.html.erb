@@ -4,26 +4,27 @@
     <div class="card_content">
     <%= link_to musician.firstname, musician_path(musician.id) %><br />
     <%= image_tag musician.avatar.thumb %><br />
-      <div class="card_content_padding">
+    <div class="musician_position">
+      <% if musician.positions.count() > 0 %>
+
+        <% musician.positions.each do |position| %>
+          <%= position.description %><br />
+        <% end %>
+      <% end %>
+
+        <div class="card_article">
+          <h3 class="position_text"> Singer  </h3>
+            <a class="musician_aboutme"> I love music and stuff </a>
+
 
 
 
 
 
         <div class="social_icons">
-          <a class="facebook" href=""> </a>
-          <a class="instagram" href=""> </a>
-          <a class="twitter" href=""> </a>
+        <a class'profilepic' 
+        <%= image_tag musician.avatar.thumb %> </a>
 
-            <div class="musician_position">
-              <% if musician.positions.count() > 0 %>
-                <h1>Skills:</h1><br />
-                <% musician.positions.each do |position| %>
-                  <%= position.description %><br />
-                <% end %>
-              <% end %>
-
-                <div class="card_article">
 
 
 
@@ -33,7 +34,7 @@
               </div>
            </div>
       </div>
-    </div>
+
 
             <% if current_musician.present? %>
               <%= musician.display_distance_to(@musician) %> km away<br />
