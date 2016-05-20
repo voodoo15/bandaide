@@ -26,58 +26,73 @@ genres.each do |genre|
   Genre.create!(description:  genre)
 end
 
-5.times do
-  Musician.create!(
-    email: Faker::Internet.email,
-    password: '123456',
-    password_confirmation: '123456',
-    firstname: Faker::Name.first_name,
-    lastname: Faker::Name.last_name,
-    address: '2210 Markham Rd',
-    city: 'Scarborough',
-    province: 'ON',
-    postalcode: 'M1B 5V6',
-    description: Faker::Lorem.sentence,
-    avatar: Faker::Avatar.image
-  )
-end
+# 5.times do
+#   Musician.create!(
+#     email: Faker::Internet.email,
+#     password: '123456',
+#     password_confirmation: '123456',
+#     firstname: Faker::Name.first_name,
+#     lastname: Faker::Name.last_name,
+#     address: '2210 Markham Rd',
+#     city: 'Scarborough',
+#     province: 'ON',
+#     postalcode: 'M1B 5V6',
+#     description: Faker::Lorem.sentence,
+#     avatar: Faker::Avatar.image
+#   )
+# end
+#
+# 5.times do
+#   Musician.create!(
+#     email: Faker::Internet.email,
+#     password: '123456',
+#     password_confirmation: '123456',
+#     firstname: Faker::Name.first_name,
+#     lastname: Faker::Name.last_name,
+#     address: '220 King St W, Suite 200',
+#     city: 'Toronto',
+#     province: 'ON',
+#     postalcode: 'M5H 1K4',
+#     description: Faker::Lorem.sentence,
+#     avatar: Faker::Avatar.image
+#   )
+# end
+#
+# 5.times do
+#   Musician.create!(
+#     email: Faker::Internet.email,
+#     password: '123456',
+#     password_confirmation: '123456',
+#     firstname: Faker::Name.first_name,
+#     lastname: Faker::Name.last_name,
+#     address: '220 Yonge St',
+#     city: 'Toronto',
+#     province: 'ON',
+#     postalcode: 'M5B 2H1',
+#     description: Faker::Lorem.sentence,
+#     avatar: Faker::Avatar.image
+#   )
+# end
 
-5.times do
   Musician.create!(
-    email: Faker::Internet.email,
+    email: kirk_hammett@gmail.com,
     password: '123456',
     password_confirmation: '123456',
-    firstname: Faker::Name.first_name,
-    lastname: Faker::Name.last_name,
-    address: '220 King St W, Suite 200',
-    city: 'Toronto',
-    province: 'ON',
-    postalcode: 'M5H 1K4',
-    description: Faker::Lorem.sentence,
-    avatar: Faker::Avatar.image
-  )
-end
-
-5.times do
-  Musician.create!(
-    email: Faker::Internet.email,
-    password: '123456',
-    password_confirmation: '123456',
-    firstname: Faker::Name.first_name,
-    lastname: Faker::Name.last_name,
+    firstname: 'Kirk',
+    lastname: 'Hammett',
     address: '220 Yonge St',
     city: 'Toronto',
     province: 'ON',
     postalcode: 'M5B 2H1',
     description: Faker::Lorem.sentence,
-    avatar: Faker::Avatar.image
+    avatar: Faker::Avatar.image,
+    youtube_url
   )
-end
 
 Band.create!(
-  name: 'Bless the Tyrant',
+  name: 'Metallica',
   description: Faker::Lorem.sentence,
-  genre_id: [*1..13].sample,
+  genre_id: 1,
   poster: Faker::Avatar.image,
   musician_id: 1
 )

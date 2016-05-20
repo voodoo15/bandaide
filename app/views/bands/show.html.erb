@@ -19,18 +19,18 @@
         <% member.approvals.each do |approval| %>
           <%= approval.musician.firstname %>
           <% if approval.approved == false %>
-            <%= link_to 'Accept', band_member_approval_path(@band, member, approval, approval: {approved: true}, member: {musician_id: approval.musician_id}), :method => :put %>
+            <%= button_to 'Accept', band_member_approval_path(@band, member, approval, approval: {approved: true}, member: {musician_id: approval.musician_id}), :method => :put %>
           <% end %>
         <% end %>
 
-        <%= link_to 'Remove', band_member_path(@band, member.id), data: {:confirm => 'Are you sure?'}, :method => :delete %>
+        <%= button_to 'Remove', band_member_path(@band, member.id), data: {:confirm => 'Are you sure?'}, :method => :delete %>
 
 
       <!-- Non Owner -->
       <% elsif @band.leader.id != current_musician.id %>
 
           <% if member.vacant? && current_musician.skilled_enough?(member.position.id) %>
-            <%= link_to 'Apply', band_member_approvals_path(@band, member, approval: {musician_id: current_musician.id, approval: false, member_id: member.id}), :method => :post %>
+            <%= button_to 'Apply', band_member_approvals_path(@band, member, approval: {musician_id: current_musician.id, approval: false, member_id: member.id}), :method => :post %>
           <% elsif member.vacant? && current_musician.skilled_enough?(member.position.id) == false %>
               <p>Cannot apply: this position requires a higher skill level than you currently possess.</p>
           <% else %>

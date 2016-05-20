@@ -33,7 +33,7 @@
     <% if musician_signed_in? %>
       <% if current_musician.id == @musician.id %><br />
 
-        <br /><%= link_to "Edit Profile", edit_musician_registration_path %>
+        <br /><%= button_to "Edit Profile", edit_musician_registration_path %>
 
         <%= form_for [@musician, @skill] do |f| %>
           <div id="field">
@@ -113,7 +113,7 @@
 
       <% end %>
     <% end %>
-  <% end %>  
+  <% end %>
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Figaro.env.google_maps_api_key }&callback=initMap", async: true, defer: true %>
 
     <div id="youtube-window">
