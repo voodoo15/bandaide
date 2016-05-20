@@ -134,6 +134,7 @@ GEM
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     orm_adapter (0.5.0)
+    pg (0.18.4)
     pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -235,6 +236,7 @@ DEPENDENCIES
   jquery-slick-rails
   mini_magick
   neat
+  pg
   pry-byebug
   pry-rails
   rails (= 4.2.4)
