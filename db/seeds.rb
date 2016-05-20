@@ -110,7 +110,12 @@ positions.each do |position|
   Position.create!(description: position)
 end
 
-Skill.create!(
-  musician_id: 1,
-  position_id: 1
-)
+i = 1
+15.times do
+  Skill.create!(
+  musician_id: i,
+  position_id: [*1..7].sample,
+  mainskill: true
+  )
+  i = i + 1
+end

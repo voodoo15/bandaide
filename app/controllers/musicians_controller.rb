@@ -4,11 +4,12 @@ class MusiciansController < ApplicationController
   def show
     @musician = Musician.find(params[:id])
     @nearby_musicians = @musician.nearbys(5, unit: :km)
+    gon.nearby_musicians = @nearby_musicians.collect{ |r| [r.id, r.firstname, r.lastname, r.latitude, r.longitude, r.positions.where(skills: {mainskill: true}).first.description] }
     @positions = Position.all
     @skill = Skill.new
-    gon.nearby_musicians = @nearby_musicians.collect{ |r| [r.id, r.firstname, r.lastname, r.latitude, r.longitude] }
   end
 
+#
   def edit
     @musician = Musician.find(params[:id])
     @positions = Position.all

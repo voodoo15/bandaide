@@ -1,47 +1,44 @@
 <body>
+  <div class="container">
 
+    <div class="hero">
 
-<div class="container">
-
-  <div class="hero">
-
-  </div>
-
-  <main>
-    <h1>Welcome to Band Aide</h1>
-
-    <section id="bands-list">
-      <h3>Bands</h3>
-
-      <div class="bands">
-        <%= render "home/bands" %>
-      </div>
-    </section>
-
-    <section id="musicians-list">
-      <h3>Musicians near you</h3>
-
-      <div class="musicians">
-        <%= render "home/musicians" %>
-      </div>
-    </section>
-
-  </main>
-
-  <aside id="search-category-list">
-    <p>Filter Bands by Genre:</p>
-    <div class="genres-scroll">
-      <ul>
-        <li>
-          <%= link_to "All", remote: true, class: "All" %>
-        </li>
-        <% @genres.each do |genre| %>
-          <li>
-            <%= link_to genre.description, remote: true, class: "#{genre.description}" %>
-          </li>
-        <% end %>
-      </ul>
     </div>
-  </aside>
-</div>
+
+    <main>
+      <h1>Welcome to Band Aide</h1>
+
+      <section id="bands-list">
+        <h3>Bands</h3>
+
+        <div class="bands">
+          <%= render "home/bands" %>
+        </div>
+      </section>
+
+      <section id="musicians-list">
+        <h3>Musicians near you</h3>
+
+        <div class="musicians">
+          <%= render "home/musicians" %>
+        </div>
+      </section>
+    </main>
+
+    <aside id="search-category-list">
+      <p>Filter Bands by Genre:</p>
+      <div class="genres-scroll">
+        <ul>
+          <li>
+            <%= link_to "All", remote: true, class: "All" %>
+          </li>
+          <% @genres.each do |genre| %>
+            <li>
+              <%= link_to genre.description, remote: true, class: "#{genre.description}" %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </aside>
+  </div>
 </body>
