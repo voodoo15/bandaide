@@ -85,7 +85,7 @@ end
     province: 'ON',
     postalcode: 'M5B 2H1',
     description: 'I love hash cookies and rock and roll',
-    avatar: open(ActionController::Base.helpers.asset_path("images/demo_images/kirk_hammett.jpg")),
+    # avatar: open("/Users/VOODOO15/Desktop/images/kirk_hammett.jpg")),
     youtube_url: 'https://www.youtube.com/watch?v=aE2nIii_p68'
   )
 
