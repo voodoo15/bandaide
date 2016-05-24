@@ -9,7 +9,7 @@
   console.log(locations)
   var map = new google.maps.Map(map_placeholder[0],{
     center: myLatLng,
-    zoom: 15
+    zoom: 10
   });
 
   var infowindow = new google.maps.InfoWindow({
@@ -20,6 +20,7 @@
     position: myLatLng,
     // strokeColor: "green",
   })
+    markero.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png')
     markero.setMap(map);
 
     for (i = 0; i < locations.length; i++) {
@@ -28,7 +29,7 @@
         position: location,
         clickable: true,
         url: '/musicians/'+locations[i][0] ,
-        title: locations[i][1]+" "+locations[i][5]
+        title: locations[i][1]+ " " +locations[i][5]
       });
       marker.addListener('click', function() {window.location.href = marker.url;});
         marker.setMap(map);

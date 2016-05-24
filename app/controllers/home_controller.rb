@@ -4,8 +4,8 @@ class HomeController < ApplicationController
     @musicians = Musician.order("RANDOM()").limit(8)
     @genres = Genre.all
 
-    @bands = if params[:search]
-      Band.joins(:genre).where("LOWER(genres.description) LIKE LOWER (?)", "%#{params[:search]}%")
+    if params[:search]
+      @bands = Band.joins(:genre).where("LOWER(genres.description) LIKE LOWER (?)", "%#{params[:search]}%")
     else
       @bands = Band.order("RANDOM()").limit(4)
     end
