@@ -39,6 +39,20 @@
           <% end %>
         </ul>
       </div>
+      <p>Filter Musicians by Position:</p>
+      <div class="positions-scroll">
+          <ul>
+            <li>
+              <%= link_to "All", remote: true, class: "All" %>
+            </li>
+            <% @positions.each do |position| %>
+              <li>
+                <%= link_to position.description, remote: true, class: "#{position.description}" %>
+              </li>
+            <% end %>
+          </ul>
+      </div>
+
     </aside>
   </div>
 </body>
