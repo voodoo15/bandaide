@@ -85,7 +85,7 @@ end
     province: 'ON',
     postalcode: 'M6G 1C2',
     description: 'I love hash cookies and rock and roll',
-    avatar: open("/Users/francisgallo/Desktop/images/kirk_hammett.jpg"),
+    avatar: open(Rails.root + "app/assets/images/demo_images/kirk_hammett.jpg"),
     youtube_url: 'https://www.youtube.com/watch?v=aE2nIii_p68'
   )
 
@@ -106,7 +106,11 @@ end
     province: 'ON',
     postalcode: 'M4K 1N2',
     description: 'I love/hate Lars',
+<<<<<<< HEAD
     avatar: open("/Users/francisgallo/Desktop/images/james_hetfield.jpg"),
+=======
+    avatar: open(Rails.root + "app/assets/images/demo_images/james_hetfield.jpg"),
+>>>>>>> f7a951d11c4b78ab141c205dd2b7607994436fed
     youtube_url: 'https://www.youtube.com/watch?v=IfalN7ZWLek'
   )
 
@@ -127,7 +131,7 @@ end
     province: 'ON',
     postalcode: 'M5G 1H1',
     description: "I can drum...really...I'm not that bad a drummer",
-    avatar: open("/Users/francisgallo/Desktop/images/lars_ulrich.jpg"),
+    avatar: open(Rails.root + "app/assets/images/demo_images/lars_ulrich.jpg"),
     youtube_url: 'https://www.youtube.com/watch?v=IfalN7ZWLek'
   )
 
@@ -148,7 +152,7 @@ end
     province: 'ON',
     postalcode: 'M5V 2W6',
     description: "Best singer...EVER!",
-    avatar: open("/Users/francisgallo/Desktop/images/anthony_kiedis.jpg"),
+    avatar: open(Rails.root + "app/assets/images/demo_images/anthony_kiedis.jpg"),
     youtube_url: 'https://www.youtube.com/watch?v=o1HCEYZ6p5Y'
   )
 
@@ -169,7 +173,7 @@ end
     province: 'ON',
     postalcode: 'M5A 1M1',
     description: "Flea...nuff said",
-    avatar: open("/Users/francisgallo/Desktop/images/flea.jpg"),
+    avatar: open(Rails.root + "app/assets/images/demo_images/flea.jpg"),
     youtube_url: 'https://www.youtube.com/watch?v=5FrI5lNvCnQ'
   )
 
@@ -190,7 +194,7 @@ end
     province: 'ON',
     postalcode: 'M5T 1G7',
     description: "Maroon 5 wrote a song about my moves...",
-    avatar: open("/Users/francisgallo/Desktop/images/mick_jagger.jpg"),
+    avatar: open(Rails.root + "app/assets/images/demo_images/mick_jagger.jpg"),
     youtube_url: 'https://www.youtube.com/watch?v=jf35K2Ps_aY'
   )
 
@@ -211,7 +215,7 @@ end
     province: 'ON',
     postalcode: 'M5T 1M2',
     description: "Original pirate of the Caribbean",
-    avatar: open("/Users/francisgallo/Desktop/images/keith_richards.png"),
+    avatar: open(Rails.root + "app/assets/images/demo_images/keith_richards.png"),
     youtube_url: 'https://www.youtube.com/watch?v=jf35K2Ps_aY'
   )
 
@@ -259,7 +263,7 @@ Band.create!(
   name: 'Metallica',
   description: "We're the best thrash metal band in the world!",
   genre_id: 2,
-  poster: open('/Users/francisgallo/Desktop/images/metallica.jpg'),
+  poster: open(Rails.root + "app/assets/images/demo_images/metallica.jpg"),
   musician_id: 1
 )
 
@@ -267,7 +271,7 @@ Band.create!(
   name: 'Red Hot Chili Peppers',
   description: "Give it away now!",
   genre_id: 4,
-  poster: open('/Users/francisgallo/Desktop/images/red_hot_chili_peppers.jpg'),
+  poster: open(Rails.root + "app/assets/images/demo_images/red_hot_chili_peppers.jpg"),
   musician_id: 4
 )
 
@@ -275,7 +279,7 @@ Band.create!(
   name: 'The Rolling Stones',
   description: "We've been around since Christ wore short pants",
   genre_id: 1,
-  poster: open('/Users/francisgallo/Desktop/images/rolling_stones.jpg'),
+  poster: open(Rails.root + "app/assets/images/demo_images/rolling_stones.jpg"),
   musician_id: 6
 )
 
