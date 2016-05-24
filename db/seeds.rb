@@ -106,7 +106,11 @@ end
     province: 'ON',
     postalcode: 'M4K 1N2',
     description: 'I love/hate Lars',
+<<<<<<< HEAD
+    avatar: open("/Users/francisgallo/Desktop/images/james_hetfield.jpg"),
+=======
     avatar: open(Rails.root + "app/assets/images/demo_images/james_hetfield.jpg"),
+>>>>>>> f7a951d11c4b78ab141c205dd2b7607994436fed
     youtube_url: 'https://www.youtube.com/watch?v=IfalN7ZWLek'
   )
 
