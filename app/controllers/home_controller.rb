@@ -7,7 +7,7 @@ class HomeController < ApplicationController
     if params[:search]
       @bands = Band.joins(:genre).where("LOWER(genres.description) LIKE LOWER (?)", "%#{params[:search]}%")
     else
-      @bands = Band.all #.order("RANDOM()").limit(4)
+      @bands = Band.order("RANDOM()").limit(4)
     end
 
     respond_to do |format|
