@@ -10,8 +10,6 @@ development:
   encoding: unicode
   database: bandaide_production
   pool: 5
-  user:  bandaide
-  password:  password
   host:  localhost
   port: 5432
 
@@ -23,8 +21,6 @@ test:
   encoding: unicode
   database: bandaide_production
   pool: 5
-  user:  bandaide
-  password:  password
   host:  localhost
   port: 5432
 
@@ -33,7 +29,5 @@ production:
   encoding: unicode
   database: bandaide_production
   pool: 5
-  user:  bandaide
-  password:  password
   host:  localhost
   port: 5432
