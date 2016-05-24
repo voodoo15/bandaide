@@ -2,7 +2,7 @@
 <% @bands.each do |band| %>
   <li>
   <%= link_to band_path(band.id) do %>
-    <%= image_tag band.poster.thumb %>
+    <%= image_tag band.poster.profile %>
     <p><%= band.name %></p>
   <% end %>
   </li>

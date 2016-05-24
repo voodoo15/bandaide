@@ -3,9 +3,10 @@
     <li>
     <div class="card_content">
     <%= link_to musician.firstname, musician_path(musician.id) %><br />
-    <%= image_tag musician.avatar.thumb %><br />
-    <div class="musician_position">
-      <% if musician.positions.count() > 0 %>
+
+    <%= image_tag musician.avatar.profile %><br />
+      <div class="card_content_padding">
+
 
         <% musician.positions.each do |position| %>
           <%= position.description %><br />
@@ -22,7 +23,7 @@
 
 
         <div class="social_icons">
-        <a class'profilepic' 
+        <a class'profilepic'
         <%= image_tag musician.avatar.thumb %> </a>
 
 

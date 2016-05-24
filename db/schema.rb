@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160519210803) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "approvals", force: :cascade do |t|
     t.integer "member_id"
     t.integer "musician_id"
@@ -69,8 +72,8 @@ ActiveRecord::Schema.define(version: 20160519210803) do
     t.string   "youtube_url"
   end
 
-  add_index "musicians", ["email"], name: "index_musicians_on_email", unique: true
-  add_index "musicians", ["reset_password_token"], name: "index_musicians_on_reset_password_token", unique: true
+  add_index "musicians", ["email"], name: "index_musicians_on_email", unique: true, using: :btree
+  add_index "musicians", ["reset_password_token"], name: "index_musicians_on_reset_password_token", unique: true, using: :btree
 
   create_table "positions", force: :cascade do |t|
     t.string   "description"
