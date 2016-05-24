@@ -241,6 +241,20 @@ end
     mainskill: true
   )
 
+  # Musician.create!(
+  #   email: 'justin_bieber@gmail.com',
+  #   password: '123456',
+  #   password_confirmation: '123456',
+  #   firstname: 'Justin',
+  #   lastname: 'Bieber',
+  #   address: '220 King St W',
+  #   city: 'Toronto',
+  #   province: 'ON',
+  #   postalcode: 'M5H 1K4',
+  #   description: "Stratford's finest...I'm Sorry...Jailbait",
+  #   youtube_url: 'https://www.youtube.com/watch?v=fRh_vgS2dFE'
+  # )
+
 Band.create!(
   name: 'Metallica',
   description: "We're the best thrash metal band in the world!",
@@ -288,3 +302,51 @@ end
 #   )
 #   i = i + 1
 # end
+
+Member.create!(
+  musician_id:  1,
+  band_id:  1,
+  position_id:  4
+)
+
+Member.create!(
+  musician_id:  2,
+  band_id:  1,
+  position_id:  2
+)
+
+Member.create!(
+  musician_id:  3,
+  band_id:  1,
+  position_id:  3
+)
+
+Member.create!(
+  musician_id:  4,
+  band_id:  2,
+  position_id:  1
+)
+
+Member.create!(
+  musician_id:  5,
+  band_id:  2,
+  position_id:  7
+)
+
+Member.create!(
+  musician_id:  6,
+  band_id:  3,
+  position_id:  1
+)
+
+Member.create!(
+  musician_id:  7,
+  band_id:  3,
+  position_id:  4
+)
+
+Member.create!(
+  musician_id:  8,
+  band_id:  3,
+  position_id:  2
+)

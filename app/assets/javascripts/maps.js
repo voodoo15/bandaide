@@ -9,7 +9,7 @@
   console.log(locations)
   var map = new google.maps.Map(map_placeholder[0],{
     center: myLatLng,
-    zoom: 15
+    zoom: 10
   });
 
   var infowindow = new google.maps.InfoWindow({
