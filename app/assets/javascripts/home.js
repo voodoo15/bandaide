@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 $(document).on('ready page:load', function() {
   $('#search-category-list a').on('click', function(event) {
+=======
+$(document).on('ready', function() {
+
+  $('.genres-scroll a').on('click', function(event) {
+>>>>>>> 99e70058bc1ee8bc99d244032e6cc80fc5c3856d
     event.preventDefault();
 
     var searchValue = $(this).html();
@@ -12,7 +18,7 @@ $(document).on('ready page:load', function() {
       url: '/?search=' + searchValue,
       type:  'GET',
       dataType: 'html',
-      data: searchValue,
+      data: 'type=band',
       success:  function(data) {
         if (data) {
           console.log(data);
@@ -20,8 +26,31 @@ $(document).on('ready page:load', function() {
         }
       }
     });
+  });
 
     // $.getScript('/?search=' + searchValue, function(data){$('#bands-list').html(data)});
+
+  $('.positions-scroll a').on('click', function(event) {
+    event.preventDefault();
+
+    var searchValue = $(this).html();
+
+    if ($(this).html() === "All") {
+      searchValue = "";
+    }
+
+    $.ajax({
+      url: '/?search=' + searchValue ,
+      type:  'GET',
+      dataType: 'html',
+      data: 'type=musician',
+      success:  function(data) {
+        if (data) {
+          console.log(data);
+          $('.musicians').html(data);
+        }
+      }
+    });
   });
 
   $('#nav-toggle').on('click', function(e) {
