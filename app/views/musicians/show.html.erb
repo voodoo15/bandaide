@@ -97,26 +97,6 @@
         <% end %>
 
 
-    <%= form_for [@musician, @skill] do |f| %>
-      <div id="field">
-        <%= f.label :position %><br />
-        <%= f.select :position_id, options_for_select(@positions.collect  { |p| [ p.description, p.id] }) %>
-        <%= f.label :categories %>
-        <%= f.select :level, [['Beginner', 1], ['Intermediate', 2], ['Advanced', 3]]  %>
-        <%= f.hidden_field :musician_id, :value => current_musician.id %>
-
-        <% if  @musician.skills.where(mainskill: true).count() == 0 %>
-          <%= f.label :mainskill %>
-          <%= f.check_box(:mainskill) %>
-        <% end %>
-
-      </div>
-      <div>
-        <%= f.submit %>
-
-      </div>
-
-      <% end %>
     <% end %>
   <% end %>
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Figaro.env.google_maps_api_key }&callback=initMap", async: true, defer: true %>
