@@ -18,7 +18,6 @@ before_action :authenticate_musician!, except: [:show, :index]
   end
 
   def update
-    binding.pry
     @musician = Musician.find(params[:musician_id])
 
     @old_primary_skill = @musician.skills.find_by(mainskill: true)
