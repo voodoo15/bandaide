@@ -106,11 +106,10 @@ end
     province: 'ON',
     postalcode: 'M4K 1N2',
     description: 'I love/hate Lars',
-<<<<<<< HEAD
-    avatar: open("/Users/francisgallo/Desktop/images/james_hetfield.jpg"),
-=======
+
+
     avatar: open(Rails.root + "app/assets/images/demo_images/james_hetfield.jpg"),
->>>>>>> f7a951d11c4b78ab141c205dd2b7607994436fed
+
     youtube_url: 'https://www.youtube.com/watch?v=IfalN7ZWLek'
   )
 
@@ -244,7 +243,7 @@ end
     position_id: 2,
     mainskill: true
   )
-<<<<<<< HEAD
+
   Musician.create!(
   email: 'vinnebago@vinnebago.com',
   password:'123456',
@@ -259,9 +258,8 @@ end
   avatar: Faker::Avatar.image
 
   )
-end
-=======
->>>>>>> d1d28284cde91760c458e976ba6058612d7c9145
+
+
 
   # Musician.create!(
   #   email: 'justin_bieber@gmail.com',

@@ -10,28 +10,41 @@ body{
 
 
 
+
+
 }
 
 main {
-  @include span-columns(10);
+  @include span-columns(7);
+
+
+
+
 
 
   h1 {
     text-align: center;
     color: white;
+    margin-left: 600px;
   }
 
   h2 {
-    text-align: left;
+    text-align: center;
   }
 
   h3 {
     color: white;
     margin-top: 25px;
+    text-align: center;
+    margin-left: 400px;
   }
 
   ul.band-list {
     @include outer-container;
+    margin-left: 400px;
+
+
+
 
     h1 {
       color: white;
@@ -48,6 +61,10 @@ main {
         inset 0 10px 20px rgba(255,255,255,0.25),
         inset 0 -15px 30px rgba(0,0,0,0.3);
 
+
+
+
+
       a {
         display: block;
         color: white;
@@ -57,7 +74,7 @@ main {
 
   ul.musicians-list {
     @include outer-container;
-
+    margin-left: 300px;
     li {
       @include span-columns(4 of 12);
       @include omega(3n);
@@ -104,29 +121,39 @@ main {
 
       p {
         font-size: 0.77em;
+
       }
 
       a {
       display: block;
       color: white;
+
       }
     }
   }
 }
 
-aside {
-  @include span-columns(2);
-  color: white;
+
+
+p.filter_genre {
+  text-align: left;
+
+}
+
 
   div.genres-scroll {
+    @include span-columns(5);
     height: 500px;
     overflow: auto;
+    text-align: right;
+    color: white;
+    margin-left: 200px;
   }
 
   a {
     color: white;
   }
-}
+
 
 .hero {
   background-image: url("home/index/Band_Aide_Logo");
