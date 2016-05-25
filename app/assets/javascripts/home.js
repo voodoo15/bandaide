@@ -1,10 +1,10 @@
 $(document).on('ready', function() {
 
-  $('#search-category-list a').on('click', function(event) {
+  $('.genres-scroll a').on('click', function(event) {
     event.preventDefault();
 
     var searchValue = $(this).html();
-    
+
     if ($(this).html() === "All") {
       searchValue = "";
     }
@@ -13,7 +13,7 @@ $(document).on('ready', function() {
       url: '/?search=' + searchValue,
       type:  'GET',
       dataType: 'html',
-      data: searchValue,
+      data: 'type=band',
       success:  function(data) {
         if (data) {
           console.log(data);
@@ -21,8 +21,28 @@ $(document).on('ready', function() {
         }
       }
     });
+  });
 
+  $('.positions-scroll a').on('click', function(event) {
+    event.preventDefault();
 
-    // $.getScript('/?search=' + searchValue, function(data){$('#bands-list').html(data)});
+    var searchValue = $(this).html();
+
+    if ($(this).html() === "All") {
+      searchValue = "";
+    }
+
+    $.ajax({
+      url: '/?search=' + searchValue ,
+      type:  'GET',
+      dataType: 'html',
+      data: 'type=musician',
+      success:  function(data) {
+        if (data) {
+          console.log(data);
+          $('.musicians').html(data);
+        }
+      }
+    });
   });
 });
