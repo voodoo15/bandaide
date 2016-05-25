@@ -18,10 +18,11 @@
 <% if @musician.skills.count() > 0 %>
   <h1>Skills:</h1><br />
   <% @musician.skills.each do |skill| %>
-    Skill:  <%= skill.position.description %> Level: <%= skill.display_level %> Primary Skill:  <%= skill.mainskill %><br />
+    Skill:  <%= skill.position.description %><br /> Level: <%= skill.display_level %><br />Primary Skill:  <%= skill.mainskill %><br />
 
     <% if skill.mainskill == false %>
-      <%= button_to 'Make Primary Skill', musician_skill_path(@musician, skill, skill: {mainskill: true}), method: :put %>
+      <%= button_to "Make Primary Skill", musician_skill_path(@musician, skill, skill: {mainskill: true}), method: :put %>
+      <%= button_to "Remove Skill", skill_path(skill), method: :delete %>
     <% end %>
   <% end %>
 <% end %>
