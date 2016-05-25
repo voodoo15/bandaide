@@ -1,15 +1,13 @@
 <div class="container">
 
+
   <br />
   <aside id="profile-side">
     <h1><%= @musician.firstname %> <%= @musician.lastname %></h1>
 
-<h3>Bio:</h3><br />
+    <h3>Bio:</h3><br />
 
     <%= button_to "Back", request.referer.present? ? request.referer : root_path, method: :get %><br />
-
-    <h3>Bio</h3><br />
-
 
     <%= image_tag @musician.avatar.profile %><br />
 
@@ -18,17 +16,13 @@
 
 <% if @musician.positions.count() > 0 %>
   <h1>Skills:</h1><br />
-  <% @musician.positions.each do |position| %>
-    <%= position.description %><br />
+  <% @musician.skills.each do |skill| %>
+    Skill:  <%= skill.position.description %> Primary Skill:  <%= skill.mainskill %><br />
+    <% if skill.mainskill == false %>
+      <%= button_to 'Make Primary', musician_skills_path(@musician, skill, skills: {skill_id: skill.id, mainskill: true}), :method => :post %>
+    <% end %>
   <% end %>
 <% end %>
-
-
-    Name:<br />
-    <%= @musician.firstname %> <%= @musician.lastname %><br /><br />
-
-    Description:<br />
-    <%= @musician.description %>
 
     <% if musician_signed_in? %>
       <% if current_musician.id == @musician.id %><br />
@@ -42,6 +36,11 @@
             <%= f.label :categories %>
             <%= f.select :level, [['Beginner', 1], ['Intermediate', 2], ['Advanced', 3]]  %>
             <%= f.hidden_field :musician_id, :value => current_musician.id %>
+
+            <% if @musician.skills.where(mainskill: true).count() == 0 %>
+              <%= f.hidden_field :mainskill, value: true %>
+            <% end %>
+
           </div>
           <div>
             <%= f.submit %>
@@ -125,4 +124,6 @@
       </div>
     </div>
   </main>
+
+
 </div>
