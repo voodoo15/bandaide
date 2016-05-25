@@ -8,6 +8,7 @@
     <h3>Bio:</h3><br />
 
     <%= button_to "Back", request.referer.present? ? request.referer : root_path, method: :get %><br />
+    <br /><%= button_to "Edit Profile", edit_musician_registration_path %>
 
     <%= image_tag @musician.avatar.profile %><br />
 
@@ -17,7 +18,8 @@
 <% if @musician.skills.count() > 0 %>
   <h1>Skills:</h1><br />
   <% @musician.skills.each do |skill| %>
-    Skill:  <%= skill.position.description %> Primary Skill:  <%= skill.mainskill %><br />
+    Skill:  <%= skill.position.description %> Level: <%= skill.display_level %> Primary Skill:  <%= skill.mainskill %><br />
+
     <% if skill.mainskill == false %>
       <%= button_to 'Make Primary Skill', musician_skill_path(@musician, skill, skill: {mainskill: true}), method: :put %>
     <% end %>
@@ -27,7 +29,7 @@
     <% if musician_signed_in? %>
       <% if current_musician.id == @musician.id %><br />
 
-        <br /><%= button_to "Edit Profile", edit_musician_registration_path %>
+<h1>Create New Skill:</h1>
 
         <%= form_for [@musician, @skill] do |f| %>
           <div id="field">
