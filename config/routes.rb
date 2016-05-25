@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :musicians, only: [:show,:edit,:update] do
-      resources :skills, only: [:create]
+      resources :skills, only: [:create, :update]
   end
 
   resources :home, only: [:index]

@@ -14,12 +14,12 @@
 <h1>Description:</h1><br />
 <%= @musician.description %><br />
 
-<% if @musician.positions.count() > 0 %>
+<% if @musician.skills.count() > 0 %>
   <h1>Skills:</h1><br />
   <% @musician.skills.each do |skill| %>
     Skill:  <%= skill.position.description %> Primary Skill:  <%= skill.mainskill %><br />
     <% if skill.mainskill == false %>
-      <%= button_to 'Make Primary', musician_skills_path(@musician, skill, skills: {skill_id: skill.id, mainskill: true}), :method => :post %>
+      <%= button_to 'Make Primary Skill', musician_skill_path(@musician, skill, skill: {mainskill: true}), method: :put %>
     <% end %>
   <% end %>
 <% end %>
