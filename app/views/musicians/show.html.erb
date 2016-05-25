@@ -6,7 +6,7 @@
 
 <h3>Bio:</h3><br />
 
-    <%= link_to "Back", request.referer.present? ? request.referer : root_path %><br />
+    <%= button_to "Back", request.referer.present? ? request.referer : root_path, method: :get %><br />
 
     <h3>Bio</h3><br />
 
