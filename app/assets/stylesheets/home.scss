@@ -4,7 +4,7 @@
 body{
   background-image: url(background/564960.jpg);
   background-size: cover;
-<<<<<<< HEAD
+
 
 
 
@@ -20,12 +20,12 @@ main {
 
 
 
-=======
+
   padding: auto;
 }
 
 main {
->>>>>>> 929c5ef73f7e34d63f8e2db2e477b290d577773d
+
   h1 {
     text-align: center;
     color: white;
@@ -143,9 +143,9 @@ main {
   width: 20%;
 
   transition: right 0.25s;
+}
 
-
-  &.is-open {
+  .is-open {
     right: 0;
   }
 
