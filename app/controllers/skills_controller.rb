@@ -36,7 +36,14 @@ before_action :authenticate_musician!, except: [:show, :index]
     else
       redirect_to musician_url(@musician)
     end
+  end
 
+  def destroy
+    binding.pry
+    @musician = Musician.find(params[:musician_id])
+    @skill = Skill.find(params[:id])
+    @skill.destroy
+    redirect_to musician_url(@musician)
   end
 
   private

@@ -8,7 +8,7 @@
     <h3>Bio:</h3><br />
 
     <%= button_to "Back", request.referer.present? ? request.referer : root_path, method: :get %><br />
-    <br /><%= button_to "Edit Profile", edit_musician_registration_path %>
+    <br /><%= button_to "Edit Profile", edit_musician_registration_path, method: :get %>
 
     <%= image_tag @musician.avatar.profile %><br />
 
@@ -22,8 +22,13 @@
 
     <% if skill.mainskill == false %>
       <%= button_to "Make Primary Skill", musician_skill_path(@musician, skill, skill: {mainskill: true}), method: :put %>
-      <%= button_to "Remove Skill", skill_path(skill), method: :delete %>
+      <%= button_to "Remove Skill", musician_skill_path(@musician, skill), method: :delete %>
+    <% else %>
+    <p>
+      Change the primary skill first before removing this skill
+    </p>
     <% end %>
+
   <% end %>
 <% end %>
 
