@@ -3,14 +3,14 @@ Rails.application.routes.draw do
   devise_for :musicians
   root 'home#index'
 
-  resources :bands, except: [:destory] do
+  resources :bands, except: [:destroy] do
       resources :members, only: [:create, :destroy, :new, :update] do
         resources :approvals, only: [:create, :update]
       end
   end
 
   resources :musicians, only: [:show,:edit,:update] do
-      resources :skills, only: [:create]
+      resources :skills, only: [:create, :update, :destroy]
   end
 
   resources :home, only: [:index]

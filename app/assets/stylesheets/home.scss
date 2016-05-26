@@ -1,12 +1,10 @@
-
 @import 'http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css';
 @import 'http://fonts.googleapis.com/css?family=Roboto:700,400';
-
-
 
 body{
   background-image: url(background/564960.jpg);
   background-size: cover;
+<<<<<<< HEAD
 
 
 
@@ -22,6 +20,12 @@ main {
 
 
 
+=======
+  padding: auto;
+}
+
+main {
+>>>>>>> 929c5ef73f7e34d63f8e2db2e477b290d577773d
   h1 {
     text-align: center;
     color: white;
@@ -52,8 +56,6 @@ main {
     }
 
     li {
-      @include span-columns(3 of 12);
-      @include omega(4n);
       text-align: center;
       -webkit-box-shadow:
         0 2px 8px rgba(0,0,0,0.5),
@@ -76,8 +78,6 @@ main {
     @include outer-container;
     margin-left: 300px;
     li {
-      @include span-columns(4 of 12);
-      @include omega(3n);
       text-align: center;
       margin-bottom: 20px;
       -webkit-box-shadow:
@@ -100,9 +100,6 @@ main {
         box-shadow:
         0 2px 4px rgba(0,0,0, 0.12),
         0 2px 4px rgba(0,0,0, 0.24);
-
-
-
         }
 
         h3.position_text
@@ -135,27 +132,31 @@ main {
 
 
 
-p.filter_genre {
-  text-align: right;
-  margin-right: 70px;
 
 
+#sidebar {
+  background-color: white;
+  color: black;
+  position: fixed;
+  top: 60px;
+  right: -20%;
+  width: 20%;
+
+  transition: right 0.25s;
+
+
+  &.is-open {
+    right: 0;
+  }
+
+
+#nav-toggle.is-open {
+  color: white;
 }
 
-
-  div.genres-scroll {
-    @include span-columns(5);
-    height: 500px;
-    overflow: auto;
-    text-align: right;
-    color: white;
-    margin-left: 200px;
-  }
-
-  a {
-    color: white;
-  }
-
+#nav-toggle.is-open {
+  color: black;
+}
 
 .hero {
   background-image: url("home/index/Band_Aide_Logo");
@@ -164,5 +165,162 @@ p.filter_genre {
   height: 700px;
   position: relative;
   bottom: 210px;
-
 }
+
+// Code for modal, if we want one
+// .modal {
+//   $base-border-color: #dcdcdc !default;
+//   $base-border-radius: 3px !default;
+//   $base-background-color: #fff !default;
+//   $base-font-size: 1em !default;
+//   $base-line-height: 1.5em !default;
+//   $action-color: #477dca !default;
+//   $dark-gray: #333 !default;
+//   $light-gray: #ddd !default;
+//   $medium-screen: 40em !default;
+//   $large-screen: 53.75em !default;
+//   $base-font-color: $dark-gray !default;
+//   $modal-padding: 3em;
+//   $modal-background: $base-background-color;
+//   $modal-close-color: $light-gray;
+//   $modal-image-height: 135px;
+//   $modal-image-width: $modal-image-height;
+//   $modal-trigger-image-width: 300px;
+//
+//   label {
+//     cursor: pointer;
+//     margin-bottom: 0;
+//   }
+//
+//   label img {
+//     border-radius: $modal-trigger-image-width / 2;
+//     display: block;
+//     max-width: $modal-trigger-image-width;
+//   }
+//
+//   .modal-state {
+//     display: none;
+//   }
+//
+//   .modal-trigger {
+//     padding: 0.8em 1em;
+//     cursor: pointer;
+//   }
+//
+//   .modal-fade-screen { // overlay
+//     @include position(fixed, 0);
+//     background-color: rgba(#000, 0.85);
+//     opacity: 0;
+//     padding-top: 0.6em;
+//     text-align: left;
+//     transition: opacity 0.25s ease;
+//     visibility: hidden;
+//     z-index: 99999999999;
+//
+//     @include media($large-screen) {
+//       padding-top: 10em;
+//     }
+//
+//     .modal-bg {
+//       @include position(absolute, 0);
+//       cursor: pointer;
+//     }
+//   }
+//
+//   .modal-close {
+//     @include position(absolute, ($modal-padding /2) ($modal-padding /2) null null);
+//     @include size(1.5em);
+//     background: $modal-background;
+//     cursor: pointer;
+//
+//     &::after,
+//     &::before {
+//       @include position(absolute, 3px 3px 0 50%);
+//       // @include size(0.15em 1.5em);
+//       background: $modal-close-color;
+//       content: "";
+//       display: block;
+//       margin: -3px 0 0 -1px;
+//       transform: rotate(45deg);
+//     }
+//
+//     &:hover::after,
+//     &:hover::before {
+//       background: darken($modal-close-color, 10%);
+//     }
+//
+//     &::before {
+//       transform: rotate(-45deg);
+//     }
+//   }
+//
+//   .modal-inner {
+//     background: $modal-background;
+//     border-radius: $base-border-radius;
+//     margin: auto;
+//     margin-top: 0;
+//     max-height: 95%;
+//     overflow: auto;
+//     padding: $modal-padding / 2;
+//     position: relative;
+//     transition: opacity 0.25s ease;
+//     width: 95%;
+//
+//     @include media($medium-screen) {
+//       max-height: 70%;
+//       padding: $modal-padding;
+//       width: 60%;
+//     }
+//
+//     @include media($large-screen) {
+//       width: 50%;
+//     }
+//
+//     h1 {
+//       color: $base-font-color;
+//       text-align: left;
+//       text-transform: capitalize;
+//     }
+//
+//     p {
+//       color: $base-font-color;
+//       line-height: $base-line-height;
+//     }
+//
+//     .modal-intro {
+//       margin-bottom: 1em;
+//     }
+//
+//     .modal-content {
+//       color: $base-font-color;
+//
+//       @include media($medium-screen) {
+//         columns: 2 8em;
+//       }
+//     }
+//
+//     a.cta {
+//       color: $base-background-color;
+//       display: inline-block;
+//       margin-right: 0.5em;
+//       margin-top: 1em;
+//
+//       &:last-child {
+//         padding: 0 2em;
+//       }
+//     }
+//   }
+//
+//   .modal-state:checked + .modal-fade-screen {
+//     opacity: 1;
+//     visibility: visible;
+//   }
+//
+//   .modal-state:checked + .modal-fade-screen .modal-inner {
+//     top: 0.5em;
+//   }
+// }
+//
+// .modal-open {
+//   overflow: hidden;
+// }

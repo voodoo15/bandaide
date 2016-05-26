@@ -11,7 +11,8 @@ class BandsController < ApplicationController
     @member = Member.new
     @positions = Position.all
     @nearby_musicians = @musician.nearbys(5, unit: :km)
-    gon.nearby_musicians = @nearby_musicians.collect{ |r| [r.id, r.firstname, r.lastname, r.latitude, r.longitude, r.positions.where(skills: {mainskill: true}).first.description] }
+    gon.nearby_musicians = @nearby_musicians.collect{ |r| [r.id, r.firstname, r.lastname, r.latitude, r.longitude] }
+    # gon.nearby_musicians = @nearby_musicians.collect{ |r| [r.id, r.firstname, r.lastname, r.latitude, r.longitude, r.positions.where(skills: {mainskill: true}).first.description] }
   end
 
   def new
@@ -25,7 +26,6 @@ class BandsController < ApplicationController
     @genres = Genre.all
     @positions= Position.all
     @band = @musician.owned_bands.build(band_params)
-    binding.pry
     if @band.save
       redirect_to new_band_member_path(@band)
     else
