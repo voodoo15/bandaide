@@ -6,7 +6,6 @@
 
 
   var locations = gon.nearby_musicians;
-  console.log(locations)
   var map = new google.maps.Map(map_placeholder[0],{
     center: myLatLng,
     zoom: 10

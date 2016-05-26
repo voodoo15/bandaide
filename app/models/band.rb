@@ -20,4 +20,5 @@ class Band < ActiveRecord::Base
   def latitude
     return self.leader.latitude
   end
+  
 end
