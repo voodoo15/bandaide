@@ -10,16 +10,9 @@ aside {
 main {
 
   #bands-list {
-    @include outer-container;
-    @include span-columns(3);
-    @include omega(4n);
   }
 
   #musicians-list {
-    @include outer-container;
-    @include span-columns(3);
-    @include omega(4n);
-    width: 33%;
   }
 
   h1 {
@@ -38,23 +31,15 @@ main {
   }
 
   #bands-owned {
-    @include span-columns(4);
-    // @include omega(4n)
   }
 
   #member-of-bands {
-    @include span-columns(4);
-    @include omega(4n);
   }
 
   #youtube-window {
-    @include span-columns(8);
-    @include omega(8n);
   }
 
   #nearby-musicians {
-    @include span-columns(8);
-    @include omega(8n);
   }
 
   .embed-container {

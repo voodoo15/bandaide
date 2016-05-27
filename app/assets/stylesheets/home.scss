@@ -4,23 +4,9 @@
 body{
   background-image: url(background/564960.jpg);
   background-size: cover;
-
-
-
-
-
-
 }
 
 main {
-  @include span-columns(7);
-
-
-
-
-
-
-
   padding: auto;
 }
 
@@ -44,11 +30,7 @@ main {
   }
 
   ul.band-list {
-    @include outer-container;
     margin-left: 400px;
-
-
-
 
     h1 {
       color: white;
@@ -63,10 +45,6 @@ main {
         inset 0 10px 20px rgba(255,255,255,0.25),
         inset 0 -15px 30px rgba(0,0,0,0.3);
 
-
-
-
-
       a {
         display: block;
         color: white;
@@ -75,7 +53,6 @@ main {
   }
 
   ul.musicians-list {
-    @include outer-container;
     margin-left: 300px;
     li {
       text-align: center;
@@ -86,7 +63,6 @@ main {
         inset 0 10px 20px rgba(255,255,255,0.25),
         inset 0 -15px 30px rgba(0,0,0,0.3);
       border: blurred;
-
 
       .social_icons {
         display: inline-block;
@@ -105,14 +81,12 @@ main {
         h3.position_text
         { margin-top: 50px;
 
-
         }
         .card_article{
           width: 100%;
         }
 
         a.musician_aboutme {
-
 
         }
 
@@ -130,10 +104,6 @@ main {
   }
 }
 
-
-
-
-
 #sidebar {
   background-color: white;
   color: black;
@@ -148,7 +118,6 @@ main {
   .is-open {
     right: 0;
   }
-
 
 #nav-toggle.is-open {
   color: white;
