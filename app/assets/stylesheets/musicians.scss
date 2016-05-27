@@ -3,13 +3,24 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 aside {
-  @include span-columns(4);
+  // @include span-columns(4);
   padding: 20px;
   }
 
 main {
-  @include span-columns(8);
-  @include omega(8n);
+
+  #bands-list {
+    @include outer-container;
+    @include span-columns(3);
+    @include omega(4n);
+  }
+
+  #musicians-list {
+    @include outer-container;
+    @include span-columns(3);
+    @include omega(4n);
+    width: 33%;
+  }
 
   h1 {
     text-align: left;

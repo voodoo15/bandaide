@@ -1,11 +1,5 @@
-<<<<<<< HEAD
 $(document).on('ready page:load', function() {
   $('#search-category-list a').on('click', function(event) {
-=======
-$(document).on('ready', function() {
-
-  $('.genres-scroll a').on('click', function(event) {
->>>>>>> 99e70058bc1ee8bc99d244032e6cc80fc5c3856d
     event.preventDefault();
 
     var searchValue = $(this).html();
