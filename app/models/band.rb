@@ -7,18 +7,19 @@ class Band < ActiveRecord::Base
 
   validates_associated :genre, :leader
 
+  geocoded_by :full_street_address
+  after_validation :geocode, :reverse_geocode
+
+
   mount_uploader :poster, PosterUploader
 
   def genre_desc
     return self.genre.description
   end
 
-  def longitude
-    return self.leader.longitude
+  def full_street_address
+    "#{self.leader.address}, #{self.leader.city}, #{self.leader.province}, #{self.leader.postalcode}, Canada"
   end
 
-  def latitude
-    return self.leader.latitude
-  end
-  
+
 end
