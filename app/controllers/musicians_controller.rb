@@ -3,9 +3,10 @@ class MusiciansController < ApplicationController
 
   def show
     @musician = Musician.find(params[:id])
-    @nearby_musicians = @musician.nearbys(5, unit: :km)
-    gon.nearby_musicians = @nearby_musicians.collect{ |r| [r.id, r.firstname, r.lastname, r.latitude, r.longitude] }
-    # gon.nearby_musicians = @nearby_musicians.collect{ |r| [r.id, r.firstname, r.lastname, r.latitude, r.longitude, r.positions.where(skills: {mainskill: true}).first.description] }
+
+    @nearby_bands = Band.near(@musician,30, unit: :km)
+    gon.nearby_musicians = @nearby_bands.collect{ |r| [r.id, r.name, r.latitude, r.longitude , r.genre.description] }
+    gon.type= "bands"
     @positions = Position.all
     @skill = Skill.new
   end
