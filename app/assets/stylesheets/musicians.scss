@@ -3,13 +3,17 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 aside {
-  @include span-columns(4);
+  // @include span-columns(4);
   padding: 20px;
   }
 
 main {
-  @include span-columns(8);
-  @include omega(8n);
+
+  #bands-list {
+  }
+
+  #musicians-list {
+  }
 
   h1 {
     text-align: left;
@@ -27,23 +31,15 @@ main {
   }
 
   #bands-owned {
-    @include span-columns(4);
-    // @include omega(4n)
   }
 
   #member-of-bands {
-    @include span-columns(4);
-    @include omega(4n);
   }
 
   #youtube-window {
-    @include span-columns(8);
-    @include omega(8n);
   }
 
   #nearby-musicians {
-    @include span-columns(8);
-    @include omega(8n);
   }
 
   .embed-container {

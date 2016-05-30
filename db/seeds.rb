@@ -107,6 +107,7 @@ end
     postalcode: 'M4K 1N2',
     description: 'I love/hate Lars',
     avatar: open(Rails.root + "app/assets/images/demo_images/james_hetfield.jpg"),
+
     youtube_url: 'https://www.youtube.com/watch?v=IfalN7ZWLek'
   )
 
@@ -240,6 +241,23 @@ end
     position_id: 2,
     mainskill: true
   )
+
+  Musician.create!(
+  email: 'vinnebago@vinnebago.com',
+  password:'123456',
+  password_confirmation:'123456',
+  firstname:'Corkcicle',
+  lastname:'Corkcicle',
+  address: '500 yonge street',
+  city: 'Toronto',
+  province: 'ON',
+  postalcode: 'M4K 2E5',
+  description: 'Test',
+  avatar: Faker::Avatar.image
+
+  )
+
+
 
   # Musician.create!(
   #   email: 'justin_bieber@gmail.com',
