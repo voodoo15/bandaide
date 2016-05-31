@@ -1,21 +1,29 @@
+@import "bourbon";
+@import "neat";
+
 @import 'http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css';
 @import 'http://fonts.googleapis.com/css?family=Roboto:700,400';
 
 body{
   background-image: url(background/564960.jpg);
   background-size: cover;
+  @include outer-container(12);
+
+  -webkit-font-smoothing: antialiased;
 }
 
 main {
-  padding: auto;
-}
+  @include outer-container;
+  .bands-list { @include span-columns(3);
+  }
 
-main {
+  .title {
+    font-size: 100px;
+  }
 
   h1 {
     text-align: center;
     color: white;
-    margin-left: 600px;
   }
 
   h2 {
@@ -131,6 +139,9 @@ main {
   position: relative;
   bottom: 210px;
 }
+
+
+
 
 // Code for modal, if we want one
 // .modal {
