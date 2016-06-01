@@ -112,7 +112,7 @@
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Figaro.env.google_maps_api_key }&callback=initMap", async: true, defer: true %>
 
     <div id="youtube-window">
-      <% if @musician.youtube_url %>
+      <% if @musician.youtube_url && @musician.youtube_url != "" %>
 
         <h1>Demo Reel</h1>
 
