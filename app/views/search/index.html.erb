@@ -1,11 +1,49 @@
 <h1>Search Page </h1>
-<head>
 
 
-</head>
+
+
 <body>
-  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Figaro.env.google_maps_api_key }&callback=initMap", async: true, defer: true %>
-  <div id="map" data-latitude=<%= @musician.latitude %> data-longitude=<%= @musician.longitude%>  >
-  </div>
-  </div>
+
 </body>
+<%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Figaro.env.google_maps_api_key }&callback=initMap", async: true, defer: true %>
+<div id="map" data-latitude=<%= @musician.latitude %> data-longitude=<%= @musician.longitude%>>
+</div>
+<!-- <select name="positions">
+    <%= @positions.each do |position| %>
+      <option value="<%= position.id %>"><%= position.description %></option>
+    <% end %>
+  </select> -->
+
+  <select id="position" name="positions" show="Band" >
+          <option data-id="1" data-name="Singer" >singer</option>
+          <option data-id="2" data-name="Rhythm">Rhythm</option>
+          <option data-id="3" data-name="Drummer">drummer</option>
+          <option data-id="4" data-name="Lead">Lead</option>
+          <option data-id="5" data-name="Acoustic">Acoustic</option>
+          <option data-id="6" data-name="Bass">Bass</option>
+          <option data-id="7" data-name="Keyboard">Keyboard</option>
+  </select>
+
+
+
+<!-- <select id="genre"> -->
+  <select id="genre" name="genres" >
+          <option data-id="1" data-name="Classic" >classic</option>
+          <option data-id="2" data-name="Heavy Metal">Heavy Metal</option>
+          <option data-id="3" data-name="Goth">Goth</option>
+          <option data-id="4" data-name="alternative">alternative</option>
+          <option data-id="5" data-name="Pop">Pop</option>
+          <option data-id="6" data-name="Blues">Blues</option>
+          <option data-id="7" data-name="Psychadelic">Psychadelic</option>
+          <option data-id="8" data-name="Punk">Punk</option>
+          <option data-id="9" data-name="Glam">Glam</option>
+          <option data-id="10" data-name="Britpop">Britpop</option>
+          <option data-id="11" data-name="Indie">Indie</option>
+          <option data-id="12" data-name="Rock and  Roll ">Rock and Roll</option>
+          <option data-id="13" data-name="Jazz">Jazz</option>
+      </select>
+    <!-- <%= @genres.each do |genre| %>
+      <option value="<%= genre.id %>"><%= genre.description %></option>
+    <% end %> -->
+<!-- </select> -->

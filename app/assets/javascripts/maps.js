@@ -4,7 +4,7 @@
   var map_placeholder = $('#map');
   var myLatLng = {lat : map_placeholder.data('latitude'), lng : map_placeholder.data('longitude')};
 
-
+  var gmarkers = [];
   var locations = gon.nearby_musicians;
   var type=gon.type
   var map = new google.maps.Map(map_placeholder[0],{
@@ -30,9 +30,26 @@
         url: '/'+type +'/'+locations[i][0] ,
         title: locations[i][1]+ " " +locations[i][4]
       });
+      gmarkers.push(marker);
       marker.addListener('click', function() {window.location.href = marker.url;});
         marker.setMap(map);
 
-  };
 
+  };
+  $("#genre").change(function(f){
+    f.preventDefault();
+
+    var action = $('#genre option:selected').data('id');
+    var genre = $('#genre option:selected').data('name');
+
+    console.log(action + " "+ genre );
+  });
+
+$("#position").change(function(f){
+  f.preventDefault();
+  var action = $('#position option:selected').data('id');
+  var genre = $('#position  option:selected').data('name');
+
+  console.log(action + " "+ genre );
+  });
 };
