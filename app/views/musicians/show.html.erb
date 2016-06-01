@@ -18,7 +18,9 @@
 <% if @musician.skills.count() > 0 %>
   <h1>Skills:</h1><br />
   <% @musician.skills.each do |skill| %>
-    Skill:  <%= skill.position.description %><br /> Level: <%= skill.display_level %><br />Primary Skill:  <%= skill.mainskill %><br />
+    Skill:  <%= skill.position.description %><br />
+    <!-- Level: <%= skill.display_level %><br /> -->
+    Primary Skill:  <%= skill.mainskill %><br />
 
     <% if skill.mainskill == false %>
       <%= button_to "Make Primary Skill", musician_skill_path(@musician, skill, skill: {mainskill: true}), method: :put %>
@@ -42,7 +44,8 @@
             <%= f.label :position %><br />
             <%= f.select :position_id, options_for_select(@positions.collect  { |p| [ p.description, p.id] }) %>
             <%= f.label :categories %>
-            <%= f.select :level, [['Beginner', 1], ['Intermediate', 2], ['Advanced', 3]]  %>
+            <!-- <%= f.select :level, [['Beginner', 1], ['Intermediate', 2], ['Advanced', 3]]  %> -->
+            <%= f.hidden_field :level, value: 1 %>
             <%= f.hidden_field :musician_id, :value => current_musician.id %>
 
             <% if @musician.skills.where(mainskill: true).count() == 0 %>
