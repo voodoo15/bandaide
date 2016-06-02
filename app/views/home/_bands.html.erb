@@ -1,9 +1,11 @@
-<ul class="band-list">
-<% @bands.each do |band| %>
-  <li>
-  <%= link_to band.name, band_path(band.id)%>
-    <%= image_tag band.poster.profile %>
-    <p><%= band.description %></p>
-  </li>
-<% end %>
-</ul>
+<div class="row">
+
+        <% @bands.each do |band| %>
+<div class="small-4 columns">
+        <%= link_to band.name, band_path(band.id)%>
+        <img class="thumbnail"><%= image_tag band.poster.profile %>
+        <p><%= band.description %></p>
+      </div>
+        <% end %>
+
+</div>
