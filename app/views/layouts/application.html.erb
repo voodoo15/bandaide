@@ -1,78 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Band Aide</title>
-    <%= javascript_include_tag 'application' %>
-    <%= csrf_meta_tags %>
-    <%= Gon::Base.render_data %>
-    <link href='https://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>
-    <%= stylesheet_link_tag "application" %>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
   </head>
 
   <body>
-    <header class="navigation">
-    <div class="navigation-wrapper">
-      <a href="javascript:void(0)" class="logo">
-        <%=image_tag("background/Band Aide Logo.png")%>
-      </a>
-      <a href="" class="navigation-menu-button" id="js-mobile-menu">MENU</a> -->
-
-      <!-- <div class="nav">
-        <ul id="navigation-menu">
-          <li class="nav-link"><a><%= link_to "Home", root_path %></a></li>
-            <% if musician_signed_in? %>
-              <li class="nav-link"><a><%= link_to "Create a band", new_band_path %> </a></li>
-              <li class="nav-link"><a><%= image_tag current_musician.avatar.thumb %> </a></li>
-              <li class="nav-link"><a><%= link_to "Show Profile", musician_path(current_musician) %> </a></li>
-              <li class="nav-link"><a><%= link_to "Sign Out", destroy_musician_session_path, :method => :delete %> </a></li>
-            <% else %>
-              <li class="nav-link"><a><%= link_to "Sign In", new_musician_session_path, :method => :get %></a>
-              </li>
-              <li class="nav-link"><a><%= link_to "Sign up", new_musician_registration_path, :method => :get %> </a></li>
-            <% end %>
+    <div class="top-bar">
+  <div class="top-bar-left">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li class="menu-text">Site Title</li>
+      <li>
+        <a href="#">One</a>
+        <ul class="menu vertical">
+          <li><a href="#">One</a></li>
+          <li><a href="#">Two</a></li>
+          <li><a href="#">Three</a></li>
         </ul>
-      </div> -->
-
-    <%= render 'refills/navigation' %>
-
-      <div class="navigation-tools">
-        <div class="search-bar">
-          <div class="search-and-submit">
-            <input type="search" placeholder="Search for band or musician" />
-            <button type="submit">
-              <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png" alt="">
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-    <% if notice %>
-      <p class="alert alert-success"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
-    <% end %>
-
-  <%= yield %>
-
-<!-- Code for modal, if we want one -->
-  <!-- <div class="modal">
-  <label for="modal-1">
-    <div class="modal-trigger">Click for Modal</div>
-  </label>
-  <input class="modal-state" id="modal-1" type="checkbox" />
-  <div class="modal-fade-screen">
-    <div class="modal-inner">
-      <div class="modal-close" for="modal-1"></div>
-      <h1>Modal Title</h1>
-      <p class="modal-intro">Intro text.</p>
-      <p class="modal-content"></p>
-      </div>
-    </div>
-  </div> -->
+      </li>
+      <li><a href="#">Two</a></li>
+      <li><a href="#">Three</a></li>
+    </ul>
+  </div>
+  <div class="top-bar-right">
+    <ul class="menu">
+      <li><input type="search" placeholder="Search"></li>
+      <li><button type="button" class="button">Search</button></li>
+    </ul>
+  </div>
+</div>
+    <%= yield %>
 
   </body>
 </html>
