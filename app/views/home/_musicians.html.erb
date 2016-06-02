@@ -1,49 +1,26 @@
-<ul class="musicians-list">
-  <% @musicians.each do |musician| %>
-    <li>
-    <div class="card_content">
-    <%= link_to musician.firstname, musician_path(musician.id) %><br />
-
-    <%= image_tag musician.avatar.profile %><br />
-      <div class="card_content_padding">
-
-
-        <% musician.positions.each do |position| %>
-          <%= position.description %><br />
+<div class="row" data-equalizer data-equalize-on="medium" id="test-eq">
+    <% @musicians.each do |musician| %>
+    <div class="small-4 columns">
+      <%= link_to musician_path(musician.id) do %>
+      <div class="callout" data-equalizer-watch>
+        <p id="musician-name">
+          <%= musician.firstname %> <%= musician.lastname %>
+        </p>
+          <%= image_tag musician.avatar.profile, class: "musician-image" %>
+        <p id="musician-position">
+          <% musician.positions.each do |position| %>
+            <%= position.description %><br />
+          <% end %>
+        </p>
+        <p id="musician-location">
+        <% if current_musician.present? %>
+          <%= musician.display_distance_to(@musician) %> km away<br />
+        <% else %>
+          Based in <%= musician.city %>
         <% end %>
-
-
-        <div class="card_article">
-          <h3 class="position_text"> </h3>
-            <a class="musician_aboutme"> I love music and stuff </a>
-
-
-
-
-
-
-        <div class="social_icons">
-        <a class'profilepic'
-        <%= image_tag musician.avatar.thumb %> </a>
-
-
-
-
-
-
-                </div>
-              </div>
-           </div>
+      </p>
+      <% end %>
       </div>
-
-
-            <% if current_musician.present? %>
-              <%= musician.display_distance_to(@musician) %> km away<br />
-            <% else %>
-              <p>Based in <%= musician.city %> </p>
-            <% end %>
-  </li>
-
-  <% end %>
-
-</ul>
+    </div>
+    <% end %>
+</div>

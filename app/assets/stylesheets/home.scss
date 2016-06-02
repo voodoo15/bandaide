@@ -300,3 +300,58 @@
 // // .modal-open {
 // //   overflow: hidden;
 // // }
+
+.callout {
+  position: relative;
+  padding: 0;
+
+  .band-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  #band-name {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    z-index: 1;
+  }
+
+  #band-description {
+    color: red;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    z-index: 1;
+  }
+
+  .musician-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  #musician-name {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    z-index: 1;
+  }
+
+  #musician-position {
+    color: red;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    z-index: 1;
+  }
+
+  #musician-location {
+    color: red;
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    z-index: 1;
+  }
+}
