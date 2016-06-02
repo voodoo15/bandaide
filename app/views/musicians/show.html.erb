@@ -5,6 +5,8 @@
   <aside id="profile-side">
     <h1><%= @musician.firstname %> <%= @musician.lastname %></h1>
 
+    <a href="mailto:<%= @musician.email%>?Subject=Hello">Contact Me</a>
+
     <h3>Bio:</h3><br />
 
     <%= button_to "Back", request.referer.present? ? request.referer : root_path, method: :get %><br />
