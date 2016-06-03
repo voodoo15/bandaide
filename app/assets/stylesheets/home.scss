@@ -300,7 +300,28 @@
 // // .modal-open {
 // //   overflow: hidden;
 // // }
+.logo {
+  position: absolute;
+  z-index: 2;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom:  0;
+  display: block;
+}
 
+.background_video  {
+  top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+margin: auto;
+height: auto;
+width: 100%;
+z-index: 1;
+position: relative;
+}
 .callout {
   position: relative;
   padding: 0;
