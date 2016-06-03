@@ -91,6 +91,7 @@ $(window).on("load resize",function(e) {
 
 
 
+
 // Code for modal, if we want one
 // $(function() {
 //   $("#modal-1").on("change", function() {
