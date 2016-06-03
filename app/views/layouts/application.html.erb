@@ -3,36 +3,44 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Band Aide</title>
 
     <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+    <%= Gon::Base.render_data %>
   </head>
 
   <body>
     <div class="top-bar">
-  <div class="top-bar-left">
-    <ul class="dropdown menu" data-dropdown-menu>
-      <li class="menu-text">Site Title</li>
-      <li>
-        <a href="#">One</a>
-        <ul class="menu vertical">
-          <li><a href="#">One</a></li>
-          <li><a href="#">Two</a></li>
-          <li><a href="#">Three</a></li>
+      <div class="top-bar-left">
+        <li class="menu-text">Band Aide</li>
+      </div>
+      <div class="top-bar-right">
+        <ul class="dropdown menu" data-dropdown-menu>
+          <% if musician_signed_in? %>
+            <li class="nav-link"><a><%= link_to "Create a band", new_band_path %> </a></li>
+            <li class="nav-link"><a><%= image_tag current_musician.avatar.thumb %> </a></li>
+            <li class="nav-link"><a><%= link_to "Show Profile", musician_path(current_musician) %> </a></li>
+            <li class="nav-link"><a><%= link_to "Sign Out", destroy_musician_session_path, :method => :delete %> </a></li>
+          <% else %>
+            <li class="nav-link"><a><%= link_to "Sign In", new_musician_session_path, :method => :get %></a></li>
+             <li class="nav-link"><a><%= link_to "Sign up", new_musician_registration_path, :method => :get %> </a></li>
+          <% end %>
         </ul>
-      </li>
-      <li><a href="#">Two</a></li>
-      <li><a href="#">Three</a></li>
-    </ul>
-  </div>
-  <div class="top-bar-right">
-    
-  </div>
-</div>
-    <%= yield %>
+      </div>
+    </div>
+
+  <% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+  <% end %>
+
+  <%= yield %>
 
   </body>
 </html>
