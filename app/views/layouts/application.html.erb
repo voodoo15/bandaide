@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Band Aide</title>
 
     <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
 
@@ -13,18 +14,26 @@
   </head>
 
   <body>
-    <div class="top-bar">
-  <div class="top-bar-left">
-    <ul class="dropdown menu" data-dropdown-menu>
-      <li class="menu-text">Site Title</li>
-      <li>
-        <a href="#">One</a>
-        <ul class="menu vertical">
-          <li><a href="#">One</a></li>
-          <li><a href="#">Two</a></li>
-          <li><a href="#">Three</a></li>
+    <div class="title-bar">
+      <div class="title-bar-left">
+        <!-- <span class="title-bar-title">Band Aide</span> -->
+        <%=link_to image_tag("background/Band Aide Logo.png", size: "90x120"), root_path %>
+      </div>
+      <div class="title-bar-right">
+        <ul class="menu">
+          <% if musician_signed_in? %>
+            <li><%= link_to "Create a band", new_band_path %></li>
+            <li><span>Logged in as: <%= current_musician.firstname %>&nbsp&nbsp</span></li>
+            <li><%= image_tag current_musician.avatar.thumb %></li>
+            <li><%= link_to "Show Profile", musician_path(current_musician) %></li>
+            <li><%= link_to "Sign Out", destroy_musician_session_path, :method => :delete %></li>
+          <% else %>
+            <li><%= link_to "Sign In", new_musician_session_path, :method => :get %></li>
+             <li><%= link_to "Sign up", new_musician_registration_path, :method => :get %></li>
+          <% end %>
         </ul>
-      </li>
+
+      <!-- </li>
       <li><a href="#">Two</a></li>
       <li><a href="#">Three</a></li>
     </ul>
@@ -33,7 +42,20 @@
 
   </div>
 </div>
-    <%= yield %>
+    <%= yield %> -->
+
+      </div>
+    </div>
+
+  <% if notice %>
+    <p class="callout success"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+    <p class="callout alert"><%= alert %></p>
+  <% end %>
+
+  <%= yield %>
+
 
   </body>
 </html>
