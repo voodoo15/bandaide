@@ -91,7 +91,7 @@ end
 
   Skill.create!(
     musician_id: 1,
-    position_id: 4,
+    position_id: 3,
     mainskill: true
   )
 
@@ -134,7 +134,7 @@ end
 
   Skill.create!(
     musician_id: 3,
-    position_id: 3,
+    position_id: 2,
     mainskill: true
   )
 
@@ -176,7 +176,7 @@ end
 
   Skill.create!(
     musician_id: 5,
-    position_id: 6,
+    position_id: 4,
     mainskill: true
   )
 
@@ -218,7 +218,7 @@ end
 
   Skill.create!(
     musician_id: 7,
-    position_id: 4,
+    position_id: 3,
     mainskill: true
   )
 
@@ -238,7 +238,7 @@ end
 
   Skill.create!(
     musician_id: 8,
-    position_id: 2,
+    position_id: 3,
     mainskill: true
   )
 
@@ -299,10 +299,8 @@ Band.create!(
 
 positions = [
   "singer",
-  "rhythm",
   "drummer",
   "lead",
-  "acoustic",
   "bass",
   "keyboard"
 ]
@@ -324,19 +322,19 @@ end
 Member.create!(
   musician_id:  1,
   band_id:  1,
-  position_id:  4
+  position_id:  3
 )
 
 Member.create!(
   musician_id:  2,
   band_id:  1,
-  position_id:  2
+  position_id:  1
 )
 
 Member.create!(
   musician_id:  3,
   band_id:  1,
-  position_id:  3
+  position_id:  2
 )
 
 Member.create!(
@@ -348,7 +346,7 @@ Member.create!(
 Member.create!(
   musician_id:  5,
   band_id:  2,
-  position_id:  7
+  position_id:  4
 )
 
 Member.create!(
@@ -360,11 +358,11 @@ Member.create!(
 Member.create!(
   musician_id:  7,
   band_id:  3,
-  position_id:  4
+  position_id:  3
 )
 
 Member.create!(
   musician_id:  8,
   band_id:  3,
-  position_id:  2
+  position_id:  3
 )
