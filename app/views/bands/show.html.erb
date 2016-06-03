@@ -3,6 +3,9 @@
 
 <%= image_tag @band.poster.profile %><br />
 
+<a href="mailto:<%= @band.leader.email%>?Subject=Hello">Contact Me</a>
+
+
 <h3>Description</h3>
 <p><%= @band.description %></p>
 

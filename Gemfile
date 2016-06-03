@@ -37,9 +37,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'geocoder'
 
 #bourbon and neat
-gem 'bourbon', '5.0.0.beta.5'
-gem 'neat'
+# gem 'bourbon', '5.0.0.beta.5'
+# gem 'neat'
+# gem 'refills', group: :development
 
+#foundation
+gem 'foundation-rails'
 #Using devise for user login/authentication
 gem 'devise', '~> 4.1'
 

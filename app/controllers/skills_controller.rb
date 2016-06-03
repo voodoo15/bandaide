@@ -39,7 +39,6 @@ before_action :authenticate_musician!, except: [:show, :index]
   end
 
   def destroy
-    binding.pry
     @musician = Musician.find(params[:musician_id])
     @skill = Skill.find(params[:id])
     @skill.destroy
