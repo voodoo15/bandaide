@@ -1,5 +1,15 @@
 $(document).on('ready' function(){
-$("#genre").on('change'function(f){
+
+  $.ajax({
+    beforeSend: function(xhr){
+      if (xhr.overrideMimeType) {
+        xhr.overrideMimeType("application/json");
+      }
+    }
+  })
+
+
+  $("#genre").on('change'function(f){
   f.preventDefault();
   var action = $('#genre option:selected').data('id');
   var genre = $('#genre option:selected').data('name');
