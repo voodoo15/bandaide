@@ -300,16 +300,28 @@
 // // .modal-open {
 // //   overflow: hidden;
 // // }
-// .background_video  {
-//   position: fixed;
-//   top: 50%; left: 50%;
-//   z-index: 1;
-//   min-width: 100%;
-//   min-height: 100%;
-//   width: auto;
-//   height: auto;
-//   transform: translate(-50%, -50%);
-// }
+.logo {
+  position: absolute;
+  z-index: 2;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom:  0;
+  display: block;
+}
+
+.background_video  {
+  top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+margin: auto;
+height: auto;
+width: 100%;
+z-index: 1;
+position: relative;
+}
 .callout {
   position: relative;
   padding: 0;
