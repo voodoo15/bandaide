@@ -1,11 +1,15 @@
 <h1>Search Page </h1>
+<!-- 
+<head>
 
+<script type= "text/javascript" src= "search.js"></script>
 
+</head> -->
 
 
 <body>
 
-</body>
+
 <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Figaro.env.google_maps_api_key }&callback=initMap", async: true, defer: true %>
 <div id="map" data-latitude=<%= @musician.latitude %> data-longitude=<%= @musician.longitude%>>
 </div>
@@ -47,3 +51,4 @@
       <option value="<%= genre.id %>"><%= genre.description %></option>
     <% end %> -->
 <!-- </select> -->
+</body>
