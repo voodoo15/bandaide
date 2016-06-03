@@ -14,30 +14,30 @@
   </head>
 
   <body>
-    <div class="top-bar">
-      <div class="top-bar-left">
-        <li class="menu-text">Band Aide</li>
+    <div class="title-bar">
+      <div class="title-bar-left">
+        <span class="title-bar-title">Band Aide</span>
       </div>
-      <div class="top-bar-right">
-        <ul class="dropdown menu" data-dropdown-menu>
+      <div class="title-bar-right">
+        <ul class="menu">
           <% if musician_signed_in? %>
-            <li class="nav-link"><a><%= link_to "Create a band", new_band_path %> </a></li>
-            <li class="nav-link"><a><%= image_tag current_musician.avatar.thumb %> </a></li>
-            <li class="nav-link"><a><%= link_to "Show Profile", musician_path(current_musician) %> </a></li>
-            <li class="nav-link"><a><%= link_to "Sign Out", destroy_musician_session_path, :method => :delete %> </a></li>
+            <li><%= link_to "Create a band", new_band_path %></li>
+            <li><%= image_tag current_musician.avatar.thumb %></li>
+            <li><%= link_to "Show Profile", musician_path(current_musician) %></li>
+            <li><%= link_to "Sign Out", destroy_musician_session_path, :method => :delete %></li>
           <% else %>
-            <li class="nav-link"><a><%= link_to "Sign In", new_musician_session_path, :method => :get %></a></li>
-             <li class="nav-link"><a><%= link_to "Sign up", new_musician_registration_path, :method => :get %> </a></li>
+            <li><%= link_to "Sign In", new_musician_session_path, :method => :get %></li>
+             <li><%= link_to "Sign up", new_musician_registration_path, :method => :get %></li>
           <% end %>
         </ul>
       </div>
     </div>
 
   <% if notice %>
-    <p class="alert alert-success"><%= notice %></p>
+    <p class="callout success"><%= notice %></p>
   <% end %>
   <% if alert %>
-    <p class="alert alert-danger"><%= alert %></p>
+    <p class="callout alert"><%= alert %></p>
   <% end %>
 
   <%= yield %>
