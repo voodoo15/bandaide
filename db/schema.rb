@@ -34,16 +34,6 @@ ActiveRecord::Schema.define(version: 20160526194009) do
     t.float    "longitude"
   end
 
-  create_table "conversations", force: :cascade do |t|
-    t.integer  "sender_id"
-    t.integer  "recipient_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "conversations", ["recipient_id"], name: "index_conversations_on_recipient_id", using: :btree
-  add_index "conversations", ["sender_id"], name: "index_conversations_on_sender_id", using: :btree
-
   create_table "genres", force: :cascade do |t|
     t.string   "description"
     t.datetime "created_at",  null: false
@@ -57,17 +47,6 @@ ActiveRecord::Schema.define(version: 20160526194009) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
-
-  create_table "messages", force: :cascade do |t|
-    t.text     "body"
-    t.integer  "conversation_id"
-    t.integer  "musician_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
-  add_index "messages", ["conversation_id"], name: "index_messages_on_conversation_id", using: :btree
-  add_index "messages", ["musician_id"], name: "index_messages_on_musician_id", using: :btree
 
   create_table "musicians", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -111,6 +90,4 @@ ActiveRecord::Schema.define(version: 20160526194009) do
     t.boolean "mainskill",   default: false
   end
 
-  add_foreign_key "messages", "conversations"
-  add_foreign_key "messages", "musicians"
 end
