@@ -2,12 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-aside {
-  // @include span-columns(4);
-  padding: 20px;
-  }
-
 main {
+  margin-left:auto;
+  margin-right: auto;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 
   #bands-list {
   }
@@ -16,8 +16,7 @@ main {
   }
 
   h1 {
-    text-align: left;
-    color: white;
+
   }
 
   h2 {
@@ -25,9 +24,7 @@ main {
   }
 
   h3 {
-    color: white;
-    font-size: 0.8em;
-    margin-top: 25px;
+
   }
 
   #bands-owned {
