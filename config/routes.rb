@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :musicians
+  devise_for :musicians, controllers:{registrations: "registrations"}
   root 'home#index'
 
   resources :bands, except: [:destroy] do
