@@ -6,7 +6,7 @@ $(document).on('ready' function(){
         xhr.overrideMimeType("application/json");
       }
     }
-  })
+  });
 
 
   $("#genre").on('change'function(f){
