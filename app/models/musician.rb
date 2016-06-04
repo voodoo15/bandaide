@@ -27,11 +27,22 @@ class Musician < ActiveRecord::Base
   end
 
   def display_distance_to(other_musician)
-    self.distance_to(other_musician, :km).round(2)
+    musician_distance = self.distance_to(other_musician, :km)
+    if musician_distance != nil
+      musician_distance.round(2)
+    end
   end
 
   def skilled_enough?(position)
     self.skills.where(position_id: position).count() > 0 ? true : false
+  end
+
+  def has_long_lat?
+    if self.longitude != nil && self.latitude != nil
+      return true
+    else
+      return false
+    end
   end
 
   def self.coordinates

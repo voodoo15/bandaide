@@ -9,7 +9,6 @@
     <h3>Bio:</h3><br />
 
     <%= button_to "Back", request.referer.present? ? request.referer : root_path, method: :get %><br />
-    <br /><%= button_to "Edit Profile", edit_musician_registration_path, method: :get %>
 
     <%= image_tag @musician.avatar.profile %><br />
 
@@ -37,6 +36,8 @@
 
     <% if musician_signed_in? %>
       <% if current_musician.id == @musician.id %><br />
+      <br /><%= button_to "Edit Profile", edit_musician_registration_path, method: :get %>
+
 
 <h1>Create New Skill:</h1>
 
@@ -146,7 +147,7 @@
           <%= @musician.firstname %>:<br />
         <% end %>
 
-      <div id="map" data-latitude=<%= @musician.latitude %> data-longitude=<%= @musician.longitude%>  >
+      <div id="map" data-latitude=<%= @musician.latitude %> data-longitude=<%= @musician.longitude %> 
       </div>
     </div>
   </main>

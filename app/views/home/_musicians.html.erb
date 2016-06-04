@@ -18,7 +18,7 @@
           <% end %>
         </p><br/>
         <p id="musician-location">
-        <% if current_musician.present? %>
+        <% if current_musician.present? && current_musician.has_long_lat? && musician.has_long_lat? %>
           <%= musician.display_distance_to(@musician) %> km away<br />
         <% else %>
           Based in <%= musician.city %>
