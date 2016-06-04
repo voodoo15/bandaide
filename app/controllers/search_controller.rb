@@ -4,6 +4,11 @@ class SearchController < ApplicationController
   def index
     @musician = Musician.find(current_musician[:id])
     @nearby_musicians = @musician.nearbys(5, unit: :km)
+
+    if @nearby_musicians == nil
+      @nearby_musicians = Musician.near(@musician.city, 50)
+    end
+    
     gon.nearby_musicians = @nearby_musicians.collect{ |r| [r.id, r.firstname,  r.latitude, r.longitude, r.positions.where(skills: {mainskill: true}).first.description] }
     gon.type = "musicians"
     @positions=Position.all
