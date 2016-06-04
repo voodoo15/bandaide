@@ -2,7 +2,7 @@
     <% @bands.each do |band| %>
       <div class="small-4 columns">
         <%= link_to band_path(band.id) do %>
-        <div class="callout" data-equalizer-watch>
+        <div class="equalizer" data-equalizer-watch>
           <p id="band-name"><%= band.name %></p>
             <%= image_tag band.poster.profile, class: "band-image"%>
           <p id="band-description"><%= band.description %></p>

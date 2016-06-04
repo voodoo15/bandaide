@@ -322,9 +322,11 @@ width: 100%;
 z-index: 1;
 position: relative;
 }
-.callout {
+
+.equalizer {
   position: relative;
   padding: 0;
+  margin:  10px auto;
 
   .band-image {
     position: relative;

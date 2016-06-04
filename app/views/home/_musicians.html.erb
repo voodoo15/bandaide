@@ -2,7 +2,7 @@
     <% @musicians.each do |musician| %>
     <div class="small-4 columns">
       <%= link_to musician_path(musician.id) do %>
-      <div class="callout" data-equalizer-watch>
+      <div class="equalizer" data-equalizer-watch>
         <p id="musician-name">
           <%= musician.firstname %> <%= musician.lastname %>
         </p>
