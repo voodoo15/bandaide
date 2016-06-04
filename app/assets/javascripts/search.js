@@ -1,5 +1,6 @@
 $(document).on('ready' function(){
 
+
   // $.ajax({
   //   beforeSend: function(xhr){
   //     if (xhr.overrideMimeType) {
@@ -7,7 +8,6 @@ $(document).on('ready' function(){
   //     }
   //   }
   // })
-
 
   $("#genre").on('change'function(f){
   f.preventDefault();
