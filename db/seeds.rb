@@ -246,15 +246,14 @@ end
   email: 'vinnebago@vinnebago.com',
   password:'123456',
   password_confirmation:'123456',
-  firstname:'Corkcicle',
+  firstname:'Sean',
   lastname:'Corkcicle',
-  address: '500 yonge street',
+  address: '500 Yonge St',
   city: 'Toronto',
   province: 'ON',
-  postalcode: 'M4K 2E5',
-  description: 'Test',
+  postalcode: 'M4Y 1X9',
+  description: 'I smell eggs',
   avatar: Faker::Avatar.image
-
   )
 
 
