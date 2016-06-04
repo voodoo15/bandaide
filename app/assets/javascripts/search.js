@@ -1,12 +1,12 @@
 $(document).on('ready' function(){
 
-  $.ajax({
-    beforeSend: function(xhr){
-      if (xhr.overrideMimeType) {
-        xhr.overrideMimeType("application/json");
-      }
-    }
-  })
+  // $.ajax({
+  //   beforeSend: function(xhr){
+  //     if (xhr.overrideMimeType) {
+  //       xhr.overrideMimeType("application/json");
+  //     }
+  //   }
+  // })
 
 
   $("#genre").on('change'function(f){
