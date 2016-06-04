@@ -1,8 +1,7 @@
 <div class="container">
 
-
-  <br/>
-  <aside id="profile-side">
+<br/>
+<aside id="profile-side">
     <h1><%= @musician.firstname %> <%= @musician.lastname %></h1>
 
     <a href="mailto:<%= @musician.email%>?Subject=Hello">Contact Me</a>
@@ -41,27 +40,41 @@
 
 <h1>Create New Skill:</h1>
 
-        <%= form_for [@musician, @skill] do |f| %>
-          <div id="field">
-            <%= f.label :position %><br />
-            <%= f.select :position_id, options_for_select(@positions.collect  { |p| [ p.description, p.id] }) %>
-            <%= f.label :categories %>
-            <!-- <%= f.select :level, [['Beginner', 1], ['Intermediate', 2], ['Advanced', 3]]  %> -->
-            <%= f.hidden_field :level, value: 1 %>
-            <%= f.hidden_field :musician_id, :value => current_musician.id %>
+<%= form_for [@musician, @skill] do |f| %>
 
-            <% if @musician.skills.where(mainskill: true).count() == 0 %>
-              <%= f.hidden_field :mainskill, value: true %>
-            <% end %>
+  <% if @skill.errors.any? %>
+    <h4><%= pluralize( @skill.errors.count, "error") %>
+        prohibited this skill from being saved:
+    </h4>
+  <% end %>
+  <ul>
+    <% @skill.errors.full_messages.each do | msg | %>
+      <li>
+          <%= msg %>
+      </li>
+    <% end %>
+  </ul>
 
-          </div>
-          <div>
-            <%= f.submit %>
-          </div>
-        <% end %>
+    <div id="field">
+      <%= f.label :position %><br />
+      <%= f.select :position_id, options_for_select(@positions.collect  { |p| [ p.description, p.id] }) %>
+      <%= f.label :categories %>
+      <!-- <%= f.select :level, [['Beginner', 1], ['Intermediate', 2], ['Advanced', 3]]  %> -->
+      <%= f.hidden_field :level, value: 1 %>
+      <%= f.hidden_field :musician_id, :value => current_musician.id %>
+
+      <% if @musician.skills.where(mainskill: true).count() == 0 %>
+        <%= f.hidden_field :mainskill, value: true %>
+      <% end %>
+
+    </div>
+    <div>
+      <%= f.submit %>
+    </div>
       <% end %>
     <% end %>
-  </aside>
+  <% end %>
+</aside>
 
   <main>
     <% if musician_signed_in? %>

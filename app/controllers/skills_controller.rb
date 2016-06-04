@@ -10,11 +10,11 @@ before_action :authenticate_musician!, except: [:show, :index]
     @musician = current_musician
     @positions = Position.all
     @skill = @musician.skills.build(skill_params)
-      if @skill.save
-        redirect_to musician_path(@musician)
-      else
-        redirect_to musician_path(@musician)
-      end
+    if @skill.save
+      redirect_to musician_path(@musician)
+    else
+      redirect_to musician_path(@musician), alert:  "Skill not saved, duplicate skill"
+    end
   end
 
   def update
@@ -42,7 +42,7 @@ before_action :authenticate_musician!, except: [:show, :index]
     @musician = Musician.find(params[:musician_id])
     @skill = Skill.find(params[:id])
     @skill.destroy
-    redirect_to musician_url(@musician)
+    redirect_to musician_url(@musician), notice:  "Skill removed"
   end
 
   private

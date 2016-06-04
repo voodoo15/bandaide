@@ -1,6 +1,20 @@
 <h2>Add a new band</h2>
 
 <%= form_for @band do |f| %>
+
+  <% if @band.errors.any? %>
+    <h4><%= pluralize( @band.errors.count, "error") %>
+        prohibited this band from being saved:
+    </h4>
+  <% end %>
+  <ul>
+    <% @band.errors.full_messages.each do | msg | %>
+      <li>
+          <%= msg %>
+      </li>
+    <% end %>
+  </ul>
+
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
