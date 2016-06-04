@@ -1,78 +1,85 @@
-<br />
-<h1><%= @band.name %></h1>
+<div class="container">
+  <aside class="profile-left">
+    <%= image_tag @band.poster.profile %><br />
+    <h3>Description</h3>
+    <p><%= @band.description %></p>
+        <a href="mailto:<%= @band.leader.email%>?Subject=Hello">Contact Band Leader</a>
 
-<%= image_tag @band.poster.profile %><br />
+        <br /><%= button_to "Back", request.referer.present? ? request.referer : root_path, method: :get %>
+        <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Figaro.env.google_maps_api_key }&callback=initMap", async: true, defer: true %>
+  </aside>
+  <main>
+    <h1><%= @band.name %></h1>
 
-<a href="mailto:<%= @band.leader.email%>?Subject=Hello">Contact Me</a>
+    <p>Band Members</p><br />
 
-<h3>Description</h3>
-<p><%= @band.description %></p>
+    <% @band.members.each do |member| %>
+      <p>
+        <%= image_tag("skills/lead.png", size:  "50x50") if member.position.description == "lead" %>
+        <%= image_tag("skills/lead.png", size:  "50x50") if member.position.description == "rhythm" %>
+        <%= image_tag("skills/singer.png", size:  "50x50") if member.position.description == "singer" %>
+        <%= image_tag("skills/drummer.png", size:  "50x50") if member.position.description == "drummer" %>
+        <%= image_tag("skills/keyboard.png", size:  "50x50") if member.position.description == "keyboard" %>
+        <%= image_tag("skills/bass.png", size:  "50x50") if member.position.description == "bass" %>
 
-<h3>Current Positions in Band</h3><br />
+        <% if musician_signed_in? %>
 
-<% @band.members.each do |member| %>
-  <p>
-    <%= member.position.description %>
+          <!-- Owners -->
+          <% if @band.leader.id == current_musician.id %>
+            <% member.approvals.each do |approval| %>
+              <%= approval.musician.firstname %>
+              <% if approval.approved == false %>
+                <%= button_to 'Accept', band_member_approval_path(@band, member, approval, approval: {approved: true}, member: {musician_id: approval.musician_id}), :method => :put %>
+              <% end %>
+            <% end %>
 
-    <% if musician_signed_in? %>
+            <%= button_to 'Remove', band_member_path(@band, member.id), data: {:confirm => 'Are you sure?'}, :method => :delete %>
 
-      <!-- Owners -->
-      <% if @band.leader.id == current_musician.id %>
-        <% member.approvals.each do |approval| %>
-          <%= approval.musician.firstname %>
-          <% if approval.approved == false %>
-            <%= button_to 'Accept', band_member_approval_path(@band, member, approval, approval: {approved: true}, member: {musician_id: approval.musician_id}), :method => :put %>
+
+          <!-- Non Owner -->
+          <% elsif @band.leader.id != current_musician.id %>
+
+              <% if member.vacant? && current_musician.skilled_enough?(member.position.id) %>
+                <%= button_to 'Apply', band_member_approvals_path(@band, member, approval: {musician_id: current_musician.id, approval: false, member_id: member.id}), :method => :post %>
+              <% elsif member.vacant? && current_musician.skilled_enough?(member.position.id) == false %>
+                  <p>Cannot apply: this position requires a higher skill level than you currently possess.</p>
+              <% else %>
+                <%= member.musician.firstname %>
+                <%= image_tag member.musician.avatar.profile, size: "50x50" %>
+              <% end %>
+          <% else %>
+              <p>Please register to apply</p>
           <% end %>
         <% end %>
 
-        <%= button_to 'Remove', band_member_path(@band, member.id), data: {:confirm => 'Are you sure?'}, :method => :delete %>
 
+      </p>
+    <% end %>
 
-      <!-- Non Owner -->
-      <% elsif @band.leader.id != current_musician.id %>
+    <% if musician_signed_in? %>
+      <% if @band.leader.id == current_musician.id %>
 
-          <% if member.vacant? && current_musician.skilled_enough?(member.position.id) %>
-            <%= button_to 'Apply', band_member_approvals_path(@band, member, approval: {musician_id: current_musician.id, approval: false, member_id: member.id}), :method => :post %>
-          <% elsif member.vacant? && current_musician.skilled_enough?(member.position.id) == false %>
-              <p>Cannot apply: this position requires a higher skill level than you currently possess.</p>
-          <% else %>
-            <%= member.musician.firstname %>
-          <% end %>
-      <% else %>
-          <p>Please register to apply</p>
+        <%= form_for [@band , @member] do |f| %>
+
+          <div id="field">
+            <%= f.label :position %><br />
+            <%= f.select :position_id , options_for_select(@positions.collect {|p| [ p.description, p.id] }) %>
+            <%= f.hidden_field :musician_id, :value => nil %>
+            <%= f.hidden_field :band_id, :value => @band.id %>
+          </div>
+
+          <div class="field">
+            <%= f.submit %>
+          </div>
+        <% end %>
+
       <% end %>
+
+
     <% end %>
 
-
-  </p>
-<% end %>
-
-<% if musician_signed_in? %>
-  <% if @band.leader.id == current_musician.id %>
-
-    <%= form_for [@band , @member] do |f| %>
-
-      <div id="field">
-        <%= f.label :position %><br />
-        <%= f.select :position_id , options_for_select(@positions.collect {|p| [ p.description, p.id] }) %>
-        <%= f.hidden_field :musician_id, :value => nil %>
-        <%= f.hidden_field :band_id, :value => @band.id %>
-      </div>
-
-      <div class="field">
-        <%= f.submit %>
-      </div>
-    <% end %>
-
-  <% end %>
-
-
-<% end %>
-
-
-
-<br /><%= button_to "Back", request.referer.present? ? request.referer : root_path, method: :get %>
-<%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Figaro.env.google_maps_api_key }&callback=initMap", async: true, defer: true %>
-
-<div id="map" data-latitude=<%= @musician.latitude %> data-longitude=<%= @musician.longitude%>  >
+    <!-- Why do we need a map on the band page? -->
+    <div id="map" data-latitude=<%= @musician.latitude %> data-longitude=<%= @musician.longitude%>  >
+    </div>
+  </main>
 </div>
