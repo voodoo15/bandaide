@@ -1,81 +1,84 @@
 <div class="container">
 
-<br/>
-<aside id="profile-side">
-    <h1><%= @musician.firstname %> <%= @musician.lastname %></h1>
+  <aside id="profile-side">
+      <h1><%= @musician.firstname %> <%= @musician.lastname %></h1>
 
-    <a href="mailto:<%= @musician.email%>?Subject=Hello">Contact Me</a>
-
-    <h3>Bio:</h3><br />
-
-    <%= button_to "Back", request.referer.present? ? request.referer : root_path, method: :get %><br />
-
-    <%= image_tag @musician.avatar.profile %><br />
-
-<h1>Description:</h1><br />
-<%= @musician.description %><br />
-
-<% if @musician.skills.count() > 0 %>
-  <h1>Skills:</h1><br />
-  <% @musician.skills.each do |skill| %>
-    Skill:  <%= skill.position.description %><br />
-    <!-- Level: <%= skill.display_level %><br /> -->
-    Primary Skill:  <%= skill.mainskill %><br />
-
-    <% if skill.mainskill == false %>
-      <%= button_to "Make Primary Skill", musician_skill_path(@musician, skill, skill: {mainskill: true}), method: :put %>
-      <%= button_to "Remove Skill", musician_skill_path(@musician, skill), method: :delete %>
-    <% else %>
-    <p>
-      Change the primary skill first before removing this skill
-    </p>
-    <% end %>
-
-  <% end %>
-<% end %>
-
-    <% if musician_signed_in? %>
-      <% if current_musician.id == @musician.id %><br />
-      <br /><%= button_to "Edit Profile", edit_musician_registration_path, method: :get %>
-
-
-<h1>Create New Skill:</h1>
-
-<%= form_for [@musician, @skill] do |f| %>
-
-  <% if @skill.errors.any? %>
-    <h4><%= pluralize( @skill.errors.count, "error") %>
-        prohibited this skill from being saved:
-    </h4>
-  <% end %>
-  <ul>
-    <% @skill.errors.full_messages.each do | msg | %>
-      <li>
-          <%= msg %>
-      </li>
-    <% end %>
-  </ul>
-
-    <div id="field">
-      <%= f.label :position %><br />
-      <%= f.select :position_id, options_for_select(@positions.collect  { |p| [ p.description, p.id] }) %>
-      <%= f.label :categories %>
-      <!-- <%= f.select :level, [['Beginner', 1], ['Intermediate', 2], ['Advanced', 3]]  %> -->
-      <%= f.hidden_field :level, value: 1 %>
-      <%= f.hidden_field :musician_id, :value => current_musician.id %>
-
-      <% if @musician.skills.where(mainskill: true).count() == 0 %>
-        <%= f.hidden_field :mainskill, value: true %>
+      <% @musician.positions.each do |position| %>
+        <!-- <%= position.description %><br /> -->
+        <%= image_tag("skills/lead.png", size:  "50x50") if position.description == "lead" %>
+        <%= image_tag("skills/singer.png", size:  "50x50") if position.description == "singer"%>
+        <%= image_tag("skills/drummer.png", size:  "50x50") if position.description == "drummer"%>
+        <%= image_tag("skills/keyboard.png", size:  "50x50") if position.description == "keyboard"%>
+        <%= image_tag("skills/bass.png", size:  "50x50") if position.description == "bass" %>
       <% end %>
 
-    </div>
-    <div>
-      <%= f.submit %>
-    </div>
+      <br /><%= image_tag @musician.avatar.profile %><br />
+
+      <h3>Bio:</h3>
+      <%= @musician.description %><br />
+
+      <a href="mailto:<%= @musician.email%>?Subject=Hello">Contact Me</a>
+
+      <%= button_to "Back", request.referer.present? ? request.referer : root_path, method: :get %><br />
+
+      <div class="skills-section">
+        <% if @musician.skills.count() > 0 %>
+          <h3>Skills:</h3>
+
+          <% @musician.skills.each do |skill| %>
+            <%= skill.position.description %><br />
+
+            <% if musician_signed_in? %>
+              <% if current_musician.id == @musician.id %><br />
+                <% if skill.mainskill == false %>
+                  <%= button_to "Make Primary Skill", musician_skill_path(@musician, skill, skill: {mainskill: true}), method: :put %>
+                  <%= button_to "Remove Skill", musician_skill_path(@musician, skill), method: :delete %>
+                <% end %>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+
+        <% if musician_signed_in? %>
+          <% if current_musician.id == @musician.id %><br />
+            <h3>Add New Skill:</h3>
+            <%= form_for [@musician, @skill] do |f| %>
+              <% if @skill.errors.any? %>
+                <h4><%= pluralize( @skill.errors.count, "error") %>
+                    prohibited this skill from being saved:
+                </h4>
+              <% end %>
+              <ul>
+                <% @skill.errors.full_messages.each do | msg | %>
+                  <li>
+                      <%= msg %>
+                  </li>
+                <% end %>
+              </ul>
+
+              <div id="field">
+                <%= f.label :position %><br />
+                <%= f.select :position_id, options_for_select(@positions.collect  { |p| [ p.description, p.id] }) %>
+                <%= f.label :categories %>
+                <%= f.hidden_field :level, value: 1 %>
+                <%= f.hidden_field :musician_id, :value => current_musician.id %>
+
+                <% if @musician.skills.where(mainskill: true).count() == 0 %>
+                  <%= f.hidden_field :mainskill, value: true %>
+                <% end %>
+              </div>
+
+              <div>
+                <%= f.submit %>
+              </div>
+            <% end %>
+      </div>
+
+          <br /><%= button_to "Edit Profile", edit_musician_registration_path, method: :get %>
+
+        <% end %>
       <% end %>
-    <% end %>
-  <% end %>
-</aside>
+  </aside>
 
   <main>
     <% if musician_signed_in? %>
@@ -121,8 +124,6 @@
             <% end %>
           <% end %>
         <% end %>
-
-
     <% end %>
   <% end %>
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Figaro.env.google_maps_api_key }&callback=initMap", async: true, defer: true %>
@@ -147,7 +148,7 @@
           <%= @musician.firstname %>:<br />
         <% end %>
 
-      <div id="map" data-latitude=<%= @musician.latitude %> data-longitude=<%= @musician.longitude %> 
+      <div id="map" data-latitude=<%= @musician.latitude %> data-longitude=<%= @musician.longitude %>
       </div>
     </div>
   </main>

@@ -19,16 +19,27 @@ h3 {
 }
 
 aside {
+  margin-left: 5%;
   float: left;
-  width: 30%;
+  width: 25%;
   background-color: #ccc;
   height: 100%;
+  border-radius: 5%;
+
+  h1 {
+    font-size: 20pt;
+  }
+
+  h3{
+    font-size: 16pt;
+  }
 }
 
 main {
   float: left;
-  width: 70%;
+  width: 65%;
   padding: 30px;
+  margin-right: 5%;
 }
 
 #map {
