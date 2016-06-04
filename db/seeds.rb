@@ -256,6 +256,12 @@ end
   avatar: Faker::Avatar.image
   )
 
+  Skill.create!(
+    musician_id: 9,
+    position_id: 3,
+    mainskill: true
+  )
+
 
 
   # Musician.create!(
