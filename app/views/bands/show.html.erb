@@ -39,13 +39,9 @@
 
           <!-- Non Owner -->
           <% elsif @band.leader.id != current_musician.id %>
-
-              <% if member.vacant? && current_musician.skilled_enough?(member.position.id) %>
+              <% if member.vacant? %>
                 <%= button_to 'Apply', band_member_approvals_path(@band, member, approval: {musician_id: current_musician.id, approval: false, member_id: member.id}), :method => :post %>
-              <% elsif member.vacant? && current_musician.skilled_enough?(member.position.id) == false %>
-                  <p>Cannot apply: this position requires a higher skill level than you currently possess.</p>
               <% else %>
-                <%= member.musician.firstname %>
                 <%= image_tag member.musician.avatar.profile, size: "50x50" %>
               <% end %>
           <% else %>
