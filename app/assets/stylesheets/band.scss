@@ -19,24 +19,36 @@ h1 {
 }
 
 h3{
-  font-size: 16pt;
+  font-size: 12pt;
+  font-weight: bold;
 }
 
 aside {
-  margin-top: 5%;
-  margin-left: 5%;
-  margin-bottom: 5%;
+  margin: 2%;
   float: left;
   width: 25%;
-  background-color: #ccc;
+  border: 5px solid #ccc;
   height: 100%;
 }
 
 main {
+  margin: 2%;
   float: left;
   width: 65%;
   padding: 30px;
-  margin-right: 5%;
+  border: 5px solid #ccc;
+
+  h2 {
+    font-size: 1em;
+  }
+}
+
+#bands-owned {
+
+}
+
+#member-of-bands {
+
 }
 
 #map {
