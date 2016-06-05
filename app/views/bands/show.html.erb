@@ -1,7 +1,7 @@
 <div class="container">
   <aside class="profile-left">
     <%= image_tag @band.poster.profile %><br />
-    <h3>Description</h3>
+    <h3>Bio</h3>
     <p><%= @band.description %></p>
         <a href="mailto:<%= @band.leader.email%>?Subject=Hello">Contact Band Leader</a>
 
@@ -49,11 +49,8 @@
 
           <!-- Non Owner -->
           <% elsif @band.leader.id != current_musician.id %>
-
-              <% if member.vacant? && current_musician.skilled_enough?(member.position.id) %>
+              <% if member.vacant? %>
                 <%= button_to 'Apply', band_member_approvals_path(@band, member, approval: {musician_id: current_musician.id, approval: false, member_id: member.id}), :method => :post %>
-              <% elsif member.vacant? && current_musician.skilled_enough?(member.position.id) == false %>
-                  <p>Cannot apply: this position requires a higher skill level than you currently possess.</p>
               <% else %>
                 <%= image_tag member.musician.avatar.profile, size: "50x50" %>
               <% end %>
@@ -72,24 +69,23 @@
         <%= form_for [@band , @member] do |f| %>
 
           <div id="field">
-            <%= f.label :position %><br />
+            <%= f.label :create_new_position %><br />
             <%= f.select :position_id , options_for_select(@positions.collect {|p| [ p.description, p.id] }) %>
             <%= f.hidden_field :musician_id, :value => nil %>
             <%= f.hidden_field :band_id, :value => @band.id %>
           </div>
 
           <div class="field">
-            <%= f.submit %>
+            <%= f.submit "Add" %>
           </div>
+          <br>
         <% end %>
 
+        <h2>Musicians near you:</h2>
+        <div id="map" data-latitude=<%= @musician.latitude %> data-longitude=<%= @musician.longitude%> %>
+
       <% end %>
-
-
     <% end %>
-
-    <!-- Why do we need a map on the band page? -->
-    <div id="map" data-latitude=<%= @musician.latitude %> data-longitude=<%= @musician.longitude%>  >
     </div>
   </main>
 </div>

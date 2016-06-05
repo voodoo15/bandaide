@@ -20,12 +20,12 @@ function initMap() {
     position: myLatLng,
   })
 
-  markero.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png')
+  markero.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
   markero.setMap(map);
 
   for (i = 0; i < locations.length; i++) {
     var location= new google.maps.LatLng(locations[i][2], locations[i][3]);
-    var category=(locations[i][4])
+    var category=(locations[i][4]);
 
     var marker = new google.maps.Marker({
 	     position: location,
