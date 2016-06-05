@@ -30,6 +30,7 @@
           <%= image_tag("skills/drummer.png", size:  "50x50") if member.position.description == "drummer" %>
           <%= image_tag("skills/keyboard.png", size:  "50x50") if member.position.description == "keyboard" %>
           <%= image_tag("skills/bass.png", size:  "50x50") if member.position.description == "bass" %>
+          <%= "vacant" %>
         <%end%>
 
         <% if musician_signed_in? %>
@@ -54,7 +55,6 @@
               <% elsif member.vacant? && current_musician.skilled_enough?(member.position.id) == false %>
                   <p>Cannot apply: this position requires a higher skill level than you currently possess.</p>
               <% else %>
-                <%= member.musician.firstname %>
                 <%= image_tag member.musician.avatar.profile, size: "50x50" %>
               <% end %>
           <% else %>

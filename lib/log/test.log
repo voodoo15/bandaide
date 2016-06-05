@@ -1,0 +1,89 @@
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (3.1ms)[0m  ALTER TABLE "approvals" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "bands" DISABLE TRIGGER ALL;ALTER TABLE "genres" DISABLE TRIGGER ALL;ALTER TABLE "members" DISABLE TRIGGER ALL;ALTER TABLE "musicians" DISABLE TRIGGER ALL;ALTER TABLE "positions" DISABLE TRIGGER ALL;ALTER TABLE "skills" DISABLE TRIGGER ALL;ALTER TABLE "conversations" DISABLE TRIGGER ALL;ALTER TABLE "messages" DISABLE TRIGGER ALL
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.7ms)[0m  DELETE FROM "approvals"
+  [1m[36mFixture Insert (1.4ms)[0m  [1mINSERT INTO "approvals" ("id") VALUES (980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "approvals" ("id") VALUES (298486374)
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM "bands"[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "bands" ("name", "description", "genre_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 0, '2016-06-03 20:18:02', '2016-06-03 20:18:02', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "bands" ("name", "description", "genre_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 0, '2016-06-03 20:18:02', '2016-06-03 20:18:02', 298486374)[0m
+  [1m[35mFixture Delete (0.9ms)[0m  DELETE FROM "genres"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "genres" ("description", "created_at", "updated_at", "id") VALUES ('MyString', '2016-06-03 20:18:02', '2016-06-03 20:18:02', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "genres" ("description", "created_at", "updated_at", "id") VALUES ('MyString', '2016-06-03 20:18:02', '2016-06-03 20:18:02', 298486374)
+  [1m[36mFixture Delete (0.9ms)[0m  [1mDELETE FROM "members"[0m
+  [1m[35mFixture Insert (0.7ms)[0m  INSERT INTO "members" ("band_id", "position_id", "musician_id", "created_at", "updated_at", "id") VALUES (1, 1, 1, '2016-06-03 20:18:02', '2016-06-03 20:18:02', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "members" ("band_id", "position_id", "musician_id", "created_at", "updated_at", "id") VALUES (1, 1, 1, '2016-06-03 20:18:02', '2016-06-03 20:18:02', 298486374)[0m
+  [1m[35mFixture Delete (1.8ms)[0m  DELETE FROM "musicians"
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "musicians" ("created_at", "updated_at", "id") VALUES ('2016-06-03 20:18:02', '2016-06-03 20:18:02', 980190962)[0m
+  [1m[35mFixture Insert (1.3ms)[0m  INSERT INTO "musicians" ("created_at", "updated_at", "id") VALUES ('2016-06-03 20:18:02', '2016-06-03 20:18:02', 298486374)
+PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint "index_musicians_on_email"
+DETAIL:  Key (email)=() already exists.
+: INSERT INTO "musicians" ("created_at", "updated_at", "id") VALUES ('2016-06-03 20:18:02', '2016-06-03 20:18:02', 298486374)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (1.0ms)[0m  ALTER TABLE "approvals" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "bands" ENABLE TRIGGER ALL;ALTER TABLE "genres" ENABLE TRIGGER ALL;ALTER TABLE "members" ENABLE TRIGGER ALL;ALTER TABLE "musicians" ENABLE TRIGGER ALL;ALTER TABLE "positions" ENABLE TRIGGER ALL;ALTER TABLE "skills" ENABLE TRIGGER ALL;ALTER TABLE "conversations" ENABLE TRIGGER ALL;ALTER TABLE "messages" ENABLE TRIGGER ALL
+  [1m[36m (0.8ms)[0m  [1mALTER TABLE "approvals" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "bands" DISABLE TRIGGER ALL;ALTER TABLE "genres" DISABLE TRIGGER ALL;ALTER TABLE "members" DISABLE TRIGGER ALL;ALTER TABLE "musicians" DISABLE TRIGGER ALL;ALTER TABLE "positions" DISABLE TRIGGER ALL;ALTER TABLE "skills" DISABLE TRIGGER ALL;ALTER TABLE "conversations" DISABLE TRIGGER ALL;ALTER TABLE "messages" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "approvals"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "approvals" ("id") VALUES (980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "approvals" ("id") VALUES (298486374)[0m
+  [1m[35mFixture Delete (0.5ms)[0m  DELETE FROM "bands"
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "bands" ("name", "description", "genre_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 0, '2016-06-03 20:18:02', '2016-06-03 20:18:02', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "bands" ("name", "description", "genre_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 0, '2016-06-03 20:18:02', '2016-06-03 20:18:02', 298486374)
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "genres"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "genres" ("description", "created_at", "updated_at", "id") VALUES ('MyString', '2016-06-03 20:18:02', '2016-06-03 20:18:02', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "genres" ("description", "created_at", "updated_at", "id") VALUES ('MyString', '2016-06-03 20:18:02', '2016-06-03 20:18:02', 298486374)[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "members"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "members" ("band_id", "position_id", "musician_id", "created_at", "updated_at", "id") VALUES (1, 1, 1, '2016-06-03 20:18:02', '2016-06-03 20:18:02', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "members" ("band_id", "position_id", "musician_id", "created_at", "updated_at", "id") VALUES (1, 1, 1, '2016-06-03 20:18:02', '2016-06-03 20:18:02', 298486374)
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "musicians"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "musicians" ("created_at", "updated_at", "id") VALUES ('2016-06-03 20:18:02', '2016-06-03 20:18:02', 980190962)
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "musicians" ("created_at", "updated_at", "id") VALUES ('2016-06-03 20:18:02', '2016-06-03 20:18:02', 298486374)[0m
+PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint "index_musicians_on_email"
+DETAIL:  Key (email)=() already exists.
+: INSERT INTO "musicians" ("created_at", "updated_at", "id") VALUES ('2016-06-03 20:18:02', '2016-06-03 20:18:02', 298486374)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.8ms)[0m  [1mALTER TABLE "approvals" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "bands" ENABLE TRIGGER ALL;ALTER TABLE "genres" ENABLE TRIGGER ALL;ALTER TABLE "members" ENABLE TRIGGER ALL;ALTER TABLE "musicians" ENABLE TRIGGER ALL;ALTER TABLE "positions" ENABLE TRIGGER ALL;ALTER TABLE "skills" ENABLE TRIGGER ALL;ALTER TABLE "conversations" ENABLE TRIGGER ALL;ALTER TABLE "messages" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.9ms)[0m  ALTER TABLE "approvals" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "bands" DISABLE TRIGGER ALL;ALTER TABLE "genres" DISABLE TRIGGER ALL;ALTER TABLE "members" DISABLE TRIGGER ALL;ALTER TABLE "musicians" DISABLE TRIGGER ALL;ALTER TABLE "positions" DISABLE TRIGGER ALL;ALTER TABLE "skills" DISABLE TRIGGER ALL;ALTER TABLE "conversations" DISABLE TRIGGER ALL;ALTER TABLE "messages" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "approvals"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "approvals" ("id") VALUES (980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "approvals" ("id") VALUES (298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "bands"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "bands" ("name", "description", "genre_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 0, '2016-06-03 20:18:02', '2016-06-03 20:18:02', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "bands" ("name", "description", "genre_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 0, '2016-06-03 20:18:02', '2016-06-03 20:18:02', 298486374)[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "genres"
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "genres" ("description", "created_at", "updated_at", "id") VALUES ('MyString', '2016-06-03 20:18:02', '2016-06-03 20:18:02', 980190962)[0m
+  [1m[35mFixture Insert (0.7ms)[0m  INSERT INTO "genres" ("description", "created_at", "updated_at", "id") VALUES ('MyString', '2016-06-03 20:18:02', '2016-06-03 20:18:02', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "members"[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "members" ("band_id", "position_id", "musician_id", "created_at", "updated_at", "id") VALUES (1, 1, 1, '2016-06-03 20:18:03', '2016-06-03 20:18:03', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "members" ("band_id", "position_id", "musician_id", "created_at", "updated_at", "id") VALUES (1, 1, 1, '2016-06-03 20:18:03', '2016-06-03 20:18:03', 298486374)[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "musicians"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "musicians" ("created_at", "updated_at", "id") VALUES ('2016-06-03 20:18:03', '2016-06-03 20:18:03', 980190962)[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO "musicians" ("created_at", "updated_at", "id") VALUES ('2016-06-03 20:18:03', '2016-06-03 20:18:03', 298486374)
+PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint "index_musicians_on_email"
+DETAIL:  Key (email)=() already exists.
+: INSERT INTO "musicians" ("created_at", "updated_at", "id") VALUES ('2016-06-03 20:18:03', '2016-06-03 20:18:03', 298486374)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.9ms)[0m  ALTER TABLE "approvals" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "bands" ENABLE TRIGGER ALL;ALTER TABLE "genres" ENABLE TRIGGER ALL;ALTER TABLE "members" ENABLE TRIGGER ALL;ALTER TABLE "musicians" ENABLE TRIGGER ALL;ALTER TABLE "positions" ENABLE TRIGGER ALL;ALTER TABLE "skills" ENABLE TRIGGER ALL;ALTER TABLE "conversations" ENABLE TRIGGER ALL;ALTER TABLE "messages" ENABLE TRIGGER ALL
+  [1m[36m (1.2ms)[0m  [1mALTER TABLE "approvals" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "bands" DISABLE TRIGGER ALL;ALTER TABLE "genres" DISABLE TRIGGER ALL;ALTER TABLE "members" DISABLE TRIGGER ALL;ALTER TABLE "musicians" DISABLE TRIGGER ALL;ALTER TABLE "positions" DISABLE TRIGGER ALL;ALTER TABLE "skills" DISABLE TRIGGER ALL;ALTER TABLE "conversations" DISABLE TRIGGER ALL;ALTER TABLE "messages" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "approvals"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "approvals" ("id") VALUES (980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "approvals" ("id") VALUES (298486374)[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "bands"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "bands" ("name", "description", "genre_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 0, '2016-06-03 20:18:03', '2016-06-03 20:18:03', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "bands" ("name", "description", "genre_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 0, '2016-06-03 20:18:03', '2016-06-03 20:18:03', 298486374)
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "genres"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "genres" ("description", "created_at", "updated_at", "id") VALUES ('MyString', '2016-06-03 20:18:03', '2016-06-03 20:18:03', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "genres" ("description", "created_at", "updated_at", "id") VALUES ('MyString', '2016-06-03 20:18:03', '2016-06-03 20:18:03', 298486374)[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "members"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "members" ("band_id", "position_id", "musician_id", "created_at", "updated_at", "id") VALUES (1, 1, 1, '2016-06-03 20:18:03', '2016-06-03 20:18:03', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "members" ("band_id", "position_id", "musician_id", "created_at", "updated_at", "id") VALUES (1, 1, 1, '2016-06-03 20:18:03', '2016-06-03 20:18:03', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "musicians"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "musicians" ("created_at", "updated_at", "id") VALUES ('2016-06-03 20:18:03', '2016-06-03 20:18:03', 980190962)
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "musicians" ("created_at", "updated_at", "id") VALUES ('2016-06-03 20:18:03', '2016-06-03 20:18:03', 298486374)[0m
+PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint "index_musicians_on_email"
+DETAIL:  Key (email)=() already exists.
+: INSERT INTO "musicians" ("created_at", "updated_at", "id") VALUES ('2016-06-03 20:18:03', '2016-06-03 20:18:03', 298486374)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.9ms)[0m  [1mALTER TABLE "approvals" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "bands" ENABLE TRIGGER ALL;ALTER TABLE "genres" ENABLE TRIGGER ALL;ALTER TABLE "members" ENABLE TRIGGER ALL;ALTER TABLE "musicians" ENABLE TRIGGER ALL;ALTER TABLE "positions" ENABLE TRIGGER ALL;ALTER TABLE "skills" ENABLE TRIGGER ALL;ALTER TABLE "conversations" ENABLE TRIGGER ALL;ALTER TABLE "messages" ENABLE TRIGGER ALL[0m
