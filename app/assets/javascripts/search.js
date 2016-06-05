@@ -1,6 +1,5 @@
-$(document).on('ready' function(){
-
-
+$(document).on('ready', function() {
+  alert('Search loaded');
   // $.ajax({
   //   beforeSend: function(xhr){
   //     if (xhr.overrideMimeType) {
@@ -9,21 +8,22 @@ $(document).on('ready' function(){
   //   }
   // })
 
-  $("#genre").on('change'function(f){
-  f.preventDefault();
-  var action = $('#genre option:selected').data('id');
-  var genre = $('#genre option:selected').data('name');
+  $('#genre').change(function(f) {
+      f.preventDefault();
+      alert('Worked');
+      var action = $('#genre option:selected').data('id');
+      var genre = $('#genre option:selected').data('name');
 
-  console.log(action + " "+ genre );
-});
+      console.log(action + ' ' + genre);
+  });
 
-$("#position").on('change'function(f){
+  $('#position').change(function(f) {
+      f.preventDefault();
+      alert('Position Worked');
+      var action = $('#position option:selected').data('id');
+      var genre = $('#position  option:selected').data('name');
 
-f.preventDefault();
-var action = $('#position option:selected').data('id');
-var genre = $('#position  option:selected').data('name');
-
-console.log(action + " "+ genre );
-  marker.visable === false;
-});
+      console.log(action + ' ' + genre);
+      // marker.visable === false;
+  });
 });

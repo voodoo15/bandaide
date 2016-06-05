@@ -15,7 +15,6 @@
 //= require foundation
 //! require maps
 //= require_tree .
-//= require jquery.slick
 //= require nav
 
 $(function(){ $(document).foundation(); });
