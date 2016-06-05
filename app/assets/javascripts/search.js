@@ -1,5 +1,5 @@
 $(document).on('ready', function() {
-  alert('Search loaded');
+
   // $.ajax({
   //   beforeSend: function(xhr){
   //     if (xhr.overrideMimeType) {
@@ -23,7 +23,7 @@ $(document).on('ready', function() {
       var action = $('#position option:selected').data('id');
       var genre = $('#position  option:selected').data('name');
 
-      console.log(action + ' ' + genre);
-      // marker.visable === false;
+      console.log(action + ' ' + position);
+      // marker.visible === false;
   });
 });
