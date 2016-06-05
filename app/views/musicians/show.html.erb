@@ -5,9 +5,9 @@
     <h3>Bio</h3>
     <%= @musician.description %><br />
 
-    <a href="mailto:<%= @musician.email%>?Subject=Hello">Contact Me</a>
+    <button class="button"><a href="mailto:<%= @musician.email%>?Subject=Hello">Contact Me</a></button>
 
-    <%= button_to "Back", request.referer.present? ? request.referer : root_path, method: :get %><br />
+    <%= button_to "Back", request.referer.present? ? request.referer : root_path, method: :get, class: 'button' %><br />
       <% if @musician.skills.count() > 0 %>
         <h3>Skills</h3>
 
@@ -59,7 +59,7 @@
             </div>
           <% end %>
 
-        <br /><%= button_to "Edit Profile", edit_musician_registration_path, method: :get %>
+        <br /><%= button_to "Edit Profile", edit_musician_registration_path, method: :get, class: 'button' %>
 
       <% end %>
     <% end %>
@@ -107,7 +107,6 @@
         <% if current_musician.approvals.where(approved: false).count > 0 %>
 
           <h1>Membership Pending Approval</h1><br />
-
 
           <% current_musician.approvals.each do |approval|%>
 

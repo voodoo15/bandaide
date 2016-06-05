@@ -8,6 +8,7 @@ main {
   text-align: center;
   justify-content: center;
   align-items: center;
+  border-radius: 28px;
 
   #bands-list {
   }
@@ -58,4 +59,10 @@ main {
     width: 100%;
     height: 100%;
   }
+}
+
+.button {
+  background-color: #ccc;
+  color: black;
+  border-radius: 28px;
 }
