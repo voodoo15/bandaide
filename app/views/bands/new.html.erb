@@ -14,7 +14,7 @@
       </li>
     <% end %>
   </ul>
-
+<div class= "Band_form">
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
@@ -27,11 +27,11 @@
 
   <div class="field">
     <%= f.label :description %><br />
-    <%= f.text_field :description %>
+    <%= f.text_area :description, :columns => "20", :rows =>"5" %>
   </div>
 
   <div>
     <%= f.submit %>
   </div>
-
+</div>
 <% end %>
