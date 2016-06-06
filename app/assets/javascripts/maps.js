@@ -2,11 +2,10 @@
 function initMap() {
 
   var map_placeholder = $('#map');
-  var latlng = gon.latLng
-  var myLatLng = {lat: latlng[0], lng: latlng[1]};
+  var myLatLng = {lat: gon.latLng[0], lng: gon.latLng[1]};
 
   var locations = gon.nearby_musicians;
-  var type=gon.type
+  var type=gon.type;
   var map = new google.maps.Map(map_placeholder[0],{
     center: myLatLng,
     zoom: 10
@@ -17,7 +16,7 @@ function initMap() {
   });
 
   var markero = new google.maps.Marker({
-    position: myLatLng,
+    position: myLatLng
   })
 
   markero.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
@@ -33,30 +32,9 @@ function initMap() {
 	     url: '/'+type +'/'+locations[i][0] ,
 	    title: locations[i][1]+ " " +category
      });
-     gmarkers.push(marker);
      marker.addListener('click', function() {window.location.href = marker.url;});
 	   marker.setMap(map);
   };
-
-  $("#position").change(function(f){
-    var action = $('#position option:selected').data('id');
-    var genre = $('#position  option:selected').data('name');
-
-    filterMarkers = function (category) {
-      for (i = 0; i < markers1.length; i++) {
-	       marker = gmarkers1[i];
-					// If is same category or category not picked
-	      if (marker.category == genre || category.length === 0) {
-			         marker.setVisible(true);
-	      }
-// Categories don't match
-	      else {
-		         marker.setVisible(false);
-	      }
-      }
-      console.log(action + " "+ genre );
-    }
-  });
 };
 
 
