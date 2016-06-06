@@ -1,13 +1,70 @@
 <div class="row" data-equalizer data-equalize-on="medium" id="test-eq">
+
     <% @bands.each do |band| %>
       <div class="small-4 columns">
+        <div class="card">
+
         <%= link_to band_path(band.id) do %>
-        <div class="equalizer" data-equalizer-watch>
-          <p id="band-name"><%= band.name %></p>
+            <p class="font-title"><%= band.name  %> </p>
             <%= image_tag band.poster.profile, class: "band-image"%>
-          <p id="band-description"><%= band.description %></p>
+
+           <p class="font-description"><%= band.description %></p>
+
         </div>
       </div>
       <% end %>
     <% end %>
+
 </div>
+
+<!-- <div class="row" data-equalizer data-equalize-on="medium" id="test-eq">
+     <div class="small-4 columns">
+       <article class="article-card">
+         <% @bands.each do |band| %>
+         <%= image_tag band.poster.profile, class: "band-image"%>
+         <div class="card-content">
+
+           <%= link_to band_path(band.id) do %>
+             <div class="equalizer" data-equalizer-watch>
+           <%= band.name %>
+
+           <%= band.description %>
+
+         </div>
+            <%end%>
+         <%end%>
+       </article>
+     </div> -->
+     <!-- <div class="medium-6 large-4 columns"> -->
+       <!-- <article class="article-card">
+         <img src="http://www.sonymoviechannel.com/sites/default/files/movies/images/syn__0055_snatch.jpg?1284493346">
+         <div class="card-content">
+           <img class="post-icon" src="http://zurb.com/stickers/images/intro-foundation.png" alt="foundation icon">
+           <p class="post-author">By <a href="#">Brick Top</a></p>
+           <h4>Santch. The best gangster movie of all time? I'll fight ya for it.</h4>
+           <p>It's behind you Tyrone. Whenever you reverse, things come from behind you. Who took the jam outta your doughnut? Yes, London. You know: fish, chips, cup 'o tea, bad food, worse weather, Mary f-king Poppins... LONDON.</p>
+           <p>
+             <a href="#">Read on...</a>
+             <a href="#" class="right"><i class="fi-share"></i></a>
+             <a href="#" class="right"><i class="fi-heart"></i></a>
+           </p>
+         </div>
+       </article>
+     </div>
+     <div class="medium-6 large-4 end columns">
+       <article class="article-card">
+         <img src="http://imageserver.moviepilot.com/14709_fight_club-these-12-facts-prove-that-fight-club-is-one-of-the-best-films-ever-made.webp?width=960&height=600">
+         <div class="card-content">
+           <img class="post-icon" src="http://zurb.com/stickers/images/intro-foundation.png" alt="foundation icon">
+           <p class="post-author">By <a href="#">Tyler Durden</a></p>
+           <h4>It's said that the first rule of Fight Club is: 'You do not talk about Fight club.' We must ignore this rule for two reasons:</h4>
+           <p>You are not special. You are not a beautiful or unique snowflake. You're the same decaying organic matter as everything else.</p>
+           <p>
+             <a href="http://cultrbox.com/2014/01/13/fight-club-falling-down-and-the-anti-corporate-anti-hero/">Read on...</a>
+             <a href="#" class="right"><i class="fi-share"></i></a>
+             <a href="#" class="right"><i class="fi-heart"></i></a>
+           </p>
+         </div>
+       </article> -->
+     </div>
+   </div>
