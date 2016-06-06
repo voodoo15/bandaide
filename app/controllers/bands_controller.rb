@@ -11,6 +11,7 @@ class BandsController < ApplicationController
     @member = Member.new
     @positions = Position.all
     @nearby_musicians = @musician.nearbys(5, unit: :km)
+    gon.latLng = @musician.longitude , @musician.latitude
     gon.nearby_musicians = @nearby_musicians.collect{ |r| [r.id, r.firstname,  r.latitude, r.longitude, r.positions.where(skills: {mainskill: true}).first.description] }
     gon.type = "musicians"
   end
