@@ -30,6 +30,7 @@
           <%= image_tag("skills/drummer.png", size:  "50x50") if member.position.description == "drummer" %>
           <%= image_tag("skills/keyboard.png", size:  "50x50") if member.position.description == "keyboard" %>
           <%= image_tag("skills/bass.png", size:  "50x50") if member.position.description == "bass" %>
+          <%= "vacant" %>
         <%end%>
 
         <% if musician_signed_in? %>
