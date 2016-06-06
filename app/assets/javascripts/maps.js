@@ -2,9 +2,9 @@
 function initMap() {
 
   var map_placeholder = $('#map');
-  var myLatLng = {lat : map_placeholder.data('latitude'), lng : map_placeholder.data('longitude')};
+  var latlng = gon.latLng
+  var myLatLng = {lat: latlng[0], lng: latlng[1]};
 
-  var gmarkers = [];
   var locations = gon.nearby_musicians;
   var type=gon.type
   var map = new google.maps.Map(map_placeholder[0],{

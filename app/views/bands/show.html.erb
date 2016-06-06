@@ -6,7 +6,6 @@
         <a href="mailto:<%= @band.leader.email%>?Subject=Hello">Contact Band Leader</a>
 
         <br /><%= button_to "Back", request.referer.present? ? request.referer : root_path, method: :get %>
-        <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Figaro.env.google_maps_api_key }&callback=initMap", async: true, defer: true %>
   </aside>
   <main>
     <h1><%= @band.name %></h1>
@@ -84,6 +83,7 @@
 
         <h2>Musicians near you:</h2>
         <div id="map" data-latitude=<%= @musician.latitude %> data-longitude=<%= @musician.longitude%> %>
+        <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Figaro.env.google_maps_api_key }&callback=initMap", async: true, defer: true %>
 
       <% end %>
     <% end %>
