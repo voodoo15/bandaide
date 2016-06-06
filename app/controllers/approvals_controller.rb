@@ -5,9 +5,10 @@ class ApprovalsController < ApplicationController
     @musician = current_musician
     @member = Member.find(params[:member_id])
     @approval = Approval.new(approval_params)
+    @band = Band.find(params[:band_id])
 
     if @approval.save
-      redirect_to root_url, notice: "Thanks for applying to the band"
+      redirect_to band_url(@band), notice: "Thanks for applying to the band!"
     else
       render band_url(band_id)
     end
@@ -31,7 +32,7 @@ class ApprovalsController < ApplicationController
   private
 
   def approval_params
-    params.require(:approval).permit(:musician_id, :member_id, :approved)
+    params.require(:approval).permit(:musician_id, :member_id, :approved, :band_id)
   end
 
   def member_params

@@ -2,9 +2,11 @@
   <aside class="profile-left">
     <%= image_tag @band.poster.profile %><br />
     <h3>Bio</h3>
-    <p><%= @band.description %></p>
-        <a href="mailto:<%= @band.leader.email%>?Subject=Hello">Contact Band Leader</a>
-
+      <p><%= @band.description %></p>
+    <h4>Band Leader:</h4>
+      <p><%= @band.leader.firstname %>
+      <%= image_tag (@band.leader.avatar.thumb) %></p>
+      <a href="mailto:<%= @band.leader.email%>?Subject=Hello">Contact Band Leader</a>
         <br /><%= button_to "Back", request.referer.present? ? request.referer : root_path, method: :get %>
   </aside>
   <main>
@@ -28,6 +30,10 @@
     <% end %>
 
     <p>Vacant slots</p><br />
+    <% if @band.members.where(musician_id:nil).count == 0 %>
+      <p> Sorry there is no vacant spots </p>
+    <%end %>
+
     <% @band.members.each do |member| %>
       <p>
         <% if member.musician == nil %>
