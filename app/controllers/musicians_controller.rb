@@ -6,7 +6,8 @@ class MusiciansController < ApplicationController
 
     @nearby_bands = Band.near(@musician,30, unit: :km)
     gon.nearby_musicians = @nearby_bands.collect{ |r| [r.id, r.name, r.latitude, r.longitude , r.genre.description] }
-    gon.type= "bands"
+    gon.type = "bands"
+    gon.latLng = @musician.latitude, @musician.longitude
     @positions = Position.all
     @skill = Skill.new
   end
