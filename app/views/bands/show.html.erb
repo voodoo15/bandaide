@@ -28,6 +28,10 @@
     <% end %>
 
     <p>Vacant slots</p><br />
+    <% if @band.members.where(musician_id:nil).count == 0 %>
+      <p> Sorry there is no vacant spots </p>
+    <%end %>
+
     <% @band.members.each do |member| %>
       <p>
         <% if member.musician == nil %>
