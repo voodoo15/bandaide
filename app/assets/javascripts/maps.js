@@ -93,7 +93,7 @@ function initMap2() {
       position: location,
       clickable: true,
       url: '/' + type + '/' + locations[i][0],
-      title: locations[i][1] + " " + category,
+      title: locations[i][1] + " " + category + " " + '/' + type + '/' + locations[i][0],
       category: category
     });
 
