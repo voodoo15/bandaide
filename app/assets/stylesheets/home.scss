@@ -111,26 +111,22 @@
 //     }
 //   }
 // }
-//
-// #sidebar {
-//   background-color: white;
-//   color: black;
-//   position: fixed;
-//   top: 60px;
-//   right: -20%;
-//   width: 20%;
-//
-//   transition: right 0.25s;
-// }
-//
-//   .is-open {
-//     right: 0;
-//   }
-//
-// #nav-toggle.is-open {
-//   color: white;
-// }
-//
+
+#sidebar {
+  background-color: white;
+  color: black;
+  position: fixed;
+  top: 60px;
+  right: -20%;
+  width: 20%;
+
+  transition: right 0.25s;
+
+  .is-open {
+    right: 0;
+  }
+}
+
 // .hero {
 //   background-image: url("home/index/Band_Aide_Logo");
 //   background-size: cover;

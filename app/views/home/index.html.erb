@@ -1,38 +1,9 @@
 <body>
-
-<%= render "home/video" %>
+  <%= render "home/video" %>
     <main>
       <h1 id="title">Welcome to Band Aide</h1>
 
-      <button class="filter-side-menu">
-        <a id="nav-toggle" href="#">Filter by attribute</a>
-        <aside id="sidebar">
-          <nav>
-            <p>Filter bands by genre:</p>
-            <ul class="side-menu">
-              <li>
-                <%= link_to "All", remote: true, class: "All" %>
-              </li>
-              <% @genres.each do |genre| %>
-                <li>
-                  <%= link_to genre.description, remote: true, class: "#{genre.description}" %>
-                </li>
-              <% end %>
-            </ul>
-            <p>Filter musicians by position:</p>
-            <ul class="side-menu">
-              <li>
-                <%= link_to "All", remote: true, class: "All" %>
-              </li>
-              <% @positions.each do |position| %>
-                <li>
-                  <%= link_to position.description, remote: true, class: "#{position.description}" %>
-                </li>
-              <% end %>
-            </ul>
-          </nav>
-        </aside>
-      </button>
+      <button id="nav-toggle" href="#">Filter by attribute</button>
 
       <h3>Bands</h3>
       <div class="bands">
@@ -41,17 +12,16 @@
 
       <section id="musicians-list">
         <h3>Musicians near you</h3>
-
         <div class="musicians">
           <%= render "home/musicians" %>
         </div>
       </section>
     </main>
 
-    <aside id="search-category-list">
-      <p>Filter Bands by Genre:</p>
-      <div class="genres-scroll">
-        <ul>
+    <aside>
+      <nav id="sidebar">
+        <p>Filter bands by genre:</p>
+        <ul class="side-menu">
           <li>
             <%= link_to "All", remote: true, class: "All" %>
           </li>
@@ -61,20 +31,17 @@
             </li>
           <% end %>
         </ul>
-      </div>
-      <p>Filter Musicians by Position:</p>
-      <div class="positions-scroll">
-          <ul>
+        <p>Filter musicians by position:</p>
+        <ul class="side-menu">
+          <li>
+            <%= link_to "All", remote: true, class: "All" %>
+          </li>
+          <% @positions.each do |position| %>
             <li>
-              <%= link_to "All", remote: true, class: "All" %>
+              <%= link_to position.description, remote: true, class: "#{position.description}" %>
             </li>
-            <% @positions.each do |position| %>
-              <li>
-                <%= link_to position.description, remote: true, class: "#{position.description}" %>
-              </li>
-            <% end %>
-          </ul>
-      </div>
-
+          <% end %>
+        </ul>
+      </nav>
     </aside>
 </body>

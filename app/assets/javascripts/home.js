@@ -52,7 +52,7 @@ $(document).on('ready page:load', function() {
     $('#nav-toggle').on('click', function(e) {
       e.preventDefault();
 
-      $(this).add('#sidebar').toggleClass('is-open');
+      $(this).toggleClass('is-open');
     });
   });
 });
@@ -88,7 +88,6 @@ $(window).on("load resize",function(e) {
     });
   });
 });
-
 
 $(function() {
   $('a[href*="#"]:not([href="#"])').click(function() {
