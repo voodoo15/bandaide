@@ -1,4 +1,3 @@
-
 function initMap() {
 
   var map_placeholder = $('#map');
@@ -6,7 +5,7 @@ function initMap() {
 
   var locations = gon.nearby_musicians;
   var type=gon.type;
-  var map = new google.maps.Map(map_placeholder[0],{
+  var map = new google.maps.Map(map_placeholder[0], {
     center: myLatLng,
     zoom: 10
   });
@@ -23,17 +22,20 @@ function initMap() {
   markero.setMap(map);
 
   for (i = 0; i < locations.length; i++) {
-    var location= new google.maps.LatLng(locations[i][2], locations[i][3]);
-    var category=(locations[i][4]);
+    var location = new google.maps.LatLng(locations[i][2], locations[i][3]);
+    var category =(locations[i][4]);
 
     var marker = new google.maps.Marker({
-	     position: location,
-	     clickable: true,
-	     url: '/'+type +'/'+locations[i][0] ,
-	    title: locations[i][1]+ " " +category
+      position: location,
+      clickable: true,
+      url: '/'+ type + '/' + locations[i][0],
+      title: locations[i][1] + " " + category
      });
-     marker.addListener('click', function() {window.location.href = marker.url;});
-	   marker.setMap(map);
+
+     marker.addListener('click', function() {
+       window.location.href = this.url;
+     });
+     marker.setMap(map);
   };
 };
 
@@ -43,7 +45,6 @@ function initMap2() {
   var map_placeholder = $('#searchmap');
   var myLatLng = {lat: map_placeholder.data('latitude'), lng: map_placeholder.data('longitude')};
 
-  var gmarkers = [];
   var locations = gon.nearby_musicians;
   var type = gon.type;
   var map = new google.maps.Map(map_placeholder[0], {
@@ -80,8 +81,9 @@ function initMap2() {
     markerGroups[skill].push(marker);
     markerGroups['all'].push(marker);
 
-    gmarkers.push(marker);
-    marker.addListener('click', function() {window.location.href = marker.url;});
+    marker.addListener('click', function() {
+      window.location.href = this.url;
+    });
     marker.setMap(map);
   };
 
