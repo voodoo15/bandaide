@@ -52,9 +52,10 @@
               <% if member.vacant? %>
                 <%= button_to 'Apply', band_member_approvals_path(@band, member, approval: {musician_id: current_musician.id, approval: false, member_id: member.id}), :method => :post, class: "apply-button" %>
               <% else %>
-                <%= image_tag member.musician.avatar.profile, size: "50x50" %>
+                <%=link_to image_tag(member.musician.avatar.thumb), musician_path(member.musician.id) %>
               <% end %>
           <% else %>
+
               <p>Please register to apply</p>
           <% end %>
         <% end %>
