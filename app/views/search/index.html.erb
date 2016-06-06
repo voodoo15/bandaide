@@ -1,42 +1,55 @@
-<h1>Band Aide Search</h1>
+<h1>Search for Bands and Musicians in your Area:</h1>
 
 <body>
-  <label for= "Position">Search for Bands and Musicians in your Area:</label>
+  <main>
+    <label for= "Position"></label>
 
-  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Figaro.env.google_maps_api_key }&callback=initMap2", async: true, defer: true %>
-  <div id="searchmap" data-latitude=<%= @musician.latitude %> data-longitude=<%= @musician.longitude%>>
-  </div>
-  <div class="filter">
-    <div class="filter_type">
-      <h3>Filter by Musician Skill:</h3>
-      <select id="position" name="positions">
-        <option data-id="0" data-name="all">All</option>
-        <option data-id="1" data-name="singer">Singer</option>
-        <option data-id="2" data-name="drummer">Drummer</option>
-        <option data-id="3" data-name="lead">Lead</option>
-        <option data-id="4" data-name="bass">Bass</option>
-        <option data-id="5" data-name="keyboard">Keyboard</option>
-      </select>
+    <div class="filter">
+      <div class="filter_type">
+        <h3>Filter by Musician Skill:</h3>
+        <select id="position" name="positions">
+          <option data-id="0" data-name="all">All</option>
+          <option data-id="1" data-name="singer">Singer</option>
+          <option data-id="2" data-name="drummer">Drummer</option>
+          <option data-id="3" data-name="lead">Lead</option>
+          <option data-id="4" data-name="bass">Bass</option>
+          <option data-id="5" data-name="keyboard">Keyboard</option>
+        </select>
+      </div>
+
+      <div class="filter_type">
+        <h3>Filter by Band Genre:</h3>
+        <select id="genre" name="genres" >
+          <option data-id="0" data-name="All">All</option>
+          <option data-id="1" data-name="Classic">Classic</option>
+          <option data-id="2" data-name="Heavy Metal">Heavy Metal</option>
+          <option data-id="3" data-name="Goth">Goth</option>
+          <option data-id="4" data-name="Alternative">Alternative</option>
+          <option data-id="5" data-name="Pop">Pop</option>
+          <option data-id="6" data-name="Blues">Blues</option>
+          <option data-id="7" data-name="Psychadelic">Psychadelic</option>
+          <option data-id="8" data-name="Punk">Punk</option>
+          <option data-id="9" data-name="Glam">Glam</option>
+          <option data-id="10" data-name="Britpop">Britpop</option>
+          <option data-id="11" data-name="Indie">Indie</option>
+          <option data-id="12" data-name="Rock and Roll">Rock and Roll</option>
+          <option data-id="13" data-name="Jazz">Jazz</option>
+        </select>
+      </div>
     </div>
 
-    <div class="filter_type">
-      <h3>Filter by Band Genre:</h3>
-      <select id="genre" name="genres" >
-        <option data-id="0" data-name="All">All</option>
-        <option data-id="1" data-name="Classic">Classic</option>
-        <option data-id="2" data-name="Heavy Metal">Heavy Metal</option>
-        <option data-id="3" data-name="Goth">Goth</option>
-        <option data-id="4" data-name="Alternative">Alternative</option>
-        <option data-id="5" data-name="Pop">Pop</option>
-        <option data-id="6" data-name="Blues">Blues</option>
-        <option data-id="7" data-name="Psychadelic">Psychadelic</option>
-        <option data-id="8" data-name="Punk">Punk</option>
-        <option data-id="9" data-name="Glam">Glam</option>
-        <option data-id="10" data-name="Britpop">Britpop</option>
-        <option data-id="11" data-name="Indie">Indie</option>
-        <option data-id="12" data-name="Rock and Roll">Rock and Roll</option>
-        <option data-id="13" data-name="Jazz">Jazz</option>
-      </select>
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Figaro.env.google_maps_api_key }&callback=initMap2", async: true, defer: true %>
+    <div id="searchmap" data-latitude=<%= @musician.latitude %> data-longitude=<%= @musician.longitude%>>
     </div>
-  </div>
+  </main>
+  <!-- <aside class="table">
+    <table>
+      <thead>
+        <th>Image:</th>
+        <th>Type:</th>
+        <th>Name:</th>
+        <th>Description:</th>
+      </thead>
+    </table>
+  </aside> -->
 </body>
