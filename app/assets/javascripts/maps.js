@@ -107,11 +107,22 @@ function initMap2() {
     marker.setMap(map);
   };
 
-  function toggleGroup(type) {
+  function makeGroupVisible(type) {
+
+    makeGroupInvisible();
+
     for (var i = 0; i < markerGroups[type].length; i++) {
       var marker = markerGroups[type][i];
       console.log(marker);
       marker.setVisible(true);
+    }
+  }
+
+  function makeGroupInvisible() {
+    for (var i = 0; i < markerGroups['all'].length; i++) {
+      var marker = markerGroups['all'][i];
+      console.log(marker);
+      marker.setVisible(false);
     }
   }
 
@@ -121,7 +132,7 @@ function initMap2() {
       var genre = $('#genre option:selected').data('name');
 
       console.log(action + ' ' + genre);
-      toggleGroup(genre);
+      makeGroupVisible(genre);
   });
 
   $('#position').change(function(f) {
@@ -130,6 +141,6 @@ function initMap2() {
       var position = $('#position option:selected').data('name');
 
       console.log(action + ' ' + position);
-      toggleGroup(position);
+      makeGroupVisible(position);
   });
 };
