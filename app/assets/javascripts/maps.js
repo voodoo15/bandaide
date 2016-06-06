@@ -72,6 +72,7 @@ function initMap2() {
     center: myLatLng,
     zoom: 13
   });
+  var markerGroups = {'singer': [], 'drummer': [], 'lead': [], 'bass': [], 'keyboard': []};
 
   var infowindow = new google.maps.InfoWindow({
     content: "test"
@@ -86,18 +87,32 @@ function initMap2() {
 
   for (i = 0; i < locations.length; i++) {
     var location = new google.maps.LatLng(locations[i][2], locations[i][3]);
-    var category =(locations[i][4]);
+    var category = (locations[i][4]);
 
     var marker = new google.maps.Marker({
-	     position: location,
-	     clickable: true,
-	     url: '/' + type + '/' + locations[i][0],
-	    title: locations[i][1] + " " + category
-     });
-     gmarkers.push(marker);
-     marker.addListener('click', function() {window.location.href = marker.url;});
-	   marker.setMap(map);
+      position: location,
+      clickable: true,
+      url: '/' + type + '/' + locations[i][0],
+      title: locations[i][1] + " " + category,
+      category: category
+    });
+
+    var skill = marker.category;
+    markerGroups[skill].push(marker);
+
+
+    gmarkers.push(marker);
+    marker.addListener('click', function() {window.location.href = marker.url;});
+    marker.setMap(map);
   };
+
+  function toggleGroup(type) {
+    for (var i = 0; i < markerGroups[type].length; i++) {
+      var marker = markerGroups[type][i];
+      console.log(marker);
+      marker.setVisible(false);
+    }
+  }
 
   $('#genre').change(function(f) {
       f.preventDefault();
@@ -105,6 +120,7 @@ function initMap2() {
       var genre = $('#genre option:selected').data('name');
 
       console.log(action + ' ' + genre);
+      toggleGroup(genre);
   });
 
   $('#position').change(function(f) {
@@ -113,6 +129,6 @@ function initMap2() {
       var position = $('#position option:selected').data('name');
 
       console.log(action + ' ' + position);
-      marker.visible = false;
+      toggleGroup(position);
   });
 };
