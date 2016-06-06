@@ -22,6 +22,7 @@
           <%= image_tag("skills/keyboard.png", size:  "50x50") if member.position.description == "keyboard" %>
           <%= image_tag("skills/bass.png", size:  "50x50") if member.position.description == "bass" %>
           <%= member.musician.firstname %>
+          <%=link_to image_tag(member.musician.avatar.thumb), musician_path(member.musician.id) %>
         <% end %>
       </p>
     <% end %>
@@ -29,15 +30,14 @@
     <p>Vacant slots</p><br />
     <% @band.members.each do |member| %>
       <p>
-         <% if member.musician == nil %>
+        <% if member.musician == nil %>
           <%= image_tag("skills/lead.png", size:  "50x50") if member.position.description == "lead" %>
           <%= image_tag("skills/lead.png", size:  "50x50") if member.position.description == "rhythm" %>
           <%= image_tag("skills/singer.png", size:  "50x50") if member.position.description == "singer" %>
           <%= image_tag("skills/drummer.png", size:  "50x50") if member.position.description == "drummer" %>
           <%= image_tag("skills/keyboard.png", size:  "50x50") if member.position.description == "keyboard" %>
           <%= image_tag("skills/bass.png", size:  "50x50") if member.position.description == "bass" %>
-          <%= "vacant" %>
-        <%end%>
+        <% end %>
 
         <% if musician_signed_in? %>
 
@@ -57,8 +57,6 @@
           <% elsif @band.leader.id != current_musician.id %>
               <% if member.vacant? %>
                 <%= button_to 'Apply', band_member_approvals_path(@band, member, approval: {musician_id: current_musician.id, approval: false, member_id: member.id}), :method => :post, class: "apply-button" %>
-              <% else %>
-                <%=link_to image_tag(member.musician.avatar.thumb), musician_path(member.musician.id) %>
               <% end %>
           <% else %>
 
