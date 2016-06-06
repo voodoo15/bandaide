@@ -4,7 +4,7 @@ function initMap() {
   var myLatLng = {lat: gon.latLng[0], lng: gon.latLng[1]};
 
   var locations = gon.nearby_musicians;
-  var type=gon.type;
+  var type = gon.type;
   var map = new google.maps.Map(map_placeholder[0], {
     center: myLatLng,
     zoom: 10
@@ -29,7 +29,7 @@ function initMap() {
       position: location,
       clickable: true,
       url: '/'+ type + '/' + locations[i][0],
-      title: locations[i][1] + " " + category
+      title: locations[i][1] + " " + category,
      });
 
      marker.addListener('click', function() {
@@ -39,19 +39,37 @@ function initMap() {
   };
 };
 
-
 function initMap2() {
 
   var map_placeholder = $('#searchmap');
   var myLatLng = {lat: map_placeholder.data('latitude'), lng: map_placeholder.data('longitude')};
 
   var locations = gon.nearby_musicians;
-  var type = gon.type;
   var map = new google.maps.Map(map_placeholder[0], {
     center: myLatLng,
     zoom: 13
   });
-  var markerGroups = {'all': [], 'singer': [], 'drummer': [], 'lead': [], 'bass': [], 'keyboard': []};
+  var markerGroups = {
+    'all': [],
+    'singer': [],
+    'drummer': [],
+    'lead': [],
+    'bass': [],
+    'keyboard': [],
+    'Classic': [],
+    'Heavy Metal': [],
+    'Goth': [],
+    'Alternative': [],
+    'Pop': [],
+    'Blues': [],
+    'Psychadelic': [],
+    'Punk': [],
+    'Glam': [],
+    'Britpop': [],
+    'Indie': [],
+    'Rock & Roll': [],
+    'Jazz': []
+  };
 
   var infowindow = new google.maps.InfoWindow({
     content: "test"
@@ -67,13 +85,16 @@ function initMap2() {
   for (i = 0; i < locations.length; i++) {
     var location = new google.maps.LatLng(locations[i][2], locations[i][3]);
     var category = (locations[i][4]);
+    var type = locations[i][5];
+    var image = locations[i][6];
 
     var marker = new google.maps.Marker({
       position: location,
       clickable: true,
       url: '/' + type + '/' + locations[i][0],
       title: locations[i][1] + " " + category + " " + '/' + type + '/' + locations[i][0],
-      category: category
+      category: category,
+      icon: image
     });
 
     //Find the skill of the musician and add it to a custom group so I can target the group later

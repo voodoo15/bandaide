@@ -8,11 +8,13 @@ class SearchController < ApplicationController
     if @nearby_musicians == nil
       @nearby_musicians = Musician.near(@musician.city, 50)
     end
-    
-    gon.nearby_musicians = @nearby_musicians.collect{ |r| [r.id, r.firstname,  r.latitude, r.longitude, r.positions.where(skills: {mainskill: true}).first.description] }
-    gon.type = "musicians"
+
+    @nearby_bands = Band.near(@musician)
+
+    # gon.nearby_musicians = @nearby_musicians.collect{ |r| [r.id, r.firstname,  r.latitude, r.longitude, r.positions.where(skills: {mainskill: true}).first.description, "musicians", r.avatar.thumb.url]}
+    gon.nearby_musicians = @nearby_musicians.collect{ |r| [r.id, r.firstname,  r.latitude, r.longitude, r.positions.where(skills: {mainskill: true}).first.description, "musicians", r.avatar.thumb.url]} +
+                           @nearby_bands.collect{ |b| [b.id, b.name, b.latitude, b.longitude, b.genre.description, "bands", b.poster.thumb.url]}
     @positions=Position.all
     @genres= Genre.all
-    # @musician_fields = Musician.all.map{|m| [m.id,m.positions.description]}
   end
 end

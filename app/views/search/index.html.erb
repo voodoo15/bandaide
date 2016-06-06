@@ -1,13 +1,13 @@
-<h1>Search Page </h1>
-
+<h1>Band Aide Search</h1>
 
 <body>
-  <label for= "Position">Position:</label>
+  <label for= "Position">Search for Bands and Musicians in your Area:</label>
 
   <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Figaro.env.google_maps_api_key }&callback=initMap2", async: true, defer: true %>
   <div id="searchmap" data-latitude=<%= @musician.latitude %> data-longitude=<%= @musician.longitude%>>
   </div>
 
+  <h3>Filter by Musician Skill:</h3>
   <select id="position" name="positions">
     <option data-id="0" data-name="all">All</option>
     <option data-id="1" data-name="singer">Singer</option>
@@ -17,7 +17,7 @@
     <option data-id="5" data-name="keyboard">Keyboard</option>
   </select>
 
-
+  <h3>Filter by Band Genre:</h3>
   <select id="genre" name="genres" >
     <option data-id="0" data-name="all">All</option>
     <option data-id="1" data-name="classic">Classic</option>
