@@ -85,11 +85,12 @@
         <% end %>
 
         <h2>Musicians near you:</h2>
-        <div id="map" data-latitude=<%= @musician.latitude %> data-longitude=<%= @musician.longitude%> %>
+        <div id="map" data-latitude=<%= @musician.latitude %> data-longitude=<%= @musician.longitude%>>
+        </div>
+
         <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Figaro.env.google_maps_api_key }&callback=initMap", async: true, defer: true %>
 
       <% end %>
     <% end %>
-    </div>
   </main>
 </div>
