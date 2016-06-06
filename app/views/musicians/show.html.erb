@@ -1,95 +1,92 @@
 <div class="container">
-<br/>
-<aside id="profile-side">
-    <h1><%= @musician.firstname %> <%= @musician.lastname %></h1>
+  <aside>
+    <br /><%= image_tag @musician.avatar.profile %><br />
 
-
+    <h3>Bio</h3>
+    <%= @musician.description %><br />
 
     <a href="mailto:<%= @musician.email%>?Subject=Hello">Contact Me</a>
 
-    <h3>Bio:</h3><br />
-
     <%= button_to "Back", request.referer.present? ? request.referer : root_path, method: :get %><br />
+      <% if @musician.skills.count() > 0 %>
+        <h3>Skills</h3>
 
-    <%= image_tag @musician.avatar.profile %><br />
+        <% @musician.skills.each do |skill| %>
+          <%= skill.position.description %>
 
-<h1>Description:</h1><br />
-<%= @musician.description %><br />
-
-<% if @musician.skills.count() > 0 %>
-  <h1>Skills:</h1><br />
-  <% @musician.skills.each do |skill| %>
-    Skill:  <%= skill.position.description %><br />
-    <!-- Level: <%= skill.display_level %><br /> -->
-    Primary Skill:  <%= skill.mainskill %><br />
-
-    <% if skill.mainskill == false %>
-      <%= button_to "Make Primary Skill", musician_skill_path(@musician, skill, skill: {mainskill: true}), method: :put %>
-      <%= button_to "Remove Skill", musician_skill_path(@musician, skill), method: :delete %>
-    <% else %>
-    <p>
-      Change the primary skill first before removing this skill
-    </p>
-    <% end %>
-
-  <% end %>
-<% end %>
-
-    <% if musician_signed_in? %>
-      <% if current_musician.id == @musician.id %><br />
-      <br /><%= button_to "Edit Profile", edit_musician_registration_path, method: :get %>
-
-
-<h1>Create New Skill:</h1>
-
-<%= form_for [@musician, @skill] do |f| %>
-
-  <% if @skill.errors.any? %>
-    <h4><%= pluralize( @skill.errors.count, "error") %>
-        prohibited this skill from being saved:
-    </h4>
-  <% end %>
-  <ul>
-    <% @skill.errors.full_messages.each do | msg | %>
-      <li>
-          <%= msg %>
-      </li>
-    <% end %>
-  </ul>
-
-    <div id="field">
-      <%= f.label :position %><br />
-      <%= f.select :position_id, options_for_select(@positions.collect  { |p| [ p.description, p.id] }) %>
-      <%= f.label :categories %>
-      <!-- <%= f.select :level, [['Beginner', 1], ['Intermediate', 2], ['Advanced', 3]]  %> -->
-      <%= f.hidden_field :level, value: 1 %>
-      <%= f.hidden_field :musician_id, :value => current_musician.id %>
-
-      <% if @musician.skills.where(mainskill: true).count() == 0 %>
-        <%= f.hidden_field :mainskill, value: true %>
+          <% if musician_signed_in? %>
+            <% if current_musician.id == @musician.id %><br />
+              <% if skill.mainskill == false %>
+                <%= button_to "Make Primary Skill", musician_skill_path(@musician, skill, skill: {mainskill: true}), method: :put %>
+                <%= button_to "Remove Skill", musician_skill_path(@musician, skill), method: :delete %>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
       <% end %>
 
-    </div>
-    <div>
-      <%= f.submit %>
-    </div>
+      <% if musician_signed_in? %>
+        <% if current_musician.id == @musician.id %><br />
+          <h3>Add New Skill:</h3>
+          <%= form_for [@musician, @skill] do |f| %>
+            <% if @skill.errors.any? %>
+              <h4><%= pluralize( @skill.errors.count, "error") %>
+                  prohibited this skill from being saved:
+              </h4>
+            <% end %>
+            <ul>
+              <% @skill.errors.full_messages.each do | msg | %>
+                <li>
+                    <%= msg %>
+                </li>
+              <% end %>
+            </ul>
+
+            <div id="field">
+              <%= f.label :position %><br />
+              <%= f.select :position_id, options_for_select(@positions.collect  { |p| [ p.description, p.id] }) %>
+              <%= f.label :categories %>
+              <%= f.hidden_field :level, value: 1 %>
+              <%= f.hidden_field :musician_id, :value => current_musician.id %>
+
+              <% if @musician.skills.where(mainskill: true).count() == 0 %>
+                <%= f.hidden_field :mainskill, value: true %>
+              <% end %>
+            </div>
+
+            <div>
+              <%= f.submit %>
+            </div>
+          <% end %>
+
+        <br /><%= button_to "Edit Profile", edit_musician_registration_path, method: :get %>
+
       <% end %>
     <% end %>
-  <% end %>
-</aside>
+  </aside>
 
   <main>
+    <h1><%= @musician.firstname %> <%= @musician.lastname %></h1>
+
+    <% @musician.positions.each do |position| %>
+      <!-- <%= position.description %><br /> -->
+      <%= image_tag("skills/lead.png", size:  "50x50") if position.description == "lead" %>
+      <%= image_tag("skills/singer.png", size:  "50x50") if position.description == "singer"%>
+      <%= image_tag("skills/drummer.png", size:  "50x50") if position.description == "drummer"%>
+      <%= image_tag("skills/keyboard.png", size:  "50x50") if position.description == "keyboard"%>
+      <%= image_tag("skills/bass.png", size:  "50x50") if position.description == "bass" %>
+    <% end %>
+
     <% if musician_signed_in? %>
-      <div id="bands-owned">
+      <br><div id="bands-owned">
         <% if current_musician.id == @musician.id %>
 
           <% if current_musician.owned_bands.count > 0 %>
 
-            <h1>Bands owned:</h1><br />
+            <br /><h2>Bands owned:</h2>
 
             <% current_musician.owned_bands.each do |band|%>
-              Band:  <%= band.name %><br />
-              <%= button_to 'View Band', band_path(band), :method => :get %><br />
+              <%= link_to band.name, band_path(band), :method => :get  %><br />
             <% end %>
           <% end %>
       </div>
@@ -97,11 +94,11 @@
       <div id="member-of-bands">
           <% if current_musician.members.count > 0 %>
 
-            <h1>Member of:</h1><br />
+            <br><h2>Member of:</h2>
 
             <% current_musician.members.each do |member|%>
-              Band:  <%= member.band.name %><br />
-              Position:  <%= member.position.description %><br />  <%= button_to 'View Band', band_path(member.band.id), :method => :get %><br />
+              <%= link_to member.band.name, :method => :get %><br />
+              Position:  <%= member.position.description %><br />
             <% end %>
           <% end %>
       </div>
@@ -122,8 +119,6 @@
             <% end %>
           <% end %>
         <% end %>
-
-
     <% end %>
   <% end %>
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Figaro.env.google_maps_api_key }&callback=initMap", async: true, defer: true %>
@@ -131,7 +126,7 @@
     <div id="youtube-window">
       <% if @musician.youtube_url && @musician.youtube_url != "" %>
 
-        <h1>Demo Reel</h1>
+        <br><h2>Demo Reel</h2>
 
         <div class="embed-container">
           <%= embed(@musician.youtube_url) %>
