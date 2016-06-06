@@ -1,18 +1,12 @@
 
+main {
+  max-width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-#sidebar {
-  background-color: white;
-  color: black;
-  position: fixed;
-  top: 60px;
-  right: -20%;
-  width: 20%;
+.search-category-list {
 
-  transition: right 0.25s;
-
-  .is-open {
-    right: 0;
-  }
 }
 
 // .hero {
