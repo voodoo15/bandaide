@@ -72,7 +72,7 @@ function initMap2() {
     center: myLatLng,
     zoom: 13
   });
-  var markerGroups = {'singer': [], 'drummer': [], 'lead': [], 'bass': [], 'keyboard': []};
+  var markerGroups = {'all': [], 'singer': [], 'drummer': [], 'lead': [], 'bass': [], 'keyboard': []};
 
   var infowindow = new google.maps.InfoWindow({
     content: "test"
@@ -97,9 +97,10 @@ function initMap2() {
       category: category
     });
 
+    //Find the skill of the musician and add it to a custom group so I can target the group later
     var skill = marker.category;
     markerGroups[skill].push(marker);
-
+    markerGroups['all'].push(marker);
 
     gmarkers.push(marker);
     marker.addListener('click', function() {window.location.href = marker.url;});
@@ -110,7 +111,7 @@ function initMap2() {
     for (var i = 0; i < markerGroups[type].length; i++) {
       var marker = markerGroups[type][i];
       console.log(marker);
-      marker.setVisible(false);
+      marker.setVisible(true);
     }
   }
 
