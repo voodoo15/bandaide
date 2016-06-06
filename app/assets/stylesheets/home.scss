@@ -340,10 +340,15 @@ position: relative;
 
 }
 
-.font-color{
+.font-title {
   color: white;
   font-weight: normal;
   font-family: Fabrica;
+  font-weight: bold;
+}
+
+.font-description {
+  color: white;
 }
   .band-image {
     position: relative;

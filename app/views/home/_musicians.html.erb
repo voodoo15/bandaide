@@ -3,9 +3,9 @@
     <div class="medium-4 columns">
 
       <div class="card">
-        <%= link_to musician_path(musician.id), class: "font-color" do %>
+        <%= link_to musician_path(musician.id) do %>
 
-          <%= musician.firstname %> <%= musician.lastname %>
+          <p class="font-title"><%= musician.firstname %> <%= musician.lastname %></p>
 
           <%= image_tag musician.avatar.profile, class: "musician-image" %>
 
@@ -22,7 +22,7 @@
         <% if current_musician.present? && current_musician.has_long_lat? && musician.has_long_lat? %>
           <%= musician.display_distance_to(@musician) %> km away<br />
         <% else %>
-          Based in <%= musician.city %>
+        <p class="font-description">  Based in <%= musician.city %> </p>
         <% end %>
 
 
