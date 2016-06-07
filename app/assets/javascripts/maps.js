@@ -62,13 +62,11 @@ function initMap2() {
     'Alternative': [],
     'Pop': [],
     'Blues': [],
-    'Psychadelic': [],
     'Punk': [],
     'Glam': [],
     'Britpop': [],
     'Indie': [],
     'Rock & Roll': [],
-    'Jazz': []
   };
 
 
