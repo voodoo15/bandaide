@@ -118,14 +118,15 @@ aside {
     max-height: 50%;
   }
 
-.musc{
-  min-width: 100%;
-  position: relative;
-}
+  .musc{
+    min-width: 100%;
+    position: relative;
+  }
 
   .skill-image {
     position: absolute;
     top:  35%;
+    z-index: 12;
   }
 
   .card-text {
