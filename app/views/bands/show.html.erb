@@ -93,7 +93,7 @@
           <%= image_tag("skills/drummer.png", size:  "50x50") if member.position.description == "Drummer" %>
           <%= image_tag("skills/keyboard.png", size:  "50x50") if member.position.description == "Keyboard" %>
           <%= image_tag("skills/bass.png", size:  "50x50") if member.position.description == "Bass" %>
-          <= button_to 'Remove', band_member_path(@band, member.id), data: {:confirm => 'Are you sure?'}, :method => :delete, class: "button" %>
+          <%= button_to 'Remove', band_member_path(@band, member.id), data: {:confirm => 'Are you sure?'}, :method => :delete, class: "button" %>
 
         <% end %>
 
@@ -135,7 +135,7 @@
         <%= image_tag("skills/keyboard.png", size:  "50x50") if member.position.description == "Keyboard" %>
         <%= image_tag("skills/bass.png", size:  "50x50") if member.position.description == "Bass" %>
         <% if member.vacant? %>
-          <%= button_to 'Apply', band_member_approvals_path(@band, member, approval: {musician_id: current_musician.id, approval: false, member_id: member.id}), :method => :post, class: "apply-button" %>
+          <%= button_to 'Apply', band_member_approvals_path(@band, member, approval: {musician_id: current_musician.id, approval: false, member_id: member.id}), :method => :post, class: "button" %>
         <% end %>
       <%end%>
     </p>
