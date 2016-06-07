@@ -36,7 +36,7 @@
           <% if musician_signed_in? %>
 
             <!-- Owners -->
-            <% if @band.leader.id == current_musician.id %>
+        <% if @band.leader.id == current_musician.id %>
               <% if @band.leader.id != member.musician_id  && member.musician_id != nil%>
                   <%= button_to 'Remove', band_member_path(@band, member.id), data: {:confirm => 'Are you sure?'}, :method => :delete, class: "button" %>
               <% end %>
