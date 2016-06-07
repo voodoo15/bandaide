@@ -13,13 +13,11 @@ genres = [
   "Alternative",
   "Pop",
   "Blues",
-  "Psychadelic",
   "Punk",
   "Glam",
   "Britpop",
   "Indie",
-  "Rock & Roll",
-  "Jazz"
+  "Rock & Roll"
 ]
 
 genres.each do |genre|
