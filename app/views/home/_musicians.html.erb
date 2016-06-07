@@ -11,12 +11,12 @@
 
             <div class="skill-image">
               <% musician.positions.each do |position| %>
-              <!-- <%= position.description %><br /> -->
-              <%= image_tag("skills/lead.png", size: "50x50") if position.description == "lead" %>
-              <%= image_tag("skills/singer.png", size: "50x50") if position.description == "singer"%>
-              <%= image_tag("skills/drummer.png", size: "50x50") if position.description == "drummer"%>
-              <%= image_tag("skills/keyboard.png", size: "50x50") if position.description == "keyboard"%>
-              <%= image_tag("skills/bass.png", size: "50x50") if position.description == "bass" %>
+                <!-- <%= position.description %><br /> -->
+                <%= image_tag("skills/lead.png", size: "50x50") if position.description == "Lead" %>
+                <%= image_tag("skills/singer.png", size: "50x50") if position.description == "Singer" %>
+                <%= image_tag("skills/drummer.png", size: "50x50") if position.description == "Drummer" %>
+                <%= image_tag("skills/keyboard.png", size: "50x50") if position.description == "Keyboard" %>
+                <%= image_tag("skills/bass.png", size: "50x50") if position.description == "Bass" %>
               <% end %>
             </div>
 
