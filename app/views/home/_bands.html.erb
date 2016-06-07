@@ -2,14 +2,13 @@
 
     <% @bands.each do |band| %>
       <div class="small-4 columns">
-        <div class="card">
-
-        <%= link_to band_path(band.id) do %>
-            <p class="font-title"><%= band.name  %> </p>
-            <%= image_tag band.poster.profile, class: "band-image"%>
-
-           <p class="font-description"><%= band.description %></p>
-
+        <div class="equalizer">
+          <div class="card">
+          <%= link_to band_path(band.id) do %>
+              <p class="font-title"><%= band.name  %> </p>
+              <%= image_tag band.poster.profile, class: "band-image"%>
+             <p class="font-description"><%= band.description %></p>
+          </div>
         </div>
       </div>
       <% end %>

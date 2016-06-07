@@ -1,38 +1,39 @@
 <body>
   <%= render "home/video" %>
-    <main>
+
+  <main>
+    <section id="welcome">
       <h1 id="title">Welcome to Band Aide</h1>
+    </section>
 
-      <a id="nav-toggle" href="#">Filter by attribute</a>
-
+    <section id="homepage-content">
       <h3>Bands</h3>
-      <div class="search-category-list">
-        <p>Filter Bands by Genre:</p>
-        <div class="genres-scroll">
-            <%= button_to "All", remote: true, class: "All" %>
-            <% @genres.each do |genre| %>
-              <%= button_to genre.description, remote: true, class: "#{genre.description}" %>
-            <% end %>
+        <div class="bands">
+            <%= render "home/bands" %>
         </div>
-      </div>
-      <div class="bands">
-          <%= render "home/bands" %>
-      </div>
-
-      <section id="musicians-list">
-        <h3>Musicians near you</h3>
         <div class="search-category-list">
-          <p>Filter Musicians by Position:</p>
-          <div class="positions-scroll">
-            <%= button_to "All", remote: true, class: "All" %>
-              <% @positions.each do |position| %>
-                <%= button_to position.description, remote: true, class: "#{position.description}" %>
+          <p>Filter by Genre:</p>
+          <div class="genres-scroll">
+              <%= link_to "All", remote: true, class: "All" %>
+              <% @genres.each do |genre| %>
+                <%= link_to genre.description, remote: true, class: "#{genre.description}" %>
               <% end %>
           </div>
         </div>
+
+      <h3>Musicians near you</h3>
         <div class="musicians">
           <%= render "home/musicians" %>
         </div>
-      </section>
-    </main>
+        <div class="search-category-list">
+          <p>Filter by Position:</p>
+          <div class="positions-scroll">
+            <%= link_to "All", remote: true, class: "All" %>
+              <% @positions.each do |position| %>
+                <%= link_to position.description, remote: true, class: "#{position.description}" %>
+              <% end %>
+          </div>
+        </div>
+    </section>
+  </main>
 </body>
