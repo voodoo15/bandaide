@@ -100,24 +100,16 @@ $(function() {
       }
     }
   });
+
+  var amountScrolled = 800;
+
+  $(window).scroll(function() {
+    if ( $(window).scrollTop() > amountScrolled ) {
+      $('aside').addClass('aside-lock');
+    } else {
+      $('aside').removeClass('aside-lock');
+    };
 });
 
 
-// Code for modal, if we want one
-// $(function() {
-//   $("#modal-1").on("change", function() {
-//     if ($(this).is(":checked")) {
-//       $("body").addClass("modal-open");
-//     } else {
-//       $("body").removeClass("modal-open");
-//     }
-//   });
-//
-//   $(".modal-fade-screen, .modal-close").on("click", function() {
-//     $(".modal-state:checked").prop("checked", false).change();
-//   });
-//
-//   $(".modal-inner").on("click", function(e) {
-//     e.stopPropagation();
-//   });
-// });
+});
