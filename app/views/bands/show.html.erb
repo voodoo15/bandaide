@@ -53,6 +53,13 @@
       <p> There are currently no vacant positions in <%= @band.name %>. </p>
     <%end %>
 
+
+    <% if musician_signed_in? %>
+
+      <!-- Owners -->
+  <% if @band.leader.id == current_musician.id %>
+
+
     <% @band.members.each do |member| %>
       <p>
         <% if member.musician == nil %>
@@ -65,6 +72,8 @@
           <%= button_to 'Remove', band_member_path(@band, member.id), data: {:confirm => 'Are you sure?'}, :method => :delete, class: "button" %>
 
         <% end %>
+      <% end %>
+    <% end %>  
 
         <% if musician_signed_in? %>
 
