@@ -37,8 +37,8 @@
 
             <!-- Owners -->
             <% if @band.leader.id == current_musician.id %>
-              <% if @band.leader.id != member.musician_id %>
-                <%= button_to 'Remove', band_member_path(@band, member.id), data: {:confirm => 'Are you sure?'}, :method => :delete, class: "button" %>
+              <% if @band.leader.id != member.musician_id  && member.musician_id != nil%>
+                  <%= button_to 'Remove', band_member_path(@band, member.id), data: {:confirm => 'Are you sure?'}, :method => :delete, class: "button" %>
               <% end %>
             <%end %>
 
@@ -62,6 +62,7 @@
           <%= image_tag("skills/drummer.png", size:  "50x50") if member.position.description == "Drummer" %>
           <%= image_tag("skills/keyboard.png", size:  "50x50") if member.position.description == "Keyboard" %>
           <%= image_tag("skills/bass.png", size:  "50x50") if member.position.description == "Bass" %>
+          <%= button_to 'Remove', band_member_path(@band, member.id), data: {:confirm => 'Are you sure?'}, :method => :delete, class: "button" %>
         <% end %>
 
         <% if musician_signed_in? %>
