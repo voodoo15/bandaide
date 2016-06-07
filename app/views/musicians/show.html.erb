@@ -8,9 +8,9 @@
 
     <h3>Bio</h3>
     <%= @musician.description %><br />
-  <div id = contact >
-      <button class="button"><a href="mailto:<%= @musician.email%>?Subject=Hello">Contact Me</a></button>
-  </div>
+      <div id = contact >
+        <button class="button"><a href="mailto:<%= @musician.email%>?Subject=Hello">Contact Me</a></button>
+      </div>
       <%= button_to "Back", request.referer.present? ? request.referer : root_path, method: :get, class: 'button' %><br />
       <% if @musician.skills.count() > 0 %>
         <h3>Skills</h3>
@@ -87,21 +87,28 @@
         <div id="bands-owned">
           <% if current_musician.id == @musician.id %>
             <% if current_musician.owned_bands.count > 0 %>
-              <br /><h2>Bands owned:</h2>
+              <br /><h2>Leader of:</h2>
               <% current_musician.owned_bands.each do |band|%>
                 <%= link_to band.name, band_path(band), :method => :get  %><br />
               <% end %>
             <% end %>
+            <br />
         </div>
 
         <div id="member-of-bands">
-            <% if current_musician.members.count > 0 %>
-              <br><h2>Member of:</h2>
-              <% current_musician.members.each do |member|%>
-                <%= link_to member.band.name, :method => :get %><br />
-                Position:  <%= member.position.description %><br />
-              <% end %>
+          <% if current_musician.members.count > 0 %>
+            <br><h2>Member of:</h2>
+            <% current_musician.members.each do |member|%>
+              <%= link_to member.band.name, :method => :get %><br />
+              <%= image_tag("skills/lead.png", size:  "50x50") if member.position.description == "lead" %>
+              <%= image_tag("skills/lead.png", size:  "50x50") if member.position.description == "rhythm" %>
+              <%= image_tag("skills/singer.png", size:  "50x50") if member.position.description == "singer" %>
+              <%= image_tag("skills/drummer.png", size:  "50x50") if member.position.description == "drummer" %>
+              <%= image_tag("skills/keyboard.png", size:  "50x50") if member.position.description == "keyboard" %>
+              <%= image_tag("skills/bass.png", size:  "50x50") if member.position.description == "bass" %>
             <% end %>
+          <% end %>
+          <br /><br />
         </div>
       </div>
 
@@ -147,6 +154,4 @@
       </div>
     </div>
   </main>
-
-
 </div>
