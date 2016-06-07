@@ -14,10 +14,18 @@
   display: inline-block;
 }
 
+body {
+  display: block;
+}
+
+filter {
+  margin: auto;
+}
+
 main {
-  margin: 2%;
+  margin: auto;
   padding: 0;
-  display: inline;
+  display: block;
   float: left;
   overflow: hidden;
   width:  100%;

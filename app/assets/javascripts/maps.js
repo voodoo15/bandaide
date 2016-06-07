@@ -62,18 +62,13 @@ function initMap2() {
     'Alternative': [],
     'Pop': [],
     'Blues': [],
-    'Psychadelic': [],
     'Punk': [],
     'Glam': [],
     'Britpop': [],
     'Indie': [],
     'Rock & Roll': [],
-    'Jazz': []
   };
 
-  var infowindow = new google.maps.InfoWindow({
-    content: "test"
-  });
 
   var markero = new google.maps.Marker({
     position: myLatLng
