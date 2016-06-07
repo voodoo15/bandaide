@@ -16,6 +16,7 @@
 !/log/.keep
 /tmp
 .DS_Store
+public/uploads/*
+
 /config/secrets.yml
 /config/application.yml
-public/uploads/*
