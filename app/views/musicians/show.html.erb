@@ -17,8 +17,8 @@
           <% if musician_signed_in? %>
             <% if current_musician.id == @musician.id %><br />
               <% if skill.mainskill == false %>
-                <%= button_to "Make Primary Skill", musician_skill_path(@musician, skill, skill: {mainskill: true}), method: :put, class: "button" %>
-                <%= button_to "Remove Skill", musician_skill_path(@musician, skill), method: :delete, class: "button" %>
+                <%= button_to "★", musician_skill_path(@musician, skill, skill: {mainskill: true}), method: :put, class: "skill-button" %>
+                <%= button_to "☓", musician_skill_path(@musician, skill), method: :delete, class: "skill-button" %>
               <% end %>
             <% end %>
           <% end %>
