@@ -91,7 +91,7 @@
             <%= image_tag("skills/drummer.png", size:  "50x50") if member.position.description == "Drummer" %>
             <%= image_tag("skills/keyboard.png", size:  "50x50") if member.position.description == "Keyboard" %>
             <%= image_tag("skills/bass.png", size:  "50x50") if member.position.description == "Bass" %>
-            <%= link_to member.band.name, band_path(member.band_id), :method => :get %><br />
+            <%= link_to member.band.name, band_path(member.band_id), :method => :get, class: "memberof" %><br />
           <% end %>
         <% else %>
           <%= @musician.firstname %> is currently in 0 bands.
