@@ -55,7 +55,7 @@ function initMap2() {
     'Drummer': [],
     'Lead': [],
     'Bass': [],
-    'keyboard': [],
+    'Keyboard': [],
     'Classic': [],
     'Heavy Metal': [],
     'Goth': [],
@@ -115,8 +115,8 @@ function initMap2() {
   }
 
   function makeGroupInvisible() {
-    for (var i = 0; i < markerGroups['all'].length; i++) {
-      var marker = markerGroups['all'][i];
+    for (var i = 0; i < markerGroups['All'].length; i++) {
+      var marker = markerGroups['All'][i];
       console.log(marker);
       marker.setVisible(false);
     }
