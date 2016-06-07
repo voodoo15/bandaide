@@ -38,6 +38,7 @@ main {
   overflow: hidden;
   margin: auto;
   width: 80%;
+  display: block;
 }
 
 aside {
@@ -51,10 +52,9 @@ aside {
 }
 
 #welcome {
-  display: inline-block;
+  display: inline;
   margin: auto;
   text-align: center;
-  // padding: 30px;
   width: 100%;
 }
 
@@ -69,11 +69,9 @@ aside {
   position: absolute;
   z-index: 2;
   margin: auto;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom:  0;
   display: block;
+  width:  80%;
+  left: 8%;
 }
 
 .background_video  {
