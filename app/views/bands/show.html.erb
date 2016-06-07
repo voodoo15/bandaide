@@ -25,19 +25,21 @@
           <% if member.musician != nil %>
             <%=link_to image_tag(member.musician.avatar.thumb), musician_path(member.musician.id) %>
             <%= member.musician.firstname %>
-            <%= image_tag("skills/lead.png", size:  "50x50") if member.position.description == "lead" %>
-            <%= image_tag("skills/lead.png", size:  "50x50") if member.position.description == "rhythm" %>
-            <%= image_tag("skills/singer.png", size:  "50x50") if member.position.description == "singer" %>
-            <%= image_tag("skills/drummer.png", size:  "50x50") if member.position.description == "drummer" %>
-            <%= image_tag("skills/keyboard.png", size:  "50x50") if member.position.description == "keyboard" %>
-            <%= image_tag("skills/bass.png", size:  "50x50") if member.position.description == "bass" %>
+            <%= image_tag("skills/lead.png", size:  "50x50") if member.position.description == "Lead" %>
+            <%= image_tag("skills/lead.png", size:  "50x50") if member.position.description == "Rhythm" %>
+            <%= image_tag("skills/singer.png", size:  "50x50") if member.position.description == "Singer" %>
+            <%= image_tag("skills/drummer.png", size:  "50x50") if member.position.description == "Drummer" %>
+            <%= image_tag("skills/keyboard.png", size:  "50x50") if member.position.description == "Keyboard" %>
+            <%= image_tag("skills/bass.png", size:  "50x50") if member.position.description == "Bass" %>
           <% end %>
 
           <% if musician_signed_in? %>
 
             <!-- Owners -->
             <% if @band.leader.id == current_musician.id %>
-              <%= button_to 'Remove', band_member_path(@band, member.id), data: {:confirm => 'Are you sure?'}, :method => :delete, class: "button" %>
+              <% if @band.leader.id != member.musician_id %>
+                  <%= button_to 'Remove', band_member_path(@band, member.id), data: {:confirm => 'Are you sure?'}, :method => :delete %>
+              <% end %>
             <%end %>
 
           <%end%>
