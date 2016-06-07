@@ -36,13 +36,17 @@
           <% if musician_signed_in? %>
 
             <!-- Owners -->
-        <% if @band.leader.id == current_musician.id %>
-              <% if @band.leader.id != member.musician_id  && member.musician_id != nil%>
+            <% if @band.leader.id == current_musician.id %>
+              <% if @band.leader.id != member.musician_id && member.musician_id != nil%>
                   <%= button_to 'Remove', band_member_path(@band, member.id), data: {:confirm => 'Are you sure?'}, :method => :delete, class: "button" %>
               <% end %>
             <%end %>
 
-          <%end%>
+            <% else %>
+
+              <%= member.position.description %>
+
+          <% end %>
         </p>
       <% end %>
     </div>
@@ -52,6 +56,26 @@
     <% if @band.members.where(musician_id:nil).count == 0 %>
       <p> There are currently no vacant positions in <%= @band.name %>. </p>
     <%end %>
+
+    <% if musician_signed_in? == false %>
+      <% @band.members.each do |member| %>
+        <p>
+          <% if member.musician == nil %>
+            <%= image_tag("skills/lead.png", size:  "50x50") if member.position.description == "Lead" %>
+            <%= image_tag("skills/lead.png", size:  "50x50") if member.position.description == "Rhythm" %>
+            <%= image_tag("skills/singer.png", size:  "50x50") if member.position.description == "Singer" %>
+            <%= image_tag("skills/drummer.png", size:  "50x50") if member.position.description == "Drummer" %>
+            <%= image_tag("skills/keyboard.png", size:  "50x50") if member.position.description == "Keyboard" %>
+            <%= image_tag("skills/bass.png", size:  "50x50") if member.position.description == "Bass" %>
+            <p>
+              Please register or log in to apply
+            </p>
+          <% end %>
+        </p>
+      <% end %>
+    <% end %>
+
+
 
 
     <% if musician_signed_in? %>
@@ -69,7 +93,7 @@
           <%= image_tag("skills/drummer.png", size:  "50x50") if member.position.description == "Drummer" %>
           <%= image_tag("skills/keyboard.png", size:  "50x50") if member.position.description == "Keyboard" %>
           <%= image_tag("skills/bass.png", size:  "50x50") if member.position.description == "Bass" %>
-          <%= button_to 'Remove', band_member_path(@band, member.id), data: {:confirm => 'Are you sure?'}, :method => :delete, class: "button" %>
+          <= button_to 'Remove', band_member_path(@band, member.id), data: {:confirm => 'Are you sure?'}, :method => :delete, class: "button" %>
 
         <% end %>
 
