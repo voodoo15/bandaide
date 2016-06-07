@@ -4,4 +4,4 @@ $(document).on('ready page:load', function() {
 
     $(this).toggleClass('applied');
   });
-};
+});
