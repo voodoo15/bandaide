@@ -5,9 +5,11 @@
 <div class="container">
   <aside class="profile-left">
     <br /><%= image_tag @band.poster.profile %><br />
-    <br /><h3>Bio:</h3>
+      <br /><h3>Genre:</h3>
+      <p><%= @band.genre.description %></p>
+      <h3>Bio:</h3>
       <p><%= @band.description %></p>
-    <h3>Band Leader:</h3>
+      <h3>Band Leader:</h3>
       <p><%= @band.leader.firstname %>
       <%= image_tag (@band.leader.avatar.thumb) %></p>
       <button class="button" href="mailto:<%= @band.leader.email%>?Subject=Hello">Contact Band Leader</button>
@@ -23,22 +25,21 @@
           <% if member.musician != nil %>
             <%=link_to image_tag(member.musician.avatar.thumb), musician_path(member.musician.id) %>
             <%= member.musician.firstname %>
-            <%= image_tag("skills/lead.png", size:  "50x50") if member.position.description == "lead" %>
-            <%= image_tag("skills/lead.png", size:  "50x50") if member.position.description == "rhythm" %>
-            <%= image_tag("skills/singer.png", size:  "50x50") if member.position.description == "singer" %>
-            <%= image_tag("skills/drummer.png", size:  "50x50") if member.position.description == "drummer" %>
-            <%= image_tag("skills/keyboard.png", size:  "50x50") if member.position.description == "keyboard" %>
-            <%= image_tag("skills/bass.png", size:  "50x50") if member.position.description == "bass" %>
+            <%= image_tag("skills/lead.png", size:  "50x50") if member.position.description == "Lead" %>
+            <%= image_tag("skills/lead.png", size:  "50x50") if member.position.description == "Rhythm" %>
+            <%= image_tag("skills/singer.png", size:  "50x50") if member.position.description == "Singer" %>
+            <%= image_tag("skills/drummer.png", size:  "50x50") if member.position.description == "Drummer" %>
+            <%= image_tag("skills/keyboard.png", size:  "50x50") if member.position.description == "Keyboard" %>
+            <%= image_tag("skills/bass.png", size:  "50x50") if member.position.description == "Bass" %>
           <% end %>
 
           <% if musician_signed_in? %>
 
             <!-- Owners -->
             <% if @band.leader.id == current_musician.id %>
-                <% if @band.leader.id != member.musician_id %>
-                    <%= button_to 'Remove', band_member_path(@band, member.id), data: {:confirm => 'Are you sure?'}, :method => :delete %>
-                <% end %>
-                
+              <% if @band.leader.id != member.musician_id %>
+                  <%= button_to 'Remove', band_member_path(@band, member.id), data: {:confirm => 'Are you sure?'}, :method => :delete, class: "button" %>
+              <% end %>
             <%end %>
 
           <%end%>
@@ -55,12 +56,12 @@
     <% @band.members.each do |member| %>
       <p>
         <% if member.musician == nil %>
-          <%= image_tag("skills/lead.png", size:  "50x50") if member.position.description == "lead" %>
-          <%= image_tag("skills/lead.png", size:  "50x50") if member.position.description == "rhythm" %>
-          <%= image_tag("skills/singer.png", size:  "50x50") if member.position.description == "singer" %>
-          <%= image_tag("skills/drummer.png", size:  "50x50") if member.position.description == "drummer" %>
-          <%= image_tag("skills/keyboard.png", size:  "50x50") if member.position.description == "keyboard" %>
-          <%= image_tag("skills/bass.png", size:  "50x50") if member.position.description == "bass" %>
+          <%= image_tag("skills/lead.png", size:  "50x50") if member.position.description == "Lead" %>
+          <%= image_tag("skills/lead.png", size:  "50x50") if member.position.description == "Rhythm" %>
+          <%= image_tag("skills/singer.png", size:  "50x50") if member.position.description == "Singer" %>
+          <%= image_tag("skills/drummer.png", size:  "50x50") if member.position.description == "Drummer" %>
+          <%= image_tag("skills/keyboard.png", size:  "50x50") if member.position.description == "Keyboard" %>
+          <%= image_tag("skills/bass.png", size:  "50x50") if member.position.description == "Bass" %>
         <% end %>
 
         <% if musician_signed_in? %>
