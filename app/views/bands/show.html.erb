@@ -5,37 +5,39 @@
 <div class="container">
   <aside class="profile-left">
     <%= image_tag @band.poster.profile %><br />
-    <h3>Bio</h3>
+    <h3>Bio:</h3>
       <p><%= @band.description %></p>
     <h3>Band Leader:</h3>
       <p><%= @band.leader.firstname %>
       <%= image_tag (@band.leader.avatar.thumb) %></p>
       <a href="mailto:<%= @band.leader.email%>?Subject=Hello">Contact Band Leader</a>
-        <br /><%= button_to "Back", request.referer.present? ? request.referer : root_path, method: :get %>
+        <br /><%= button_to "Back", request.referer.present? ? request.referer : root_path, method: :get %><br />
   </aside>
   <main>
     <h1><%= @band.name %></h1>
+    <div id="band-members">
+      <h2>Band Members</h2><br />
 
-    <p>Band Members</p><br />
+      <% @band.members.each do |member| %>
+        <p class="member-name">
+          <% if member.musician != nil %>
+            <%=link_to image_tag(member.musician.avatar.thumb), musician_path(member.musician.id) %>
+            <%= member.musician.firstname %>
+            <%= image_tag("skills/lead.png", size:  "50x50") if member.position.description == "lead" %>
+            <%= image_tag("skills/lead.png", size:  "50x50") if member.position.description == "rhythm" %>
+            <%= image_tag("skills/singer.png", size:  "50x50") if member.position.description == "singer" %>
+            <%= image_tag("skills/drummer.png", size:  "50x50") if member.position.description == "drummer" %>
+            <%= image_tag("skills/keyboard.png", size:  "50x50") if member.position.description == "keyboard" %>
+            <%= image_tag("skills/bass.png", size:  "50x50") if member.position.description == "bass" %>
+          <% end %>
+        </p>
+      <% end %>
+    </div>
 
-    <% @band.members.each do |member| %>
-      <p>
-         <% if member.musician != nil %>
-          <%= image_tag("skills/lead.png", size:  "50x50") if member.position.description == "lead" %>
-          <%= image_tag("skills/lead.png", size:  "50x50") if member.position.description == "rhythm" %>
-          <%= image_tag("skills/singer.png", size:  "50x50") if member.position.description == "singer" %>
-          <%= image_tag("skills/drummer.png", size:  "50x50") if member.position.description == "drummer" %>
-          <%= image_tag("skills/keyboard.png", size:  "50x50") if member.position.description == "keyboard" %>
-          <%= image_tag("skills/bass.png", size:  "50x50") if member.position.description == "bass" %>
-          <%= member.musician.firstname %>
-          <%=link_to image_tag(member.musician.avatar.thumb), musician_path(member.musician.id) %>
-        <% end %>
-      </p>
-    <% end %>
-
-    <p>Vacant slots</p><br />
+    <div id="band-vacancies">
+    <h2>Vacant slots</h2>
     <% if @band.members.where(musician_id:nil).count == 0 %>
-      <p> Sorry there is no vacant spots </p>
+      <p> There are currently no vacant spots in <%= @band.name %>. </p>
     <%end %>
 
     <% @band.members.each do |member| %>
@@ -102,5 +104,6 @@
 
       <% end %>
     <% end %>
+    </div>
   </main>
 </div>

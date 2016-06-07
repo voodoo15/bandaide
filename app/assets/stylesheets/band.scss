@@ -6,16 +6,49 @@
 
 html, body {
   height: 100%;
+  font-family: "Titillium Web", sans-serif;
 }
 
 .container {
+  max-width: 80%;
   margin-right: auto;
   margin-left: auto;
   text-align: center;
+  font-family: "Titillium Web", sans-serif;
 }
 
+aside {
+  margin: 2%;
+  float: left;
+  width: 25%;
+  border: 5px solid #2b2b2b;
+  height: 100%;
+  border-radius: 28px;
+}
+
+main {
+  margin: 2%;
+  float: left;
+  width: 65%;
+  border: 5px solid #2b2b2b;
+  height: 100%;
+  border-radius: 28px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Titillium Web", sans-serif;
+}
+
+
 h1 {
-  font-size: 20pt;
+  font-size: 30pt;
+  font-weight: bold;
+  padding-top: 5%;
+}
+
+h2 {
+  font-size: 15pt;
+  text-decoration: underline;
 }
 
 h3{
@@ -23,26 +56,33 @@ h3{
   font-weight: bold;
 }
 
-aside {
-  margin: 2%;
-  float: left;
-  width: 25%;
-  border: 5px solid #ccc;
-  height: 100%;
+p {
+  margin: 5%;
+}
+
+#band-members {
+  margin-left: 5%;
+  margin-right: 5%;
+  background-color: #2b2b2b;
   border-radius: 28px;
+  color: white;
+  padding: 2%;
+  margin: 5%;
 }
 
-h2 {
-  font-size: 1em;
+#band-vacancies {
+  margin-left: 5%;
+  margin-right: 5%;
+  background-color: #2b2b2b;
+  border-radius: 28px;
+  color: white;
+  padding: 2%;
+  margin: 5%;
 }
 
-// #bands-owned {
-//
-// }
-//
-// #member-of-bands {
-//
-// }
+.member-name {
+  font-size: 15pt
+}
 
 #map {
   margin-left: auto;
