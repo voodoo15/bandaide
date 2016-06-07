@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
 
   def index
+    @vacant_bands = Band.how_full
     @genres = Genre.all
     @positions = Position.all
     if params[:search] && params[:type] == 'band'

@@ -45,6 +45,7 @@ aside {
   width: 20%;
   float: right;
   overflow: hidden;
+  padding: 5px;
 
   a {
     display: block;
@@ -93,7 +94,7 @@ aside {
   position: relative;
 }
 
-#bands-list #musicians-list {
+#bands-list #musicians-list vacant-bands-list {
   min-height: 300px;
 }
 

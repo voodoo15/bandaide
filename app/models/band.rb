@@ -28,4 +28,15 @@ class Band < ActiveRecord::Base
       return 0
     end
   end
+
+  def self.how_full
+    vacant_bands = []
+    Band.all.each do |b|
+      if b.how_full < 100
+        vacant_bands << b
+      end
+    end
+    return vacant_bands
+
+  end
 end

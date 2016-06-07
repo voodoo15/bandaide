@@ -9,13 +9,19 @@
     </section>
   </header>
   <main>
+    <% if @vacant_bands.count() > 0 %>
+      <div id="vacant-bands-list">
+        <h3>Bands looking for members:</h3>
+        <%= render partial: "home/vacant_bands" %>
+      </div>
+    <% end %>
     <h3>Musicians near you:</h3>
     <div id="musicians-list">
       <%= render "home/musicians" %>
     </div>
       <h3>Bands near you:</h3>
       <div id="bands-list">
-        <%= render "home/bands" %>
+          <%= render "home/bands" %>
       </div>
   </main>
   <aside class="aside-lock">
