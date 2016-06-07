@@ -1,0 +1,110 @@
+/* line 1, /Users/francisgallo/Desktop/bitmaker/bandaide/app/assets/stylesheets/band.scss */
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+/* line 7, /Users/francisgallo/Desktop/bitmaker/bandaide/app/assets/stylesheets/band.scss */
+html, body {
+  height: 100%;
+  font-family: "Titillium Web", sans-serif;
+}
+
+/* line 12, /Users/francisgallo/Desktop/bitmaker/bandaide/app/assets/stylesheets/band.scss */
+.container {
+  max-width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  font-family: "Titillium Web", sans-serif;
+}
+
+/* line 20, /Users/francisgallo/Desktop/bitmaker/bandaide/app/assets/stylesheets/band.scss */
+aside {
+  margin: 2%;
+  float: left;
+  width: 25%;
+  border: 5px solid #2b2b2b;
+  height: 100%;
+  border-radius: 28px;
+}
+
+/* line 29, /Users/francisgallo/Desktop/bitmaker/bandaide/app/assets/stylesheets/band.scss */
+main {
+  margin: 2%;
+  float: left;
+  width: 65%;
+  border: 5px solid #2b2b2b;
+  height: 100%;
+  border-radius: 28px;
+}
+
+/* line 38, /Users/francisgallo/Desktop/bitmaker/bandaide/app/assets/stylesheets/band.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Titillium Web", sans-serif;
+}
+
+/* line 42, /Users/francisgallo/Desktop/bitmaker/bandaide/app/assets/stylesheets/band.scss */
+h1 {
+  font-size: 30pt;
+  font-weight: bold;
+  padding-top: 5%;
+}
+
+/* line 48, /Users/francisgallo/Desktop/bitmaker/bandaide/app/assets/stylesheets/band.scss */
+h2 {
+  font-size: 15pt;
+  text-decoration: underline;
+}
+
+/* line 53, /Users/francisgallo/Desktop/bitmaker/bandaide/app/assets/stylesheets/band.scss */
+h3 {
+  font-size: 12pt;
+  font-weight: bold;
+}
+
+/* line 58, /Users/francisgallo/Desktop/bitmaker/bandaide/app/assets/stylesheets/band.scss */
+p {
+  margin: 5%;
+}
+
+/* line 62, /Users/francisgallo/Desktop/bitmaker/bandaide/app/assets/stylesheets/band.scss */
+#band-members {
+  margin-left: 5%;
+  margin-right: 5%;
+  background-color: #2b2b2b;
+  border-radius: 28px;
+  color: white;
+  padding: 2%;
+  margin: 5%;
+}
+
+/* line 72, /Users/francisgallo/Desktop/bitmaker/bandaide/app/assets/stylesheets/band.scss */
+#band-vacancies {
+  margin-left: 5%;
+  margin-right: 5%;
+  background-color: #2b2b2b;
+  border-radius: 28px;
+  color: white;
+  padding: 2%;
+  margin: 5%;
+}
+
+/* line 82, /Users/francisgallo/Desktop/bitmaker/bandaide/app/assets/stylesheets/band.scss */
+.member-name {
+  font-size: 15pt;
+}
+
+/* line 86, /Users/francisgallo/Desktop/bitmaker/bandaide/app/assets/stylesheets/band.scss */
+.apply-button {
+  background-color: red;
+  border-radius: 28px;
+}
+
+/* line 93, /Users/francisgallo/Desktop/bitmaker/bandaide/app/assets/stylesheets/band.scss */
+form {
+  width: 300px;
+  display: inline-block;
+  align_left: 66%;
+}

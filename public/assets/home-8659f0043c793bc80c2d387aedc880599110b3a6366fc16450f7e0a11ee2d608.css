@@ -1,0 +1,148 @@
+/* line 1, /Users/francisgallo/Desktop/bitmaker/bandaide/app/assets/stylesheets/home.scss */
+*, *:before, *:after {
+  box-sizing: border-box;
+  font-family: Raleway, Arial, sans-serif;
+  padding: 0;
+  color: #493d3d;
+}
+
+/* line 8, /Users/francisgallo/Desktop/bitmaker/bandaide/app/assets/stylesheets/home.scss */
+a:hover {
+  color: red;
+}
+
+/* line 12, /Users/francisgallo/Desktop/bitmaker/bandaide/app/assets/stylesheets/home.scss */
+a:link a:visited {
+  color: #493d3d;
+}
+
+/* line 16, /Users/francisgallo/Desktop/bitmaker/bandaide/app/assets/stylesheets/home.scss */
+html {
+  font-size: 16px;
+}
+
+/* line 20, /Users/francisgallo/Desktop/bitmaker/bandaide/app/assets/stylesheets/home.scss */
+body {
+  line-height: 1.5;
+  margin: 0;
+  font-size: 1em;
+  width: 100%;
+  position: relative;
+}
+
+/* line 28, /Users/francisgallo/Desktop/bitmaker/bandaide/app/assets/stylesheets/home.scss */
+h1 {
+  font-weight: 600;
+}
+
+/* line 32, /Users/francisgallo/Desktop/bitmaker/bandaide/app/assets/stylesheets/home.scss */
+h3 {
+  font-weight: 400;
+}
+
+/* line 36, /Users/francisgallo/Desktop/bitmaker/bandaide/app/assets/stylesheets/home.scss */
+main {
+  float: left;
+  overflow: hidden;
+  margin: auto;
+  width: 80%;
+  display: block;
+}
+
+/* line 44, /Users/francisgallo/Desktop/bitmaker/bandaide/app/assets/stylesheets/home.scss */
+aside {
+  width: 20%;
+  float: right;
+  overflow: hidden;
+  padding: 5px;
+}
+/* line 50, /Users/francisgallo/Desktop/bitmaker/bandaide/app/assets/stylesheets/home.scss */
+aside a {
+  display: block;
+}
+
+/* line 55, /Users/francisgallo/Desktop/bitmaker/bandaide/app/assets/stylesheets/home.scss */
+.aside-lock {
+  position: fixed;
+  right: 0;
+  top: 2%;
+  z-index: -1;
+}
+
+/* line 62, /Users/francisgallo/Desktop/bitmaker/bandaide/app/assets/stylesheets/home.scss */
+#welcome {
+  display: inline;
+  margin: auto;
+  text-align: center;
+  width: 100%;
+}
+
+/* line 69, /Users/francisgallo/Desktop/bitmaker/bandaide/app/assets/stylesheets/home.scss */
+.callout {
+  margin: 0;
+}
+
+/* line 80, /Users/francisgallo/Desktop/bitmaker/bandaide/app/assets/stylesheets/home.scss */
+.logo {
+  position: absolute;
+  z-index: 2;
+  margin: auto;
+  display: block;
+  width: 80%;
+  left: 8%;
+}
+
+/* line 89, /Users/francisgallo/Desktop/bitmaker/bandaide/app/assets/stylesheets/home.scss */
+.background_video {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0 auto;
+  height: auto;
+  width: 100%;
+  z-index: 1;
+  position: relative;
+  padding: 0;
+}
+
+/* line 102, /Users/francisgallo/Desktop/bitmaker/bandaide/app/assets/stylesheets/home.scss */
+#bands-list #musicians-list vacant-bands-list {
+  min-height: 300px;
+}
+
+/* line 107, /Users/francisgallo/Desktop/bitmaker/bandaide/app/assets/stylesheets/home.scss */
+.equalizer {
+  height: 300px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  color: #272727;
+  border-radius: 5px;
+  position: relative;
+  margin: 20px 0;
+}
+/* line 116, /Users/francisgallo/Desktop/bitmaker/bandaide/app/assets/stylesheets/home.scss */
+.equalizer .musician-image {
+  width: 100%;
+  max-height: 50%;
+}
+/* line 121, /Users/francisgallo/Desktop/bitmaker/bandaide/app/assets/stylesheets/home.scss */
+.equalizer .musc {
+  min-width: 100%;
+  position: relative;
+}
+/* line 126, /Users/francisgallo/Desktop/bitmaker/bandaide/app/assets/stylesheets/home.scss */
+.equalizer .skill-image {
+  position: absolute;
+  top: 35%;
+}
+/* line 131, /Users/francisgallo/Desktop/bitmaker/bandaide/app/assets/stylesheets/home.scss */
+.equalizer .card-text {
+  position: absolute;
+  top: 55%;
+  padding: 5px;
+}
+
+/* line 138, /Users/francisgallo/Desktop/bitmaker/bandaide/app/assets/stylesheets/home.scss */
+.font-title {
+  font-weight: 600;
+}

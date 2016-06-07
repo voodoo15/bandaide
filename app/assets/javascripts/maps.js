@@ -69,9 +69,6 @@ function initMap2() {
     'Rock & Roll': [],
   };
 
-  var infowindow = new google.maps.InfoWindow({
-    content: "test"
-  });
 
   var markero = new google.maps.Marker({
     position: myLatLng

@@ -5,15 +5,11 @@
 <div class="container">
   <aside>
     <br /><%= image_tag @musician.avatar.profile %><br />
-
-    <h3>Bio</h3>
+    <br />
+    <h3>Bio:</h3>
     <%= @musician.description %><br />
-      <div id = contact >
-        <button class="button"><a href="mailto:<%= @musician.email%>?Subject=Hello">Contact Me</a></button>
-      </div>
-      <%= button_to "Back", request.referer.present? ? request.referer : root_path, method: :get, class: 'button' %><br />
       <% if @musician.skills.count() > 0 %>
-        <h3>Skills</h3>
+        <br /><h3>Skills:</h3>
 
         <% @musician.skills.each do |skill| %>
           <%= skill.position.description %>
@@ -21,8 +17,8 @@
           <% if musician_signed_in? %>
             <% if current_musician.id == @musician.id %><br />
               <% if skill.mainskill == false %>
-                <%= button_to "Make Primary Skill", musician_skill_path(@musician, skill, skill: {mainskill: true}), method: :put %>
-                <%= button_to "Remove Skill", musician_skill_path(@musician, skill), method: :delete %>
+                <%= button_to "Make Primary Skill", musician_skill_path(@musician, skill, skill: {mainskill: true}), method: :put, class: "button" %>
+                <%= button_to "Remove Skill", musician_skill_path(@musician, skill), method: :delete, class: "button" %>
               <% end %>
             <% end %>
           <% end %>
@@ -47,10 +43,10 @@
             </ul>
 
             <div id="field">
-              <%= f.label :position %><br />
+              <%= f.label :position %>
               <%= f.select :position_id, options_for_select(@positions.collect  { |p| [ p.description, p.id] }) %>
-              <%= f.label :categories %>
-              <%= f.hidden_field :level, value: 1 %>
+              <!-- <%= f.label :categories %>
+              <%= f.hidden_field :level, value: 1 %> -->
               <%= f.hidden_field :musician_id, :value => current_musician.id %>
 
               <% if @musician.skills.where(mainskill: true).count() == 0 %>
@@ -58,7 +54,7 @@
               <% end %>
             </div>
 
-            <div>
+            <div class="button">
               <%= f.submit %>
             </div>
           <% end %>
@@ -66,7 +62,10 @@
         <br /><%= button_to "Edit Profile", edit_musician_registration_path, method: :get, class: 'button' %>
 
       <% end %>
-    <% end %>
+    <% end %><br /><br />
+    <div id = contact >
+      <button class="button"><a href="mailto:<%= @musician.email%>?Subject=Hello">Contact Me</a></button>
+    </div>
   </aside>
 
   <main>
