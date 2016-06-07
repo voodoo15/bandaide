@@ -9,14 +9,16 @@
               <%= image_tag musician.avatar.card, class: "musc" %>
             </div>
 
-            <% musician.positions.each do |position| %>
+            <div class="skill-image">
+              <% musician.positions.each do |position| %>
               <!-- <%= position.description %><br /> -->
-              <%= image_tag("skills/lead.png", size:  "50x50", class: "skill-image") if position.description == "lead" %>
-              <%= image_tag("skills/singer.png", size:  "50x50", class: "skill-image") if position.description == "singer"%>
-              <%= image_tag("skills/drummer.png", size:  "50x50", class: "skill-image") if position.description == "drummer"%>
-              <%= image_tag("skills/keyboard.png", size:  "50x50", class: "skill-image") if position.description == "keyboard"%>
-              <%= image_tag("skills/bass.png", size:  "50x50", class: "skill-image") if position.description == "bass" %>
-            <% end %>
+              <%= image_tag("skills/lead.png", size: "50x50") if position.description == "lead" %>
+              <%= image_tag("skills/singer.png", size: "50x50") if position.description == "singer"%>
+              <%= image_tag("skills/drummer.png", size: "50x50") if position.description == "drummer"%>
+              <%= image_tag("skills/keyboard.png", size: "50x50") if position.description == "keyboard"%>
+              <%= image_tag("skills/bass.png", size: "50x50") if position.description == "bass" %>
+              <% end %>
+            </div>
 
             <br/>
             <div class="card-text">

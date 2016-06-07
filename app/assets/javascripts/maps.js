@@ -50,11 +50,11 @@ function initMap2() {
     zoom: 13
   });
   var markerGroups = {
-    'all': [],
-    'singer': [],
-    'drummer': [],
-    'lead': [],
-    'bass': [],
+    'All': [],
+    'Singer': [],
+    'Drummer': [],
+    'Lead': [],
+    'Bass': [],
     'keyboard': [],
     'Classic': [],
     'Heavy Metal': [],
@@ -97,7 +97,7 @@ function initMap2() {
     //Find the skill of the musician and add it to a custom group so I can target the group later
     var skill = marker.category;
     markerGroups[skill].push(marker);
-    markerGroups['all'].push(marker);
+    markerGroups['All'].push(marker);
 
     marker.addListener('click', function() {
       window.location.href = this.url;

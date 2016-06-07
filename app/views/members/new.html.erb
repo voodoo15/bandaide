@@ -1,28 +1,30 @@
-<h1> Add yourself to your band <h1>
+<div class="container">
+  <h1> Add yourself to your band <h1>
 
-<%= form_for [@band , @member] do |f| %>
+  <%= form_for [@band , @member] do |f| %>
 
-  <% if @member.errors.any? %>
-    <h4><%= pluralize( @member.errors.count, "error") %>
-        prohibited this member from being saved:
-    </h4>
-  <% end %>
-  <ul>
-    <% @member.errors.full_messages.each do | msg | %>
-      <li>
-          <%= msg %>
-      </li>
+    <% if @member.errors.any? %>
+      <h4><%= pluralize( @member.errors.count, "error") %>
+          prohibited this member from being saved:
+      </h4>
     <% end %>
-  </ul>
+    <ul>
+      <% @member.errors.full_messages.each do | msg | %>
+        <li>
+            <%= msg %>
+        </li>
+      <% end %>
+    </ul>
 
-  <div id="field">
-    <%= f.label :position %><br />
-    <%= f.select :position_id , options_for_select(@positions.collect  {|p| [ p.description, p.id] }) %>
-    <%= f.hidden_field :musician_id, :value => current_musician.id %>
-    <%= f.hidden_field :band_id, :value => @band.id %>
-  </div>
+    <div id="field">
+      <%= f.label :position %>
+      <%= f.select :position_id , options_for_select(@positions.collect  {|p| [ p.description, p.id] }) %>
+      <%= f.hidden_field :musician_id, :value => current_musician.id %>
+      <%= f.hidden_field :band_id, :value => @band.id %>
+    </div>
 
-   <div class="field">
-    <%= f.submit %>
-  </div>
-<% end %>
+     <div class="field">
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>

@@ -10,9 +10,9 @@
     <h3>Band Leader:</h3>
       <p><%= @band.leader.firstname %>
       <%= image_tag (@band.leader.avatar.thumb) %></p>
-      <a href="mailto:<%= @band.leader.email%>?Subject=Hello">Contact Band Leader</a>
-        <br /><%= button_to "Back", request.referer.present? ? request.referer : root_path, method: :get %><br />
+      <button class="button" href="mailto:<%= @band.leader.email%>?Subject=Hello">Contact Band Leader</button>
   </aside>
+
   <main>
     <h1><%= @band.name %></h1>
     <div id="band-members">
@@ -37,16 +37,16 @@
             <% if @band.leader.id == current_musician.id %>
               <%= button_to 'Remove', band_member_path(@band, member.id), data: {:confirm => 'Are you sure?'}, :method => :delete %>
             <%end %>
-            
+
           <%end%>
         </p>
       <% end %>
     </div>
 
     <div id="band-vacancies">
-    <h2>Vacant slots</h2>
+    <h2>Vacant Positions</h2>
     <% if @band.members.where(musician_id:nil).count == 0 %>
-      <p> There are currently no vacant spots in <%= @band.name %>. </p>
+      <p> There are currently no vacant positions in <%= @band.name %>. </p>
     <%end %>
 
     <% @band.members.each do |member| %>
@@ -67,12 +67,9 @@
             <% member.approvals.each do |approval| %>
               <%= approval.musician.firstname %>
               <% if approval.approved == false %>
-                <%= button_to 'Accept', band_member_approval_path(@band, member, approval, approval: {approved: true}, member: {musician_id: approval.musician_id}), :method => :put %>
+                <%= button_to 'Accept', band_member_approval_path(@band, member, approval, approval: {approved: true}, member: {musician_id: approval.musician_id}), :method => :put, class: "button" %>
               <% end %>
             <% end %>
-
-
-
 
           <!-- Non Owner -->
           <% elsif @band.leader.id != current_musician.id %>
@@ -107,10 +104,9 @@
 
         <h2>Musicians near you:</h2>
         <div id="map" data-latitude=<%= @musician.latitude %> data-longitude=<%= @musician.longitude%>>
-        </div>
 
         <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Figaro.env.google_maps_api_key }&callback=initMap", async: true, defer: true %>
-
+        </div>
       <% end %>
     <% end %>
     </div>
