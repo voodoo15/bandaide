@@ -56,12 +56,12 @@
     <% @band.members.each do |member| %>
       <p>
         <% if member.musician == nil %>
-          <%= image_tag("skills/lead.png", size:  "50x50") if member.position.description == "lead" %>
-          <%= image_tag("skills/lead.png", size:  "50x50") if member.position.description == "rhythm" %>
-          <%= image_tag("skills/singer.png", size:  "50x50") if member.position.description == "singer" %>
-          <%= image_tag("skills/drummer.png", size:  "50x50") if member.position.description == "drummer" %>
-          <%= image_tag("skills/keyboard.png", size:  "50x50") if member.position.description == "keyboard" %>
-          <%= image_tag("skills/bass.png", size:  "50x50") if member.position.description == "bass" %>
+          <%= image_tag("skills/lead.png", size:  "50x50") if member.position.description == "Lead" %>
+          <%= image_tag("skills/lead.png", size:  "50x50") if member.position.description == "Rhythm" %>
+          <%= image_tag("skills/singer.png", size:  "50x50") if member.position.description == "Singer" %>
+          <%= image_tag("skills/drummer.png", size:  "50x50") if member.position.description == "Drummer" %>
+          <%= image_tag("skills/keyboard.png", size:  "50x50") if member.position.description == "Keyboard" %>
+          <%= image_tag("skills/bass.png", size:  "50x50") if member.position.description == "Bass" %>
         <% end %>
 
         <% if musician_signed_in? %>
