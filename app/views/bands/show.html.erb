@@ -84,14 +84,14 @@
         <%= form_for [@band , @member] do |f| %>
 
           <div id="field">
-            <%= f.label :create_new_position %><br />
+            <%= f.label :create_new_position, "Add a vacant position" %>
             <%= f.select :position_id , options_for_select(@positions.collect {|p| [ p.description, p.id] }) %>
             <%= f.hidden_field :musician_id, :value => nil %>
             <%= f.hidden_field :band_id, :value => @band.id %>
           </div>
 
           <div class="field">
-            <%= f.submit "Add" %>
+            <%= f.submit "Add", :class => 'button'%>
           </div>
           <br>
         <% end %>

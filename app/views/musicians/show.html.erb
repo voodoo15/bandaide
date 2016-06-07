@@ -54,8 +54,8 @@
               <% end %>
             </div>
 
-            <div class="button">
-              <%= f.submit %>
+            <div>
+              <%= f.submit "Create Skill", :class => 'button' %>
             </div>
           <% end %>
 
@@ -120,7 +120,7 @@
                 Band:  <%= approval.band.name %><br />
                 Position:  <%= approval.member.position.description %><br />
                 Approved:  <%= approval.approved %>
-                <%= button_to 'View Band', band_path(approval.band.id), :method => :get %><br />
+                <%= button_to 'View Band', band_path(approval.band.id), :method => :get , class: 'button'%><br />
               <% end %>
             <% end %>
           <% end %>
