@@ -1,44 +1,46 @@
 <head>
-  <link rel="stylesheet" href="stylesheets/home.scss" charset="utf-8">
   <%= stylesheet_link_tag "home", media: "all" %>
-
 </head>
 <body>
-  <%= render "home/video" %>
-
+  <header>
+    <%= render "home/video" %>
+  </header>
   <main>
-    <section id="welcome">
+    <section class="text-center">
       <h1 id="title">Welcome to Band Aide</h1>
     </section>
 
-    <section id="homepage-content">
       <h3>Bands</h3>
         <div class="bands">
             <%= render "home/bands" %>
-        </div>
-        <div class="search-category-list">
-          <p>Filter by Genre:</p>
-          <div class="genres-scroll">
-              <%= link_to "All", remote: true, class: "All" %>
-              <% @genres.each do |genre| %>
-                <%= link_to genre.description, remote: true, class: "#{genre.description}" %>
-              <% end %>
-          </div>
         </div>
 
       <h3>Musicians near you</h3>
         <div class="musicians">
           <%= render "home/musicians" %>
         </div>
-        <div class="search-category-list">
-          <p>Filter by Position:</p>
-          <div class="positions-scroll">
-            <%= link_to "All", remote: true, class: "All" %>
-              <% @positions.each do |position| %>
-                <%= link_to position.description, remote: true, class: "#{position.description}" %>
-              <% end %>
-          </div>
-        </div>
-    </section>
   </main>
+  <aside>
+    <div class="search-category-list">
+      <p>Filter by Genre:</p>
+      <div class="genres-scroll">
+        <%= link_to "All", remote: true, class: "All" %>
+        <% @genres.each do |genre| %>
+        <%= link_to genre.description, remote: true, class: "#{genre.description}" %>
+        <% end %>
+      </div>
+    </div>
+  </aside>
+  <aside>
+    <div class="search-category-list">
+      <p>Filter by Position:</p>
+      <div class="positions-scroll">
+        <%= link_to "All", remote: true, class: "All" %>
+        <% @positions.each do |position| %>
+        <%= link_to position.description, remote: true, class: "#{position.description}" %>
+        <% end %>
+      </div>
+    </div>
+  </aside>
+
 </body>

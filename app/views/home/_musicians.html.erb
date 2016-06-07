@@ -1,13 +1,12 @@
 <div class="row" data-equalizer data-equalize-on="medium" id="test-eq">
     <% @musicians.each do |musician| %>
-    <div class="medium-4 columns">
+    <div class="large-4 columns">
       <div class="equalizer">
         <div class="card">
           <%= link_to musician_path(musician.id) do %>
 
-            <p class="font-title"><%= musician.firstname %> <%= musician.lastname %></p>
 
-            <%= image_tag musician.avatar.profile, class: "musician-image" %>
+            <%= image_tag musician.avatar, class: "musician-image" %>
 
             <% musician.positions.each do |position| %>
               <!-- <%= position.description %><br /> -->
@@ -18,6 +17,8 @@
               <%= image_tag("skills/bass.png", size:  "50x50") if position.description == "bass" %>
             <% end %>
           <br/>
+
+          <p class="font-title"><%= musician.firstname %> <%= musician.lastname %></p>
 
           <% if current_musician.present? && current_musician.has_long_lat? && musician.has_long_lat? %>
             <%= musician.display_distance_to(@musician) %> km away<br />
