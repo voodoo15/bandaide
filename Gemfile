@@ -35,7 +35,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # geocoder gem
 gem 'geocoder'
-
+gem 'fog'
+gem 'aws-sdk'
 #bourbon and neat
 # gem 'bourbon', '5.0.0.beta.5'
 # gem 'neat'

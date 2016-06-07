@@ -1,5 +1,7 @@
 $(document).on('ready page:load', function() {
-  $('.search-category-list a').on('click', function(event) {
+
+
+  $('#search-category-list a').on('click', function(event) {
 
     $('.genres-scroll a').on('click', function(event) {
       event.preventDefault();
@@ -55,6 +57,7 @@ $(document).on('ready page:load', function() {
     e.preventDefault();
 
     $(this).add('#search-category-list').toggleClass('is-open');
+
   });
 });
 
