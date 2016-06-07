@@ -3,10 +3,14 @@
     font-family: Raleway, Arial, sans-serif;
     padding: 0;
     color: #493d3d;
+}
 
-    a {
-      color: #493d3d;
-    }
+a:hover {
+  color: red;
+}
+
+a:link a:visited {
+  color: #493d3d;
 }
 
 html {
@@ -61,9 +65,6 @@ aside {
 //     border-radius: 28px;
 // }
 
-.search-category-list {
-}
-
 .logo {
   position: absolute;
   z-index: 2;
@@ -86,6 +87,11 @@ aside {
   z-index: 1;
   position: relative;
 }
+
+#bands-list #musicians-list {
+  min-height: 300px;
+}
+
 
 .equalizer {
   height: 300px;

@@ -1,56 +1,50 @@
 $(document).on('ready page:load', function() {
 
+  $('.genres-scroll a').on('click', function(event) {
+    event.preventDefault();
+    var searchValue = $(this).html();
 
-  $('#search-category-list a').on('click', function(event) {
+    if ($(this).html() === "All") {
+      searchValue = "";
+    }
 
-    $('.genres-scroll a').on('click', function(event) {
-      event.preventDefault();
-
-      var searchValue = $(this).html();
-
-      if ($(this).html() === "All") {
-        searchValue = "";
-      }
-
-      $.ajax({
-        url: '/?search=' + searchValue,
-        type:  'GET',
-        dataType: 'html',
-        data: 'type=band',
-        success:  function(data) {
-          if (data) {
-            console.log(data);
-            $('.bands').html(data);
-          }
+    $.ajax({
+      url: '/?search=' + searchValue,
+      type:  'GET',
+      dataType: 'html',
+      data: 'type=band',
+      success:  function(data) {
+        if (data) {
+          console.log(data);
+          $('#bands-list').html(data);
         }
-      });
-    });
-
-      // $.getScript('/?search=' + searchValue, function(data){$('#bands-list').html(data)});
-
-    $('.positions-scroll a').on('click', function(event) {
-      event.preventDefault();
-
-      var searchValue = $(this).html();
-
-      if ($(this).html() === "All") {
-        searchValue = "";
       }
-
-      $.ajax({
-        url: '/?search=' + searchValue ,
-        type:  'GET',
-        dataType: 'html',
-        data: 'type=musician',
-        success:  function(data) {
-          if (data) {
-            console.log(data);
-            $('.musicians').html(data);
-          }
-        }
-      });
     });
+  });
 
+    // $.getScript('/?search=' + searchValue, function(data){$('#bands-list').html(data)});
+
+  $('.positions-scroll a').on('click', function(event) {
+    event.preventDefault();
+
+    var searchValue = $(this).html();
+
+    if ($(this).html() === "All") {
+      searchValue = "";
+    }
+
+    $.ajax({
+      url: '/?search=' + searchValue,
+      type:  'GET',
+      dataType: 'html',
+      data: 'type=musician',
+      success:  function(data) {
+        if (data) {
+          console.log(data);
+          $('#musicians-list').html(data);
+        }
+      }
+    });
   });
 
   $('#nav-toggle').on('click', function(e) {

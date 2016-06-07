@@ -303,11 +303,11 @@ Band.create!(
 )
 
 positions = [
-  "singer",
-  "drummer",
-  "lead",
-  "bass",
-  "keyboard"
+  "Singer",
+  "Drummer",
+  "Lead",
+  "Bass",
+  "Keyboard"
 ]
 
 positions.each do |position|
