@@ -56,7 +56,7 @@ aside {
   position: fixed;
   right:0;
   top:  2%;
-  z-index: 0;
+  z-index: -1;
 }
 
 #welcome {
@@ -64,6 +64,10 @@ aside {
   margin: auto;
   text-align: center;
   width: 100%;
+}
+
+.callout {
+  margin: 0;
 }
 
 // #homepage-content {
@@ -87,11 +91,12 @@ aside {
   left: 0;
   right: 0;
   bottom: 0;
-  margin: auto;
+  margin: 0 auto;
   height: auto;
   width: 100%;
   z-index: 1;
   position: relative;
+  padding: 0;
 }
 
 #bands-list #musicians-list vacant-bands-list {

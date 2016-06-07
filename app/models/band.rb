@@ -23,7 +23,7 @@ class Band < ActiveRecord::Base
 
   def how_full
     if self.members.count() > 0
-      return (self.members.where.not(musician_id: nil).count() / self.members.count()) * 100
+      return (self.members.where.not(musician_id: nil).count() / self.members.count().to_f * 100).ceil 
     else
       return 0
     end
