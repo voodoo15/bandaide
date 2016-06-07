@@ -1,170 +1,170 @@
-// main {
-//   max-width: 60%;
-//   margin-left: auto;
-//   margin-right: auto;
+main {
+  max-width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#welcome {
+  margin: 2%;
+  padding: 30px;
+  border: 5px solid #ccc;
+  border-radius: 28px;
+}
+
+#homepage-content {
+    margin: 2%;
+    padding: 30px;
+    border: 5px solid #ccc;
+    border-radius: 28px;
+}
+
+.search-category-list {
+
+}
+
+.logo {
+  position: absolute;
+  z-index: 2;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom:  0;
+  display: block;
+}
+
+.background_video  {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  height: auto;
+  width: 100%;
+  z-index: 1;
+  position: relative;
+}
+
+
+.equalizer {
+  position: relative;
+  padding: 0;
+  margin:  75px auto;
+
+  .card {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    color: #272727;
+    border-radius: 2px;
+    bottom: 50px;
+    background-image: url(background/star.jpg);
+
+  }
+
+  .font-title {
+    color: white;
+    font-weight: normal;
+    // font-family: Yeah Papa;
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  .font-description {
+    color: white;
+    // font-family: Yeah Papa;
+    font-size: 23px;
+  }
+
+  .band-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    color: #272727;
+    border-radius: 2px;
+  }
+
+  #band-name {
+    position: relative;
+    top: 300px;
+    right: 2px;
+    z-index: 2;
+
+  }
+
+  #band-description {
+    color: red;
+    position: relative;
+    bottom: 5px;
+
+    top: 0.5px;
+    z-index: 2px;
+    font-family: 'Roboto', sans-serif;
+  }
+  // overflow: hidden;
+  // box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  // color: #272727;
+  // border-radius: 2px;
+
+  .musician-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  #musician-name {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    z-index: 1;
+  }
+
+  #musician-position {
+    color: red;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    z-index: 1;
+  }
+
+  #musician-location {
+    color: red;
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    z-index: 1;
+  }
+}
+
+// .article-card {
+// 	border: 1px solid #d7d7d7;
+// 	margin-bottom: 1.5rem;
+// 	box-shadow: 2px 4px 5px 0px #d7d7d7;
+// 	.card-content {
+// 		background: #fff;
+// 		margin: 1.25rem;
+// 		.post-author {
+// 			text-align: center;
+// 		}
+// 		h4 {
+// 			color: #CF000F;
+// 		}
+// 		p {
+// 			color: #757D75;
+// 		}
+// 		a i {
+// 			font-weight: 300;
+// 			color: #757D75;
+// 			margin: 0 .5rem;
+// 			padding: 5px 7px 5px 7px;
+// 			border: 1px solid #757D75;
+// 			border-radius: 50%;
+// 		}
+// 		img.post-icon {
+// 			position: absolute;
+// 			width: 3rem;
+// 			border-radius: 50%;
+// 			margin-top: -3rem;
+// 		}
+// 	}
 // }
-//
-// #welcome {
-//   margin: 2%;
-//   padding: 30px;
-//   border: 5px solid #ccc;
-//   border-radius: 28px;
-// }
-//
-// #homepage-content {
-//     margin: 2%;
-//     padding: 30px;
-//     border: 5px solid #ccc;
-//     border-radius: 28px;
-// }
-//
-// .search-category-list {
-//
-// }
-//
-// .logo {
-//   position: absolute;
-//   z-index: 2;
-//   margin: auto;
-//   top: 0;
-//   left: 0;
-//   right: 0;
-//   bottom:  0;
-//   display: block;
-// }
-//
-// .background_video  {
-//   top: 0;
-//   left: 0;
-//   right: 0;
-//   bottom: 0;
-//   margin: auto;
-//   height: auto;
-//   width: 100%;
-//   z-index: 1;
-//   position: relative;
-// }
-//
-//
-// .equalizer {
-//   position: relative;
-//   padding: 0;
-//   margin:  75px auto;
-//
-//   .card {
-//     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-//     color: #272727;
-//     border-radius: 2px;
-//     bottom: 50px;
-//     background-image: url(background/star.jpg);
-//
-//   }
-//
-//   .font-title {
-//     color: white;
-//     font-weight: normal;
-//     // font-family: Yeah Papa;
-//     font-size: 30px;
-//     font-weight: bold;
-//   }
-//
-//   .font-description {
-//     color: white;
-//     // font-family: Yeah Papa;
-//     font-size: 23px;
-//   }
-//
-//   .band-image {
-//     position: relative;
-//     width: 100%;
-//     height: 100%;
-//     overflow: hidden;
-//     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-//     color: #272727;
-//     border-radius: 2px;
-//   }
-//
-//   #band-name {
-//     position: relative;
-//     top: 300px;
-//     right: 2px;
-//     z-index: 2;
-//
-//   }
-//
-//   #band-description {
-//     color: red;
-//     position: relative;
-//     bottom: 5px;
-//
-//     top: 0.5px;
-//     z-index: 2px;
-//     font-family: 'Roboto', sans-serif;
-//   }
-//   // overflow: hidden;
-//   // box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-//   // color: #272727;
-//   // border-radius: 2px;
-//
-//   .musician-image {
-//     position: relative;
-//     width: 100%;
-//     height: 100%;
-//   }
-//
-//   #musician-name {
-//     position: absolute;
-//     top: 5px;
-//     left: 5px;
-//     z-index: 1;
-//   }
-//
-//   #musician-position {
-//     color: red;
-//     position: absolute;
-//     bottom: 5px;
-//     right: 5px;
-//     z-index: 1;
-//   }
-//
-//   #musician-location {
-//     color: red;
-//     position: absolute;
-//     bottom: 5px;
-//     left: 5px;
-//     z-index: 1;
-//   }
-// }
-//
-// // .article-card {
-// // 	border: 1px solid #d7d7d7;
-// // 	margin-bottom: 1.5rem;
-// // 	box-shadow: 2px 4px 5px 0px #d7d7d7;
-// // 	.card-content {
-// // 		background: #fff;
-// // 		margin: 1.25rem;
-// // 		.post-author {
-// // 			text-align: center;
-// // 		}
-// // 		h4 {
-// // 			color: #CF000F;
-// // 		}
-// // 		p {
-// // 			color: #757D75;
-// // 		}
-// // 		a i {
-// // 			font-weight: 300;
-// // 			color: #757D75;
-// // 			margin: 0 .5rem;
-// // 			padding: 5px 7px 5px 7px;
-// // 			border: 1px solid #757D75;
-// // 			border-radius: 50%;
-// // 		}
-// // 		img.post-icon {
-// // 			position: absolute;
-// // 			width: 3rem;
-// // 			border-radius: 50%;
-// // 			margin-top: -3rem;
-// // 		}
-// // 	}
-// // }
