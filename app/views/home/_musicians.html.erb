@@ -9,6 +9,8 @@
             <%= image_tag musician.avatar.card, class: "musc" %>
           </div>
 
+            <!-- <%= image_tag musician, class: "musician-image" %> -->
+
             <% musician.positions.each do |position| %>
               <!-- <%= position.description %><br /> -->
               <%= image_tag("skills/lead.png", size:  "50x50", class: "skill-image") if position.description == "lead" %>
