@@ -30,6 +30,15 @@
             <%= image_tag("skills/keyboard.png", size:  "50x50") if member.position.description == "keyboard" %>
             <%= image_tag("skills/bass.png", size:  "50x50") if member.position.description == "bass" %>
           <% end %>
+
+          <% if musician_signed_in? %>
+
+            <!-- Owners -->
+            <% if @band.leader.id == current_musician.id %>
+              <%= button_to 'Remove', band_member_path(@band, member.id), data: {:confirm => 'Are you sure?'}, :method => :delete %>
+            <%end %>
+            
+          <%end%>
         </p>
       <% end %>
     </div>
@@ -62,7 +71,7 @@
               <% end %>
             <% end %>
 
-            <%= button_to 'Remove', band_member_path(@band, member.id), data: {:confirm => 'Are you sure?'}, :method => :delete %>
+
 
 
           <!-- Non Owner -->
