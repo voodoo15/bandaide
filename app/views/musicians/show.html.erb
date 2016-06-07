@@ -103,7 +103,7 @@
         <br /><h2>Leader of:</h2>
           <% if @musician.owned_bands.count > 0 %>
             <% @musician.owned_bands.each do |band|%>
-              <%= link_to band.name, band_path(band), :method => :get  %><br />
+              <%= link_to band.name, band_path(band), :method => :get, class: "memberof"  %><br />
             <% end %>
           <% else %>
             <%= @musician.firstname %> is the leader of 0 bands.<br />
