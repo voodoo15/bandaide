@@ -1,4 +1,11 @@
 $(document).on('ready page:load', function() {
+
+  $('#nav-toggle').on('click', function(e) {
+    e.preventDefault();
+    alert("hi")   
+    $(this).toggleClass('is-open');
+  });
+
   $('#search-category-list a').on('click', function(event) {
 
     $('.genres-scroll a').on('click', function(event) {
@@ -49,11 +56,7 @@ $(document).on('ready page:load', function() {
       });
     });
 
-    $('#nav-toggle').on('click', function(e) {
-      e.preventDefault();
 
-      $(this).toggleClass('is-open');
-    });
   });
 });
 
