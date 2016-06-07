@@ -30,8 +30,8 @@
             <li><%= link_to "Show Profile", musician_path(current_musician) %></li>
             <li><%= link_to "Sign Out", destroy_musician_session_path, :method => :delete %></li>
           <% else %>
-            <li><%= link_to "Sign In", new_musician_session_path, :method => :get %></li>
-             <li><%= link_to "Sign up", new_musician_registration_path, :method => :get %></li>
+            <li><%= link_to "Sign In", new_musician_session_path, :method => :get, class: "login" %></p>
+             <li><%= link_to "Sign up", new_musician_registration_path, :method => :get, class: "login" %></p>
           <% end %>
         </ul>
       </div>
