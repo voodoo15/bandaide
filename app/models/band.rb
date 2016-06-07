@@ -21,5 +21,11 @@ class Band < ActiveRecord::Base
     "#{self.leader.address}, #{self.leader.city}, #{self.leader.province}, #{self.leader.postalcode}, Canada"
   end
 
-
+  def how_full
+    if self.members.count() > 0
+      return (self.members.where.not(musician_id: nil).count() / self.members.count()) * 100
+    else
+      return 0
+    end
+  end
 end
