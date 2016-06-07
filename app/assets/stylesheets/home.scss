@@ -28,11 +28,14 @@ body {
 h1 {
   font-weight: 600;
   font-size: 40pt;
+  padding: 0 15px;
 }
 
 h3 {
   font-weight: 400;
   font-size: 20pt;
+  padding: 0 15px;
+
 }
 
 h4 {
@@ -133,6 +136,7 @@ aside {
     position: absolute;
     top:  35%;
     z-index: 12;
+    padding: 0 5px;
   }
 
   .card-text {
