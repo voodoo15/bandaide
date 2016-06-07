@@ -1,37 +1,38 @@
 <div class="row" data-equalizer data-equalize-on="medium" id="test-eq">
     <% @musicians.each do |musician| %>
-    <div class="large-4 columns">
+    <div class="medium-4 large-4 columns">
       <div class="equalizer">
         <div class="card">
           <%= link_to musician_path(musician.id) do %>
 
-          <div class: "musician-image">
-            <%= image_tag musician.avatar.card, class: "musc" %>
-          </div>
+            <div class: "musician-image">
+              <%= image_tag musician.avatar.card, class: "musc" %>
+            </div>
 
-            <!-- <%= image_tag musician, class: "musician-image" %> -->
-
-            <% musician.positions.each do |position| %>
+            <div class="skill-image">
+              <% musician.positions.each do |position| %>
               <!-- <%= position.description %><br /> -->
-              <%= image_tag("skills/lead.png", size:  "50x50", class: "skill-image") if position.description == "lead" %>
-              <%= image_tag("skills/singer.png", size:  "50x50", class: "skill-image") if position.description == "singer"%>
-              <%= image_tag("skills/drummer.png", size:  "50x50", class: "skill-image") if position.description == "drummer"%>
-              <%= image_tag("skills/keyboard.png", size:  "50x50", class: "skill-image") if position.description == "keyboard"%>
-              <%= image_tag("skills/bass.png", size:  "50x50", class: "skill-image") if position.description == "bass" %>
-            <% end %>
-          <br/>
-          <div class="card-text">
-            <p class="font-title"><%= musician.firstname %> <%= musician.lastname %></p>
+              <%= image_tag("skills/lead.png", size: "50x50") if position.description == "lead" %>
+              <%= image_tag("skills/singer.png", size: "50x50") if position.description == "singer"%>
+              <%= image_tag("skills/drummer.png", size: "50x50") if position.description == "drummer"%>
+              <%= image_tag("skills/keyboard.png", size: "50x50") if position.description == "keyboard"%>
+              <%= image_tag("skills/bass.png", size: "50x50") if position.description == "bass" %>
+              <% end %>
+            </div>
 
-            <% if current_musician.present? && current_musician.has_long_lat? && musician.has_long_lat? %>
-            <%= musician.display_distance_to(@musician) %> km away<br />
-            <% else %>
-            <p class="font-description">  Based in <%= musician.city %> </p>
-            <% end %>
+            <br/>
+            <div class="card-text">
+              <p class="font-title"><%= musician.firstname %> <%= musician.lastname %></p>
+
+              <% if current_musician.present? && current_musician.has_long_lat? && musician.has_long_lat? %>
+              <%= musician.display_distance_to(@musician) %> km away<br />
+              <% else %>
+              <p class="font-description">  Based in <%= musician.city %> </p>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
     <% end %>
     <% end %>
 </div>

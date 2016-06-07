@@ -3,10 +3,14 @@
     font-family: Raleway, Arial, sans-serif;
     padding: 0;
     color: #493d3d;
+}
 
-    a {
-      color: #493d3d;
-    }
+a:hover {
+  color: red;
+}
+
+a:link a:visited {
+  color: #493d3d;
 }
 
 html {
@@ -34,24 +38,36 @@ main {
   overflow: hidden;
   margin: auto;
   width: 80%;
+  display: block;
 }
 
 aside {
   width: 20%;
   float: right;
   overflow: hidden;
+  padding: 5px;
 
   a {
     display: block;
   }
 }
 
+.aside-lock {
+  position: fixed;
+  right:0;
+  top:  2%;
+  z-index: -1;
+}
+
 #welcome {
-  display: inline-block;
+  display: inline;
   margin: auto;
   text-align: center;
-  // padding: 30px;
   width: 100%;
+}
+
+.callout {
+  margin: 0;
 }
 
 // #homepage-content {
@@ -61,18 +77,13 @@ aside {
 //     border-radius: 28px;
 // }
 
-.search-category-list {
-}
-
 .logo {
   position: absolute;
   z-index: 2;
   margin: auto;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom:  0;
   display: block;
+  width:  80%;
+  left: 8%;
 }
 
 .background_video  {
@@ -80,12 +91,18 @@ aside {
   left: 0;
   right: 0;
   bottom: 0;
-  margin: auto;
+  margin: 0 auto;
   height: auto;
   width: 100%;
   z-index: 1;
   position: relative;
+  padding: 0;
 }
+
+#bands-list #musicians-list vacant-bands-list {
+  min-height: 300px;
+}
+
 
 .equalizer {
   height: 300px;
@@ -101,14 +118,15 @@ aside {
     max-height: 50%;
   }
 
-.musc{
-  min-width: 100%;
-  position: relative;
-}
+  .musc{
+    min-width: 100%;
+    position: relative;
+  }
 
   .skill-image {
     position: absolute;
     top:  35%;
+    z-index: 12;
   }
 
   .card-text {

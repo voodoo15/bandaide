@@ -5,40 +5,44 @@
 <body>
   <header>
     <%= render "home/video" %>
-  </header>
-  <main>
     <section class="text-center">
       <h1 id="title">Welcome to Band Aide</h1>
     </section>
-
-      <h3>Bands near you:</h3>
-        <div class="bands">
-            <%= render "home/bands" %>
-        </div>
-
-      <h3>Musicians near you:</h3>
-        <div class="musicians">
-          <%= render "home/musicians" %>
-        </div>
-  </main>
-  <aside>
-    <div class="search-category-list">
-      <p>Filter by Genre:</p>
-      <div class="genres-scroll">
-        <%= link_to "All", remote: true, class: "All" %>
-        <% @genres.each do |genre| %>
-        <%= link_to genre.description, remote: true, class: "#{genre.description}" %>
-        <% end %>
+  </header>
+  <main>
+    <% if @vacant_bands.count() > 0 %>
+      <div id="vacant-bands-list">
+        <h3>Bands looking for members:</h3>
+        <%= render partial: "home/vacant_bands" %>
       </div>
+    <% end %>
+    <h3>Musicians near you:</h3>
+    <div id="musicians-list">
+      <%= render "home/musicians" %>
     </div>
-  </aside>
-  <aside>
+      <h3>Bands near you:</h3>
+      <div id="bands-list">
+          <%= render "home/bands" %>
+      </div>
+  </main>
+  <aside class="aside-lock">
     <div class="search-category-list">
-      <p>Filter by Position:</p>
+      <h3>Filter by Skill:</h3>
       <div class="positions-scroll">
         <%= link_to "All", remote: true, class: "All" %>
         <% @positions.each do |position| %>
         <%= link_to position.description, remote: true, class: "#{position.description}" %>
+        <% end %>
+      </div>
+    </div>
+    <br />
+    <br />
+    <div class="search-category-list">
+      <h3>Filter by Genre:</h3>
+      <div class="genres-scroll">
+        <%= link_to "All", remote: true, class: "All" %>
+        <% @genres.each do |genre| %>
+        <%= link_to genre.description, remote: true, class: "#{genre.description}" %>
         <% end %>
       </div>
     </div>

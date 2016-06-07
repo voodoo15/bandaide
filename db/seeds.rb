@@ -13,13 +13,11 @@ genres = [
   "Alternative",
   "Pop",
   "Blues",
-  "Psychadelic",
   "Punk",
   "Glam",
   "Britpop",
   "Indie",
-  "Rock & Roll",
-  "Jazz"
+  "Rock & Roll"
 ]
 
 genres.each do |genre|
@@ -129,7 +127,7 @@ end
     postalcode: 'M5G 1H1',
     description: "I can drum...really...I'm not that bad a drummer",
     avatar: open(Rails.root + "app/assets/images/demo_images/lars_ulrich.jpg"),
-    youtube_url: 'https://www.youtube.com/watch?v=IfalN7ZWLek'
+    youtube_url: 'https://www.youtube.com/watch?v=0QYfd9UPXvw'
   )
 
   Skill.create!(
@@ -213,7 +211,7 @@ end
     postalcode: 'M5T 1M2',
     description: "Original pirate of the Caribbean",
     avatar: open(Rails.root + "app/assets/images/demo_images/keith_richards.png"),
-    youtube_url: 'https://www.youtube.com/watch?v=jf35K2Ps_aY'
+    youtube_url: 'https://www.youtube.com/watch?v=nPD8hbU-7Kg'
   )
 
   Skill.create!(
@@ -233,7 +231,7 @@ end
     province: 'ON',
     postalcode: 'M6K 2V9',
     description: "What can I say?  I'm an alcoholic, it's what I do...",
-    youtube_url: 'https://www.youtube.com/watch?v=jf35K2Ps_aY'
+    youtube_url: 'https://www.youtube.com/watch?v=KzRYQz_ramI'
   )
 
   Skill.create!(
@@ -261,8 +259,6 @@ end
     position_id: 3,
     mainskill: true
   )
-
-
 
   # Musician.create!(
   #   email: 'justin_bieber@gmail.com',
@@ -303,11 +299,11 @@ Band.create!(
 )
 
 positions = [
-  "singer",
-  "drummer",
-  "lead",
-  "bass",
-  "keyboard"
+  "Singer",
+  "Drummer",
+  "Lead",
+  "Bass",
+  "Keyboard"
 ]
 
 positions.each do |position|
