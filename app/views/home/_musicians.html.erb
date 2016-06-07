@@ -6,7 +6,7 @@
           <%= link_to musician_path(musician.id) do %>
 
 
-            <%= image_tag musician.profile, class: "musician-image" %>
+            <%= image_tag musician, class: "musician-image" %>
 
             <% musician.positions.each do |position| %>
               <!-- <%= position.description %><br /> -->
