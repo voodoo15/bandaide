@@ -1,37 +1,39 @@
-<h2>Add a new band</h2>
+<div class="container">
+  <h2>Create a new band</h2>
 
-<%= form_for @band do |f| %>
+  <%= form_for @band do |f| %>
 
-  <% if @band.errors.any? %>
-    <h4><%= pluralize( @band.errors.count, "error") %>
-        prohibited this band from being saved:
-    </h4>
-  <% end %>
-  <ul>
-    <% @band.errors.full_messages.each do | msg | %>
-      <li>
-          <%= msg %>
-      </li>
+    <% if @band.errors.any? %>
+      <h4><%= pluralize( @band.errors.count, "error") %>
+          prohibited this band from being saved:
+      </h4>
     <% end %>
-  </ul>
-<div class= "Band_form">
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
+    <ul>
+      <% @band.errors.full_messages.each do | msg | %>
+        <li>
+            <%= msg %>
+        </li>
+      <% end %>
+    </ul>
+  <div class= "Band_form">
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </div>
 
-  <div class="field">
-    <%= f.label :genre %><br/>
-    <%= f.select :genre_id, options_for_select(@genres.collect {|g| [ g.description, g.id] }) %>
-  </div>
+    <div class="field">
+      <%= f.label :genre %><br/>
+      <%= f.select :genre_id, options_for_select(@genres.collect {|g| [ g.description, g.id] }) %>
+    </div>
 
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description, :columns => "20", :rows =>"5" %>
-  </div>
+    <div class="field">
+      <%= f.label :description %><br />
+      <%= f.text_area :description, :columns => "20", :rows =>"5" %>
+    </div>
 
-  <div>
-    <%= f.submit %>
+    <div>
+      <%= f.submit %>
+    </div>
   </div>
+  <% end %>
 </div>
-<% end %>
