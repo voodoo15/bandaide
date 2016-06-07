@@ -72,8 +72,6 @@
           <%= button_to 'Remove', band_member_path(@band, member.id), data: {:confirm => 'Are you sure?'}, :method => :delete, class: "button" %>
 
         <% end %>
-      <% end %>
-    <% end %>  
 
         <% if musician_signed_in? %>
 
@@ -96,6 +94,12 @@
               <p>Please register to apply</p>
           <% end %>
         <% end %>
+      <% end %>
+
+
+    <% end %>
+
+
       </p>
     <% end %>
 
