@@ -35,7 +35,10 @@
 
             <!-- Owners -->
             <% if @band.leader.id == current_musician.id %>
-              <%= button_to 'Remove', band_member_path(@band, member.id), data: {:confirm => 'Are you sure?'}, :method => :delete %>
+                <% if @band.leader.id != member.musician_id %>
+                    <%= button_to 'Remove', band_member_path(@band, member.id), data: {:confirm => 'Are you sure?'}, :method => :delete %>
+                <% end %>
+                
             <%end %>
 
           <%end%>
@@ -90,18 +93,20 @@
         <%= form_for [@band , @member] do |f| %>
 
           <div id="field">
-            <%= f.label :create_new_position %><br />
+            <%= f.label :create_new_position, "Add a vacant position" %>
             <%= f.select :position_id , options_for_select(@positions.collect {|p| [ p.description, p.id] }) %>
             <%= f.hidden_field :musician_id, :value => nil %>
             <%= f.hidden_field :band_id, :value => @band.id %>
           </div>
 
           <div class="field">
-            <%= f.submit "Add" %>
+            <%= f.submit "Add", :class => 'button'%>
           </div>
           <br>
         <% end %>
+    </div>
 
+    <div id="musicians-map">
         <h2>Musicians near you:</h2>
         <div id="map" data-latitude=<%= @musician.latitude %> data-longitude=<%= @musician.longitude%>>
 

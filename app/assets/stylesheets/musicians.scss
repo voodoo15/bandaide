@@ -26,6 +26,11 @@ aside {
   border-radius: 28px;
 }
 
+.profile-left {
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
 main {
   margin: 2%;
   float: left;
@@ -65,6 +70,7 @@ p {
   width: 50px;
   margin-right: auto;
   margin-left: auto;
+  display: inline;
 }
 
 #bands-owned {

@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>Sign up</h2>
+  <h1>Sign up</h1>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
@@ -54,7 +54,7 @@
     </div>
 
     <div class="field">
-      <%= f.label :avatar, "Photo" %><br />
+      <%= f.label :avatar, "Upload Photo" %><br />
       <%= f.file_field :avatar %>
     </div>
 
@@ -65,7 +65,7 @@
     </div>
 
     <div class="field">
-      <%= f.label :youtube_url %>
+      <%= f.label :youtube_url, "YouTube URL" %>
       <em>Upload a video showcasing your talents</em><br />
       <%= f.text_field :youtube_url %>
     </div>
@@ -75,5 +75,8 @@
     </div>
   <% end %>
 
+  <br />
+  Already registered?<br />
   <%= render "devise/shared/links" %>
+  <br />
 </div>
