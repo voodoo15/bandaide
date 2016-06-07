@@ -1,10 +1,5 @@
 $(document).on('ready page:load', function() {
 
-  $('#nav-toggle').on('click', function(e) {
-    e.preventDefault();
-    alert("hi")   
-    $(this).toggleClass('is-open');
-  });
 
   $('#search-category-list a').on('click', function(event) {
 
@@ -56,6 +51,12 @@ $(document).on('ready page:load', function() {
       });
     });
 
+  });
+
+  $('#nav-toggle').on('click', function(e) {
+    e.preventDefault();
+
+    $(this).add('#search-category-list').toggleClass('is-open');
 
   });
 });

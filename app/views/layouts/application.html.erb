@@ -9,6 +9,7 @@
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <link href='https://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>
     <%= csrf_meta_tags %>
     <%= Gon::Base.render_data %>
   </head>
@@ -22,6 +23,7 @@
       <div class="title-bar-right">
         <ul class="menu">
           <% if musician_signed_in? %>
+          <li><%= link_to "Search", search_index_path %></li>
             <li><%= link_to "Create a band", new_band_path %></li>
             <li><span>Logged in as: <%= current_musician.firstname %>&nbsp&nbsp</span></li>
             <li><%= image_tag current_musician.avatar.thumb %></li>
