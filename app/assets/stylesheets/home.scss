@@ -1,25 +1,67 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+    font-family: Raleway, Arial, sans-serif;
+    padding: 0;
+    color: #493d3d;
+
+    a {
+      color: #493d3d;
+    }
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  line-height: 1.5;
+  margin: 0;
+  font-size: 1em;
+  width:  100%;
+  position: relative;
+}
+
+h1 {
+  font-weight: 600;
+}
+
+h3 {
+  font-weight: 400;
+}
+
 main {
-  max-width: 60%;
-  margin-left: auto;
-  margin-right: auto;
+  float: left;
+  overflow: hidden;
+  margin: auto;
+  width: 80%;
+}
+
+aside {
+  width: 20%;
+  float: right;
+  overflow: hidden;
+
+  a {
+    display: block;
+  }
 }
 
 #welcome {
-  margin: 2%;
-  padding: 30px;
-  border: 5px solid #ccc;
-  border-radius: 28px;
+  display: inline-block;
+  margin: auto;
+  text-align: center;
+  // padding: 30px;
+  width: 100%;
 }
 
-#homepage-content {
-    margin: 2%;
-    padding: 30px;
-    border: 5px solid #ccc;
-    border-radius: 28px;
-}
+// #homepage-content {
+//     margin: 2%;
+//     padding: 30px;
+//     border: 5px solid #ccc;
+//     border-radius: 28px;
+// }
 
 .search-category-list {
-
 }
 
 .logo {
@@ -45,96 +87,130 @@ main {
   position: relative;
 }
 
-
 .equalizer {
+  height: 300px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  color: #272727;
+  border-radius: 5px;
   position: relative;
-  padding: 0;
-  margin:  75px auto;
+  margin: 20px 0;
 
-  .card {
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-    color: #272727;
-    border-radius: 2px;
-    bottom: 50px;
-    background-image: url(background/star.jpg);
-
-  }
-
-  .font-title {
-    color: white;
-    font-weight: normal;
-    // font-family: Yeah Papa;
-    font-size: 30px;
-    font-weight: bold;
-  }
-
-  .font-description {
-    color: white;
-    // font-family: Yeah Papa;
-    font-size: 23px;
-  }
-
-  .band-image {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-    color: #272727;
-    border-radius: 2px;
-  }
-
-  #band-name {
-    position: relative;
-    top: 300px;
-    right: 2px;
-    z-index: 2;
-
-  }
-
-  #band-description {
-    color: red;
-    position: relative;
-    bottom: 5px;
-
-    top: 0.5px;
-    z-index: 2px;
-    font-family: 'Roboto', sans-serif;
-  }
-  // overflow: hidden;
-  // box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-  // color: #272727;
-  // border-radius: 2px;
 
   .musician-image {
-    position: relative;
-    width: 100%;
-    height: 100%;
+    width:  100%;
+    max-height: 50%;
   }
 
-  #musician-name {
+.musc{
+  min-width: 100%;
+  position: relative;
+}
+
+  .skill-image {
     position: absolute;
-    top: 5px;
-    left: 5px;
-    z-index: 1;
+    top:  35%;
   }
 
-  #musician-position {
-    color: red;
+  .card-text {
     position: absolute;
-    bottom: 5px;
-    right: 5px;
-    z-index: 1;
-  }
-
-  #musician-location {
-    color: red;
-    position: absolute;
-    bottom: 5px;
-    left: 5px;
-    z-index: 1;
+    top: 55%;
+    padding: 5px;
   }
 }
+
+.font-title {
+  font-weight: 600;
+}
+
+// .equalizer {
+//   position: relative;
+//   padding: 0;
+//   margin:  75px auto;
+//
+//   .card {
+//     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+//     color: #272727;
+//     border-radius: 2px;
+//     bottom: 50px;
+//     background-image: url(background/star.jpg);
+//
+//   }
+//
+//   .font-title {
+//     color: white;
+//     font-weight: normal;
+//     // font-family: Yeah Papa;
+//     font-size: 30px;
+//     font-weight: bold;
+//   }
+//
+//   .font-description {
+//     color: white;
+//     // font-family: Yeah Papa;
+//     font-size: 23px;
+//   }
+//
+//   .band-image {
+//     position: relative;
+//     width: 100%;
+//     height: 100%;
+//     overflow: hidden;
+//     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+//     color: #272727;
+//     border-radius: 2px;
+//   }
+//
+//   #band-name {
+//     position: relative;
+//     top: 300px;
+//     right: 2px;
+//     z-index: 2;
+//
+//   }
+//
+//   #band-description {
+//     color: red;
+//     position: relative;
+//     bottom: 5px;
+//
+//     top: 0.5px;
+//     z-index: 2px;
+//     font-family: 'Roboto', sans-serif;
+//   }
+//   // overflow: hidden;
+//   // box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+//   // color: #272727;
+//   // border-radius: 2px;
+//
+//   .musician-image {
+//     position: relative;
+//     width: 100%;
+//     height: 100%;
+//   }
+//
+//   #musician-name {
+//     position: absolute;
+//     top: 5px;
+//     left: 5px;
+//     z-index: 1;
+//   }
+//
+//   #musician-position {
+//     color: red;
+//     position: absolute;
+//     bottom: 5px;
+//     right: 5px;
+//     z-index: 1;
+//   }
+//
+//   #musician-location {
+//     color: red;
+//     position: absolute;
+//     bottom: 5px;
+//     left: 5px;
+//     z-index: 1;
+//   }
+// }
 
 // .article-card {
 // 	border: 1px solid #d7d7d7;
