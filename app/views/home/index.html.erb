@@ -1,26 +1,27 @@
 <body>
   <%= render "home/video" %>
-    <main>
+
+  <main>
+    <section id="welcome">
       <h1 id="title">Welcome to Band Aide</h1>
+    </section>
 
-      <a id="nav-toggle" href="#">Filter by attribute</a>
-
+    <section id="homepage-content">
       <h3>Bands</h3>
-      <div class="search-category-list">
-        <p>Filter Bands by Genre:</p>
-        <div class="genres-scroll">
-            <%= button_to "All", remote: true, class: "All" %>
-            <% @genres.each do |genre| %>
-              <%= button_to genre.description, remote: true, class: "#{genre.description}" %>
-            <% end %>
+        <div class="search-category-list">
+          <p>Filter Bands by Genre:</p>
+          <div class="genres-scroll">
+              <%= button_to "All", remote: true, class: "All" %>
+              <% @genres.each do |genre| %>
+                <%= button_to genre.description, remote: true, class: "#{genre.description}" %>
+              <% end %>
+          </div>
         </div>
-      </div>
-      <div class="bands">
-          <%= render "home/bands" %>
-      </div>
+        <div class="bands">
+            <%= render "home/bands" %>
+        </div>
 
-      <section id="musicians-list">
-        <h3>Musicians near you</h3>
+      <h3>Musicians near you</h3>
         <div class="search-category-list">
           <p>Filter Musicians by Position:</p>
           <div class="positions-scroll">
@@ -33,6 +34,7 @@
         <div class="musicians">
           <%= render "home/musicians" %>
         </div>
-      </section>
-    </main>
+
+    </section>
+  </main>
 </body>
