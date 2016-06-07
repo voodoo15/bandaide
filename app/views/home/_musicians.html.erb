@@ -5,26 +5,28 @@
         <div class="card">
           <%= link_to musician_path(musician.id) do %>
 
-
-            <%= image_tag musician.avatar, class: "musician-image" %>
+          <div class: "musician-image">
+            <%= image_tag musician.avatar.card, class: "musc" %>
+          </div>
 
             <% musician.positions.each do |position| %>
               <!-- <%= position.description %><br /> -->
-              <%= image_tag("skills/lead.png", size:  "50x50") if position.description == "lead" %>
-              <%= image_tag("skills/singer.png", size:  "50x50") if position.description == "singer"%>
-              <%= image_tag("skills/drummer.png", size:  "50x50") if position.description == "drummer"%>
-              <%= image_tag("skills/keyboard.png", size:  "50x50") if position.description == "keyboard"%>
-              <%= image_tag("skills/bass.png", size:  "50x50") if position.description == "bass" %>
+              <%= image_tag("skills/lead.png", size:  "50x50", class: "skill-image") if position.description == "lead" %>
+              <%= image_tag("skills/singer.png", size:  "50x50", class: "skill-image") if position.description == "singer"%>
+              <%= image_tag("skills/drummer.png", size:  "50x50", class: "skill-image") if position.description == "drummer"%>
+              <%= image_tag("skills/keyboard.png", size:  "50x50", class: "skill-image") if position.description == "keyboard"%>
+              <%= image_tag("skills/bass.png", size:  "50x50", class: "skill-image") if position.description == "bass" %>
             <% end %>
           <br/>
+          <div class="card-text">
+            <p class="font-title"><%= musician.firstname %> <%= musician.lastname %></p>
 
-          <p class="font-title"><%= musician.firstname %> <%= musician.lastname %></p>
-
-          <% if current_musician.present? && current_musician.has_long_lat? && musician.has_long_lat? %>
+            <% if current_musician.present? && current_musician.has_long_lat? && musician.has_long_lat? %>
             <%= musician.display_distance_to(@musician) %> km away<br />
-          <% else %>
-          <p class="font-description">  Based in <%= musician.city %> </p>
-          <% end %>
+            <% else %>
+            <p class="font-description">  Based in <%= musician.city %> </p>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>

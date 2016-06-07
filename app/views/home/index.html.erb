@@ -1,6 +1,6 @@
 <head>
   <%= stylesheet_link_tag "home", media: "all" %>
-</head>
+<link href='https://fonts.googleapis.com/css?family=Raleway:400,900,600,300' rel='stylesheet' type='text/css'></head>
 <body>
   <header>
     <%= render "home/video" %>
@@ -10,12 +10,12 @@
       <h1 id="title">Welcome to Band Aide</h1>
     </section>
 
-      <h3>Bands</h3>
+      <h3>Bands near you:</h3>
         <div class="bands">
             <%= render "home/bands" %>
         </div>
 
-      <h3>Musicians near you</h3>
+      <h3>Musicians near you:</h3>
         <div class="musicians">
           <%= render "home/musicians" %>
         </div>

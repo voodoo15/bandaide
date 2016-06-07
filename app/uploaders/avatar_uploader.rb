@@ -33,12 +33,17 @@ class AvatarUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process resize_to_fit: [50, 50]
+    process resize_to_fill: [50, 50]
     process :optimize
   end
 
   version :profile do
-    process resize_to_fit: [180, 180]
+    process resize_to_fill: [180, 180]
+    process :optimize
+  end
+
+  version :card do
+    process resize_to_fill: [200, 100]
     process :optimize
   end
 

@@ -1,7 +1,12 @@
 *, *:before, *:after {
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: Raleway, Arial, sans-serif;
     padding: 0;
+    color: grey;
+
+    a {
+      color: grey;
+    }
 }
 
 html {
@@ -14,6 +19,16 @@ body {
   font-size: 1em;
   width:  100%;
   position: relative;
+}
+
+h1 {
+  font-weight: 600;
+  color: #940303;
+}
+
+h3 {
+  font-weight: 400;
+  color: #940303;
 }
 
 main {
@@ -75,18 +90,33 @@ aside {
 }
 
 .equalizer {
-  height: 20%;
+  height: 300px;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   color: #272727;
-  border-radius: 2px;
+  border-radius: 5px;
   position: relative;
+  margin: 20px 0;
 
-  musician-image {
-    width: 100%;
+
+  .musician-image {
+    width:  100%;
+    max-height: 50%;
   }
 
-  img {
+.musc{
+  min-width: 100%;
+  position: relative;
+}
+
+  .skill-image {
     position: absolute;
+    top:  35%;
+  }
+
+  .card-text {
+    position: absolute;
+    top: 55%;
+    padding: 5px;
   }
 }
 
