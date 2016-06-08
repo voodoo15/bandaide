@@ -10,5 +10,5 @@ Some features that we would like to add to the site are:
 
 1. Communication feature (currently there is a link for e-mail for contact)
 2. Video feature to record a promo for the band
-3. Social media and soundhound or other sites to promote material for the user/musicians
+3. Social media and soundcloud or other sites to promote material for the user/musicians
 4. Ways to promote the band after the band has been formed
