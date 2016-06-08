@@ -7,17 +7,17 @@
 
             <div class: "musician-image">
               <%= image_tag musician.avatar.card, class: "musc" %>
-            </div>
 
-            <div class="skill-image">
-              <% musician.positions.each do |position| %>
-                <!-- <%= position.description %><br /> -->
-                <%= image_tag("skills/lead.png", size: "50x50") if position.description == "Lead" %>
-                <%= image_tag("skills/singer.png", size: "50x50") if position.description == "Singer" %>
-                <%= image_tag("skills/drummer.png", size: "50x50") if position.description == "Drummer" %>
-                <%= image_tag("skills/keyboard.png", size: "50x50") if position.description == "Keyboard" %>
-                <%= image_tag("skills/bass.png", size: "50x50") if position.description == "Bass" %>
-              <% end %>
+              <div class="skill-image">
+                <% musician.positions.each do |position| %>
+                  <!-- <%= position.description %><br /> -->
+                  <%= image_tag("skills/lead.png", size: "50x50") if position.description == "Lead" %>
+                  <%= image_tag("skills/singer.png", size: "50x50") if position.description == "Singer" %>
+                  <%= image_tag("skills/drummer.png", size: "50x50") if position.description == "Drummer" %>
+                  <%= image_tag("skills/keyboard.png", size: "50x50") if position.description == "Keyboard" %>
+                  <%= image_tag("skills/bass.png", size: "50x50") if position.description == "Bass" %>
+                <% end %>
+              </div>
             </div>
 
             <br/>
