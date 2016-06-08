@@ -6,7 +6,7 @@ Users can create bands and create positions by skill for their bands.  When user
 
 Users can either search for bands by genres on the landing page or via the search page if the users signs up to the site.  Also, band leaders can search via the landing page by skill or on the search page as well.
 
-Some features that we would like to add to the site are:
+###Some features that we would like to add to the site are:
 
 1. Communication feature (currently there is a link for e-mail for contact)
 2. Video feature to record a promo for the band
