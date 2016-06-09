@@ -12,3 +12,4 @@ Users can either search for bands by genres on the landing page or via the searc
 2. Video feature to record a promo for the band
 3. Social media and soundcloud or other sites to promote material for the user/musicians
 4. Ways to promote the band after the band has been formed
+5. Make the site responsive, currently only for desktop
